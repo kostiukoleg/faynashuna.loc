@@ -1,0 +1,89 @@
+a{
+    color:#00BBFF;
+    text-decoration:none;
+    outline:none;
+}
+
+#mg-gallery{
+    width:100%;
+    margin:20px auto;
+}
+
+#mg-gallery .pic div{
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+}
+
+#mg-gallery .pic{
+    display: block;
+    height: 100%;
+}
+
+#mg-gallery div.nomargin{
+    margin-right:0;
+}
+
+#mg-gallery  .mg-gallery-list{
+    list-style: none;
+    padding: 0;
+    font-size: 0;
+    margin: -5px;
+}
+
+#mg-gallery  .mg-gallery-list li{
+    display: inline-block;
+    vertical-align: top;
+    border: 1px solid #ddd;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.2);
+    margin: 5px;
+    text-align: center;
+    position: relative;
+}
+
+#mg-gallery  .mg-gallery-list li img{
+    max-width: 100%;
+    max-height: 100%;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/* для админки */
+.remove-img {
+    float: right;
+    width: 16px;
+    height: 16px;
+    background: url(../icons/red-delete-icon.png);
+    cursor: pointer;
+    margin: 8px 10px 0 0;
+    position: absolute;
+    right: 0;
+}
+
+.base-settings {
+    width: 47.2%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.img-settings {
+    width: 47.2%;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    height: 232px;
+    display: inline-block;
+}
+
+.edit li {
+    display: inline-block;
+    padding-right: 0 5px;
+}

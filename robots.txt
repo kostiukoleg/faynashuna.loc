@@ -1,0 +1,43 @@
+User-agent: Yandex
+Allow: /uploads/
+Disallow: /install*
+Disallow: /mg-admin*
+Disallow: /mg-core*
+Disallow: /mg-pages*
+Disallow: /mg-plugins*
+Disallow: /mg-templates*
+Disallow: /personal*
+Disallow: /enter*
+Disallow: /forgotpass*
+Disallow: /payment*
+Disallow: /registration*
+Disallow: /compare*
+Disallow: /cart*
+Disallow: /*?*lp*
+Disallow: *applyFilter=*
+Disallow: *?inCartProductId=*
+Disallow: *?inCompareProductId=*
+Host: faynashuna.loc
+
+User-agent: *
+Allow: /uploads/
+Disallow: /install*
+Disallow: /mg-admin*
+Disallow: /mg-core*
+Disallow: /mg-pages*
+Disallow: /mg-plugins*
+Disallow: /mg-templates*
+Disallow: /personal*
+Disallow: /enter*
+Disallow: /forgotpass*
+Disallow: /payment*
+Disallow: /registration*
+Disallow: /compare*
+Disallow: /cart*
+Disallow: /*?*lp*
+Disallow: *applyFilter=*
+Disallow: *?inCartProductId=*
+Disallow: *?inCompareProductId=*
+
+
+Sitemap: http://faynashuna.loc/sitemap.xml

@@ -1,0 +1,10 @@
+﻿a.favorite {
+    border-bottom: 1px dotted;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+}
+
+a.favorite:before {
+ content: "\00a0\00a0\00a0\00a0\00a0";  //\271a
+}

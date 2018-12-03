@@ -1,0 +1,508 @@
+#startTest {
+	margin: 0px;
+	padding: 0px;
+	width: 100%;
+}
+
+#startTest span{
+	margin: 0px;
+	padding: 5px;	
+	background: url(../images/icons/check-icon.png) 6px 4px no-repeat;
+}
+
+/* Кнопки на главной странице */
+#startPromo, #startUpdate, #startMessage {
+	margin: 10px 0 0 0;
+	width: 100%;
+}
+
+#startPromo p, #startUpdate p, #startMessage p{
+	padding: 5px;
+}
+
+/* Блок сообщений на главной */
+#startMessageTextArea {
+	width: 97%;
+	height: 100px;
+	resize: vertical;
+}
+
+/* Нет сервисов */
+ul li p.u-info{
+	padding: 40px;
+	margin-left: 41%;
+}
+
+/* Нет авторизовавшихся пользователей */
+.plugin-users-tbody .u-info {
+	padding: 40px;
+}
+/* Кнопка удалить пользователя */
+.plugin-users-tbody .delete a {
+	position: relative;
+	display: inline-block;
+	background: url("../images/icons/delete-icon.png") no-repeat;
+	width: 16px;
+	height: 16px;
+}
+/* Блок инструкции плагина */
+#instruction {
+	width: 400px;	
+}
+#instruction h4 {
+	cursor: pointer;
+	background-color: #DB4040;
+	background-image: none;
+	padding: 5px;
+	border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+
+.instruction-body {
+	background: antiquewhite;
+}
+#instruction-link {
+	background: none;
+	text-indent: 0px;
+}
+#instruction-important{
+	background: darkorange;
+}
+
+/* Блок помощника */
+.info {
+	margin-top: 10px;
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	padding: 12px 10px 13px 10px;
+}
+.info ul li {
+	padding: 5px;
+	font-weight: bold;
+}
+.info ul li  ul li{
+	padding: 5px;
+	font-weight: normal;
+}
+
+/* Блок статистики */
+.sign-services-statistic {
+	border: 1px solid #e0dede;
+	margin: 15px 0 0 0;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #F7F7F7;
+}
+.plugin-users-statistic ul li {
+	padding: 10px;
+}
+
+.plugin-users-statistic ul li span{
+	font-weight: bold;
+}
+
+/* Таблица пользователей*/
+.plugin-users-table {
+	border: 1px solid #e0dede;
+	margin-top: 20px;
+	border-radius: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	width: 100%;
+	background-color: #fff;
+}
+
+/* Заголовки шапки таблицы */ 
+.plugin-users-table tr th {
+	color: #fff;
+	font-size: 14px;
+	padding: 9px 0;
+	background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#5F5F5F), to(#343434));
+	background-image: -webkit-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: -moz-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: -ms-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: -o-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#5F5F5F', endColorstr='#343434',GradientType=0 );
+}
+
+/* Ячейка тела таблицы */
+.plugin-users-table tr td {
+	text-align: center;
+	border-right: 1px solid #D3D3D3;
+	border-top: 1px solid #D3D3D3;
+	color: #333;
+	font-size: 13px;
+	vertical-align: middle;
+	padding: 10px 5px;
+	font-size: 14px!important;
+}
+
+.plugin-users-table tbody tr:hover{
+	background-color: #eee;
+	-o-transition: all 0.3s ease-in-out;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.plugin-users-table tr td.actions {
+	cursor: default;
+}
+
+/* Кнопка */
+.active-button {
+	display: inline-block;
+	padding: 3px 8px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	color: #fff;
+	font-size: 14px;
+	text-shadow: 1px 1px 2px #4A4A4A;
+	line-height: 14px;
+}
+
+/* Кнопка вкл */
+.active-button.yes {
+	background-color: #28BB1D;
+}
+
+/* Кнопка выкл */
+.active-button.no {
+	background-color: #28BB1D;
+}
+
+.actions.action-list {
+	display: inline-block;
+	margin: 10px 0 5px 0;
+}
+
+.actions.action-list li {
+	float: left;
+	margin: 0 5px;
+}
+
+/* Блок */
+.sign-services-main, .sign-services-block {
+	border: 1px solid #e0dede;
+	margin: 15px 0 0 0;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	background-color: #F7F7F7;
+}
+
+/* Заголовок */
+.sign-services-main h4, .sign-services-block h4, .sign-services-users h4, .sign-services-statistic h4{
+	font-size: 14px;
+	background-color: #343434;
+	color: #fff;
+	padding: 10px;
+	border-radius: 3px 3px 0 0;
+	-moz-border-radius: 3px 3px 0 0;
+	-webkit-border-radius: 3px 3px 0 0;
+	background-image: -webkit-gradient(linear, 0 0%, 0 100%, from(#5F5F5F), to(#343434));
+	background-image: -webkit-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: -moz-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: -ms-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: -o-linear-gradient(top, #5F5F5F 0%, #343434 100%);
+	background-image: linear-gradient(top, #5F5F5F 0%, #343434 100%);
+}
+
+/* Блок соц сети */
+.sign-service-item {
+	margin: 1px 0; /* отступ между блоками */
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+/* Заголовок соц сети */
+.sign-service-item  h3 {
+	padding: 10px 10px 10px 35px;
+	background: #EEE url("../images/icons/acc-down.png") 10px center no-repeat;
+	font-size: 14px;
+	cursor: pointer;
+	color: #111;
+}
+
+.sign-service-item.active h3 {
+	padding: 10px 10px 10px 35px;
+	background: #BBFF9B url("../images/icons/acc-down.png") 10px center no-repeat;
+	font-size: 14px;
+	cursor: pointer;
+	color: #111;
+}
+
+.sign-service-item h3 {
+	padding: 10px 10px 10px 35px;
+	background: #FFBDBD url("../images/icons/acc-down.png") 10px center no-repeat;
+	font-size: 14px;
+	cursor: pointer;
+	color: #111;
+}
+
+.sign-service-item.active.open h3 {
+	background: #BBFF9B url("../images/icons/acc-up.png") 10px center no-repeat;
+}
+
+.sign-service-item.open h3 {
+	background: #FFBDBD url("../images/icons/acc-up.png") 10px center no-repeat;
+}
+
+.sign-service-main-setting-list {
+	padding: 10px;
+}
+
+/* Лист настроек авторизации соц сети */
+.sign-service-setting-list {
+	padding: 10px;
+	background: #fff;
+}
+
+/* Заголовок функции */
+.sign-service-main-setting-list li span, .sign-service-setting-list li span {
+	font-size: 14px;
+	padding: 5px;
+}
+
+.sign-service-main-setting-list li  a, .sign-service-setting-list li a{
+	display: inline-block;
+	text-indent: -999999px;
+	width: 16px;
+	height: 16px;
+	background: url("../images/icons/red-question-icon.png") no-repeat;
+	margin: 0 0 0 10px;
+}
+
+
+.sign-service-main-setting-list li span, .sign-service-setting-list span {
+	display: inline-block;
+	vertical-align: middle;
+	width: 300px;
+	margin: 0 15px 10px 0;
+}
+
+/* Колонка ввода */
+.sign-service-main-setting-list input[type=text], .sign-service-setting-list input[type=text] {
+	width: 400px;	
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	border: 1px solid #ccc;
+	margin: 0;
+}
+.sign-service-main-setting-list input[type=text], .sign-service-setting-list input[type=text] {
+	border-radius: 3px;
+	border: 1px solid #CCCCCC;
+	padding: 4px 10px;
+	box-shadow: inset 0 1px 2px #E7E7E7;
+}
+
+/* Колонка ввода пароля*/
+.sign-service-setting-list input[type=password] {
+	width: 400px;	
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	border: 1px solid #ccc;
+	margin: 0;
+}
+.sign-service-setting-list input[type=password] {
+	border-radius: 3px;
+	border: 1px solid #CCCCCC;
+	padding: 4px 10px;
+	box-shadow: inset 0 1px 2px #E7E7E7;
+}
+
+/* Колонка ввода пароля*/
+.sign-service-setting-list input[type=email] {
+	width: 400px;	
+	-webkit-transition: all 0.30s ease-in-out;
+	-moz-transition: all 0.30s ease-in-out;
+	-ms-transition: all 0.30s ease-in-out;
+	-o-transition: all 0.30s ease-in-out;
+	outline: none;
+	border: 1px solid #ccc;
+	margin: 0;
+}
+.sign-service-setting-list input[type=email] {
+	border-radius: 3px;
+	border: 1px solid #CCCCCC;
+	padding: 4px 10px;
+	box-shadow: inset 0 1px 2px #E7E7E7;
+}
+
+ul li .type-info {
+	width: 397px;
+}
+
+ul li select {
+	width: 422px;	
+}
+
+.settings-input {
+	width: 500px;
+	border-radius: 3px;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	padding: 5px 10px;
+	box-shadow: inset 0 1px 2px #E7E7E7;
+	resize: none;
+}
+
+.section-social-autorization #settings-tabs {
+	position: relative;
+}
+
+.section-social-autorization *#settings-tabs .tabs-list {
+	display: inline-block;
+	line-height: 1;
+	margin: 5px 0 0 0;	
+}
+
+.section-social-autorization .tabs-list li {
+	float: left;
+}
+
+.section-social-autorization .tabs-list li.ui-state-active {
+	border: none;
+	background: none;
+}
+
+.section-social-autorization.tabs-list > .ui-state-active > a {
+	moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	box-shadow: 0 0 4px 2px #CFCFCF inset;
+	outline: none;
+}
+
+.section-social-autorization .tabs-list .ui-state-active a span {
+	line-height: 14px;
+}
+
+.section-social-autorization .tabs-list li a span {
+	display: inline-block;
+	padding: 5px 10px;
+}
+
+.section-social-autorization .tabs-list li:first-child a {
+	-moz-border-radius: 5px 0px 0px 5px;
+	-webkit-border-radius: 5px 0px 0px 5px;
+	border-radius: 5px 0px 0px 5px;	
+}
+
+.section-social-autorization .tabs-list li:last-child a {
+	-moz-border-radius: 0px 5px 5px 0px;
+	-webkit-border-radius: 0px 5px 5px 0px;
+	border-radius: 0px 5px 5px 0px;		
+}
+
+.section-social-autorization .tabs-list li a {
+	display: inline-block;
+	cursor: pointer;
+	white-space: nowrap;
+	background: #FCFCFC;
+	background: -moz-linear-gradient(top, #FCFCFC 0%, #E8E8E8 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#FCFCFC), color-stop(100%,#E8E8E8));
+	background: -webkit-linear-gradient(top, #FCFCFC 0%,#E8E8E8 100%);
+	background: -o-linear-gradient(top, #FCFCFC 0%,#E8E8E8 100%);
+	background: -ms-linear-gradient(top, #FCFCFC 0%,#E8E8E8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#FCFCFC', endColorstr='#E8E8E8',GradientType=0 );
+	background: linear-gradient(top, #FCFCFC 0%,#E8E8E8 100%);
+	border: 1px solid #D3D3D3!important;
+	font-size: 14px;
+	text-decoration: none;
+	color: #333!important;
+	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	-moz-border-radius: 0px;
+	-webkit-border-radius: 0px;
+	border-radius: 0px;
+	outline: none;
+	border-bottom-color: #B4B4B4!important;
+}
+.track3 {
+    width: 10px;
+    background: rgba(0, 0, 0, 0);
+    margin-right: 2px;
+    border-radius: 10px;
+    -webkit-transition: background 250ms linear;
+    transition: background 250ms linear;
+}
+
+.track3:hover,
+.track3.dragging {
+    background: #d9d9d9;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.handle3 {
+    width: 7px;
+    right: 0;
+    background: #999;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 7px;
+    -webkit-transition: width 250ms;
+    transition: width 250ms;
+}
+
+.track3:hover .handle3,
+.track3.dragging .handle3 {
+    width: 10px;
+}
+.news {
+	margin: 10px;
+	width: 417px;
+	height: 380px;
+	background: #00ADEB;
+	padding: 20px 15px;
+}
+.news h1 {
+	text-shadow: none;
+	color: #fff;
+	text-transform: uppercase;
+	font-size: 25px;
+	line-height: 22px;
+	padding: 0;
+	margin: 0 0 5px 0;
+	font-weight: bold;
+}
+.news .news-list {
+	/*overflow: hidden;*/
+	overflow: auto;
+	height: 340px;
+	border-top: 1px solid #FFFFFF;
+	border-top-style: dashed;
+}
+.news .news-list .new_{
+}
+.news .news-list .new_:first-child {
+	padding: 20px 0 0 0;
+}
+.news .head {
+	font-weight:bold;
+	text-shadow: none;
+	color: #fff;
+	padding: 0;
+	font-size: 16px;
+	line-height: 12px;
+	margin: 0 0 5px 0;
+}
+
+.news .body {
+	margin: 10px;
+	font-size: 14px;
+	line-height: 18px;
+	color: #fff;
+}

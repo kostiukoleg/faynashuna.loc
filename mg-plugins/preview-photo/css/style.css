@@ -1,0 +1,31 @@
+
+.section-preview-photo .property-order-container .list-option li, .section-preview-photo  .base-setting-save {
+  margin-top: 10px;
+}
+.section-preview-photo .property-order-container .list-option input{
+  width:100px;
+}
+
+.section-preview-photo .start-processs{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.section-preview-photo .progress {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.section-preview-photo .loger{
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  padding: 12px 10px 13px 10px;
+}
+.section-preview-photo .generation{
+   background: url('../../../mg-admin/design/images/loading-upload.gif') no-repeat;  
+   height: 20px;
+   width: 20px;
+}
+

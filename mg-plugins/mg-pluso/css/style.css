@@ -1,0 +1,19 @@
+
+.base-settings{float: left; width: 45%;}
+.base-settings h3{margin: 0 0 10px 0;}
+.base-settings .base-setting-save{margin-bottom: 0;}
+.base-settings .list-option li span, .section-slider-action .custom-text{display: inline-block;width:190px;}
+.base-settings .list-option li{margin: 0 0 10px 0;}
+.base-settings .list-option li input, .base-settings .list-option li select{margin: 0;}
+.entity-table-tbody tr td{border:1px solid #D3D3D3;cursor: move;text-align: left;}
+.entity-table-tbody tr td{padding: 5px;vertical-align: top;}
+.entity-table-tbody tr td.type{text-align: center;}
+.base-settings .list-option li span{width: 230px;vertical-align: top;}
+.base-settings .list-option li input[type="text"]{width: 300px;}
+.section-mg-pluso .pluso-select{display: none;}
+.base-settings .list-option li .pluso span{width: auto;vertical-align: baseline;}
+.base-settings .list-option li .pluso input[name="theme"]{display: none;}
+.section-mg-pluso .base-settings .list-option li select{width: 322px;}
+.section-mg-pluso .base-settings a.showTheme,
+.section-mg-pluso .base-settings a.unwrap{margin-right: 10px;font-size: 12px;border-bottom: 1px dashed #08c;text-decoration: none;float: right;}
+.section-mg-pluso .base-settings a.unwrap:after{clear: both;}

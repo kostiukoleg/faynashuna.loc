@@ -1,0 +1,159 @@
+/* Блок на странице авторизации*/
+.social-registration-out-block {
+	
+}
+
+/* Заголовок*/
+.social-registration-out-block h1 {
+	font-size: 18px;
+}
+
+/* Форма ответа */
+.social-registration-out-block.combined-form {
+
+}
+
+/* Информер */
+.informer{
+	font-size: 12px;
+}
+
+/* Faq */
+.faq{
+	font-size: 13px;
+	color: #F00;
+}
+
+/* Ошибка ввода данных */
+.login-error{
+	font-size: 12px;
+	color: #F00;
+}
+
+/* Блок соц сетей */
+.soc-login-block {
+	z-index: 999999999;
+	overflow: hidden;
+	position: relative;
+}
+
+/* Блок элемента сервиса авторизации */
+.soc-login-block a {
+	opacity: 0.6;
+	width: 42px;
+	height: 40px;
+	display: block;
+	float: left;
+	margin-right: 2px;
+	background-image: url('../images/icons/icon-pack-default.png');
+	background-repeat: no-repeat;
+}
+.soc-login-block a:hover{
+	opacity: 1;
+	-webkit-box-shadow: 0px 0px 20px rgba(255,255,255,0.9);
+	-moz-box-shadow: 0px 0px 20px rgba(255,255,255,0.9);
+	box-shadow: 0px 0px 20px rgba(255,255,255,0.9);
+}
+
+/* Иконка Показать еще */
+.soc-login-block a#partly{
+	background-position: 0px 0px;
+}
+.soc-login-block a#partly:hover{
+}
+/* Иконка Вконтакте */
+.soc-login-block a.vkontakte,
+#partly a.vkontakte{
+	background-position: -210px 0px;
+}
+.soc-login-block a.vkontakte:hover,
+#partly a.vkontakte:hover{
+}
+/* Иконка одноклассники */
+.soc-login-block a.odnoklassniki,
+#partly a.odnoklassniki {
+	background-position: -168px 0px;
+}
+.soc-login-block a.odnoklassniki:hover,
+#partly a.odnoklassniki:hover {
+}
+/* Mail.ru */
+.soc-login-block a.mailru,
+#partly a.mailru {
+	background-position: -294px 0px;
+}
+.soc-login-block a.mailru:hover,
+#partly a.mailru:hover {
+}
+/* Иконка Яндекс */
+.soc-login-block  a.yandex,
+#partly  a.yandex {
+	background-position: -336px 0px;
+}
+.soc-login-block  a.yandex:hover,
+#partly  a.yandex:hover {
+}
+/* Иконка Google */
+.soc-login-block  a.google,
+#partly a.google {
+	background-position: -252px 0px;
+}
+.soc-login-block  a.google:hover,
+#partly a.google:hover {
+}
+/* Иконка Facebook */
+.soc-login-block a.facebook,
+#partly a.facebook {
+	background-position: -42px 0px;
+}
+.soc-login-block a.facebook:hover,
+#partly a.facebook:hover {
+}
+/* Иконка Twitter */
+.soc-login-block a.twitter,
+#partly a.twitter {
+	background-position: -84px 0px;
+}
+.soc-login-block a.twitter:hover,
+#partly a.twitter {
+}
+/* Иконка Linkedin */
+.soc-login-block a.linkedin,
+#partly a.linkedin {
+	background-position: -378px 0px;
+}
+.soc-login-block a.linkedin:hover,
+#partly a.linkedin:hover {
+}
+/* Иконка Instagram */
+.soc-login-block a.instagram,
+#partly a.instagram {
+	background-position: -462px 0px;
+}
+.soc-login-block a.instagram:hover,
+#partly a.instagram:hover {
+}
+/* Иконка Vimeo */
+.soc-login-block a.vimeo,
+#partly a.vimeo {
+	background-position: -420px 0px;
+}
+.soc-login-block a.vimeo:hover,
+#partly a.vimeo:hover {
+}
+/* Иконка Live ID */
+.soc-login-block a.liveid,
+#partly a.liveid {
+	background-position: -504px 0px;
+}
+.soc-login-block a.liveid:hover,
+#partly a.liveid:hover {
+}
+/* Иконка Yahoo */
+.soc-login-block a.yahoo,
+#partly a.liveid {
+	background-position: -546px 0px;
+}
+.soc-login-block a.yahoo:hover,
+#partly a.liveid:hover {
+}

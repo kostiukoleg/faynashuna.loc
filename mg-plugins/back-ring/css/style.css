@@ -1,0 +1,392 @@
+.base-settings{float: left; width: 45%;}
+.base-settings h3{margin: 0 0 10px 0;}
+.base-settings .base-setting-save{margin-bottom: 0;}
+.base-settings .list-option li span, .section-slider-action .custom-text{display: inline-block;width:190px;}
+.base-settings .list-option li{margin: 0 0 10px 0;}
+.base-settings .list-option li input, .base-settings .list-option li select{margin: 0;}
+.entity-table-tbody tr td{border:1px solid #D3D3D3;cursor: move;text-align: left;}
+.entity-table-tbody tr td{padding: 5px;vertical-align: top;}
+.entity-table-tbody tr td.type{text-align: center;}
+
+.phone-form-wrapper{position:relative;}
+.wrapper-modal-back-ring {position:absolute;right:0; left:0;top: 100px; z-index: 10; width: 400px; margin: 0 auto; background: #fff; border: 1px solid #CCCCCC; padding: 15px; display: none;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4); -moz-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);-webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);}
+.wrapper-modal-back-ring .header-modal-back-ring .title-modal-back-ring {margin: 10px 0 20px 0; text-align: center; font-size: 20px; line-height: 20px; font-weight: 600;}
+.wrapper-modal-back-ring .close-ring-button{position: absolute;width: 9px;height: 9px;background: url(../images/close.png) no-repeat;right: 10px; top: 10px;}
+.wrapper-modal-back-ring .header-modal-back-ring .error{text-align: center; color: red; font-weight: bold; top: 15px;}
+.content-modal-back-ring input { width: 100%; margin: 10px 0; padding: 5px; outline: none;box-sizing: border-box; height: 28px;border-radius: 0!important;box-shadow: none!important;}
+.content-modal-back-ring select{margin: 10px 0;border-radius: 0;}
+.content-modal-back-ring textarea {width: 100%; box-sizing: border-box; height: 60px; padding: 5px; outline: none; resize: none;font-family: Arial, Verdana, sans-serif;}
+.phone-form-wrapper .content-modal-back-ring .send-ring-button{display: block;}
+.wrapper-modal-back-ring .default-btn{
+	text-transform: uppercase;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	line-height: 20px;
+	font-size: 20px;
+	color: #fff;
+	text-shadow: 1px 1px 1px #6B6B6B;
+	padding: 15px;
+}
+
+.wrapper-modal-back-ring .default-btn:active{
+	position: relative;
+	top: 2px;
+}
+
+.wrapper-modal-back-ring .red-btn{
+	border: 1px solid #C4120C;
+	background: #f92517;
+	background: -moz-linear-gradient(top,  #f92517 0%, #ae0101 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f92517), color-stop(100%,#ae0101));
+	background: -webkit-linear-gradient(top,  #f92517 0%,#ae0101 100%);
+	background: -o-linear-gradient(top,  #f92517 0%,#ae0101 100%);
+	background: -ms-linear-gradient(top,  #f92517 0%,#ae0101 100%);
+	background: linear-gradient(to bottom,  #f92517 0%,#ae0101 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f92517', endColorstr='#ae0101',GradientType=0 );
+}
+
+.wrapper-modal-back-ring .red-btn:hover{
+	background: #ae0101;
+	background: -moz-linear-gradient(top,  #ae0101 0%, #f92517 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ae0101), color-stop(100%,#f92517));
+	background: -webkit-linear-gradient(top,  #ae0101 0%,#f92517 100%);
+	background: -o-linear-gradient(top,  #ae0101 0%,#f92517 100%);
+	background: -ms-linear-gradient(top,  #ae0101 0%,#f92517 100%);
+	background: linear-gradient(to bottom,  #ae0101 0%,#f92517 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ae0101', endColorstr='#f92517',GradientType=0 );
+}
+
+.wrapper-modal-back-ring .blue-btn{
+	border: 1px solid #4682C1;
+	background: #84b7e8;
+	background: -moz-linear-gradient(top,  #84b7e8 0%, #207ce5 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#84b7e8), color-stop(100%,#207ce5));
+	background: -webkit-linear-gradient(top,  #84b7e8 0%,#207ce5 100%);
+	background: -o-linear-gradient(top,  #84b7e8 0%,#207ce5 100%);
+	background: -ms-linear-gradient(top,  #84b7e8 0%,#207ce5 100%);
+	background: linear-gradient(to bottom,  #84b7e8 0%,#207ce5 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#84b7e8', endColorstr='#207ce5',GradientType=0 );
+}
+
+.wrapper-modal-back-ring .blue-btn:hover{
+	background: #207ce5;
+	background: -moz-linear-gradient(top,  #207ce5 0%, #84b7e8 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#207ce5), color-stop(100%,#84b7e8));
+	background: -webkit-linear-gradient(top,  #207ce5 0%,#84b7e8 100%);
+	background: -o-linear-gradient(top,  #207ce5 0%,#84b7e8 100%);
+	background: -ms-linear-gradient(top,  #207ce5 0%,#84b7e8 100%);
+	background: linear-gradient(to bottom,  #207ce5 0%,#84b7e8 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207ce5', endColorstr='#84b7e8',GradientType=0 );
+}
+
+.wrapper-modal-back-ring .green-btn{
+	border: 1px solid #6EA91B;
+	background: #9edb22;
+	background: -moz-linear-gradient(top,  #9edb22 0%, #75c11f 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#9edb22), color-stop(100%,#75c11f));
+	background: -webkit-linear-gradient(top,  #9edb22 0%,#75c11f 100%);
+	background: -o-linear-gradient(top,  #9edb22 0%,#75c11f 100%);
+	background: -ms-linear-gradient(top,  #9edb22 0%,#75c11f 100%);
+	background: linear-gradient(to bottom,  #9edb22 0%,#75c11f 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#9edb22', endColorstr='#75c11f',GradientType=0 );
+}
+
+.wrapper-modal-back-ring .green-btn:hover{
+	background: #75c11f;
+	background: -moz-linear-gradient(top,  #75c11f 0%, #9edb22 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#75c11f), color-stop(100%,#9edb22));
+	background: -webkit-linear-gradient(top,  #75c11f 0%,#9edb22 100%);
+	background: -o-linear-gradient(top,  #75c11f 0%,#9edb22 100%);
+	background: -ms-linear-gradient(top,  #75c11f 0%,#9edb22 100%);
+	background: linear-gradient(to bottom,  #75c11f 0%,#9edb22 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#75c11f', endColorstr='#9edb22',GradientType=0 );
+}
+
+.wrapper-modal-back-ring  .yellow-btn{
+	border: 1px solid #F3911A;
+	background: #feae34;
+	background: -moz-linear-gradient(top,  #feae34 0%, #ff8202 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#feae34), color-stop(100%,#ff8202));
+	background: -webkit-linear-gradient(top,  #feae34 0%,#ff8202 100%);
+	background: -o-linear-gradient(top,  #feae34 0%,#ff8202 100%);
+	background: -ms-linear-gradient(top,  #feae34 0%,#ff8202 100%);
+	background: linear-gradient(to bottom,  #feae34 0%,#ff8202 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feae34', endColorstr='#ff8202',GradientType=0 );
+}
+
+.wrapper-modal-back-ring  .yellow-btn:hover{
+	background: #ff8202;
+	background: -moz-linear-gradient(top,  #ff8202 0%, #feae34 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ff8202), color-stop(100%,#feae34));
+	background: -webkit-linear-gradient(top,  #ff8202 0%,#feae34 100%);
+	background: -o-linear-gradient(top,  #ff8202 0%,#feae34 100%);
+	background: -ms-linear-gradient(top,  #ff8202 0%,#feae34 100%);
+	background: linear-gradient(to bottom,  #ff8202 0%,#feae34 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ff8202', endColorstr='#feae34',GradientType=0 );
+}
+
+.modal-ring-list{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.wrapper-modal-back-ring .modal-ring-list li{
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+.modal-ring-list li span{
+    display: block;
+    margin: 0 0 5px 0;
+}
+
+.modal-ring-list li .left{
+    float: left;
+}
+
+.modal-ring-list li .right{
+    float: right;
+}
+
+.modal-ring-list li .right input[type="text"]{
+    width: 200px;
+    background: url("../images/icon-notesdate.png") right center no-repeat;
+}
+
+.modal-ring-list li .cap-left{
+    float: left;
+}
+
+.modal-ring-list li .cap-right{
+    float: right;
+}
+
+.modal-ring-list li .cap-right input[type="text"]{
+    float: right;
+    width: 200px;
+    margin: 6px 0;
+}
+
+.modal-ring-list li .cap-left span{
+    font-size: 12px;
+}
+
+/*Плагин обратного звонка*/
+.section-back-ring .widget-table .actions{width: auto;}
+.section-back-ring .list-option span{display: inline-block;width: 140px;}
+.section-back-ring .list-option li, .section-back-ring .fields-calback li{margin: 0 0 10px 0;}
+.section-back-ring .textarea-text{position: relative;top: -100px;}
+.section-back-ring .property-order-container h2{margin: 0 0 5px 0;}
+.section-back-ring .fields-calback span{display: inline-block;width: 100px;}
+.section-back-ring .fields-calback li input[type="text"],
+.section-back-ring .fields-calback li textarea{width: 250px;}
+.section-back-ring .fields-calback li textarea{height: 150px;}
+.section-back-ring .fields-calback li .textarea-text{top: -145px;}
+.section-back-ring .list-option li textarea{width: 350px;height: 100px;}
+
+/* DatePicker Container */
+.ui-datepicker {
+    width: 216px;
+    height: auto;
+    margin: 5px auto 0;
+    font: 9pt Arial, sans-serif;
+    -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, .5);
+}
+.ui-datepicker a {
+    text-decoration: none;
+}
+/* DatePicker Table */
+.ui-datepicker table {
+    width: 100%;
+    background-color:#fff;
+}
+.ui-datepicker-header {
+    background: #4D4D4D;
+    color: #e0e0e0;
+    font-weight: bold;
+    -webkit-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, 2);
+    -moz-box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+    box-shadow: inset 0px 1px 1px 0px rgba(250, 250, 250, .2);
+    text-shadow: 1px -1px 0px #000;
+    filter: dropshadow(color=#000, offx=1, offy=-1);
+    line-height: 30px;
+    border-width: 1px 0 0 0;
+    border-style: solid;
+    border-color: #111;
+}
+.ui-datepicker-title {
+    text-align: center;
+}
+.ui-datepicker-prev, .ui-datepicker-next {
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    cursor: pointer;
+    background-image: url('../images/arrow.png');
+    background-repeat: no-repeat;
+    line-height: 600%;
+    overflow: hidden;
+}
+.ui-datepicker-prev {
+    float: left;
+    background-position: center -30px;
+}
+.ui-datepicker-next {
+    float: right;
+    background-position: center 0px;
+}
+.ui-datepicker thead {
+    background-color: #f7f7f7;
+    background-image: -moz-linear-gradient(top,  #f7f7f7 0%, #f1f1f1 100%);
+    background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#f1f1f1));
+    background-image: -webkit-linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
+    background-image: -o-linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
+    background-image: -ms-linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
+    background-image: linear-gradient(top,  #f7f7f7 0%,#f1f1f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#f1f1f1',GradientType=0 );
+    border-bottom: 1px solid #bbb;
+}
+.ui-datepicker th {
+    text-transform: uppercase;
+    font-size: 6pt;
+    padding: 5px 0;
+    color: #666666;
+    text-shadow: 1px 0px 0px #fff;
+    filter: dropshadow(color=#fff, offx=1, offy=0);
+}
+.ui-datepicker tbody td {
+    padding: 0;
+    border-right: 1px solid #bbb;
+}
+.ui-datepicker tbody td:last-child {
+    border-right: 0px;
+}
+.ui-datepicker tbody tr {
+    border-bottom: 1px solid #bbb;
+}
+.ui-datepicker tbody tr:last-child {
+    border-bottom: 0px;
+}
+.ui-datepicker td span, .ui-datepicker td a {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    color: #666666;
+    text-shadow: 1px 1px 0px #fff;
+    filter: dropshadow(color=#fff, offx=1, offy=1);
+}
+.ui-datepicker-calendar .ui-state-default {
+    background: #ededed;
+    background: -moz-linear-gradient(top,  #ededed 0%, #dedede 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ededed), color-stop(100%,#dedede));
+    background: -webkit-linear-gradient(top,  #ededed 0%,#dedede 100%);
+    background: -o-linear-gradient(top,  #ededed 0%,#dedede 100%);
+    background: -ms-linear-gradient(top,  #ededed 0%,#dedede 100%);
+    background: linear-gradient(top,  #ededed 0%,#dedede 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ededed', endColorstr='#dedede',GradientType=0 );
+    -webkit-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
+    -moz-box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
+    box-shadow: inset 1px 1px 0px 0px rgba(250, 250, 250, .5);
+}
+.ui-datepicker-calendar .ui-state-hover {
+    background: #f7f7f7;
+}
+.ui-datepicker-calendar .ui-state-active {
+    background: #6eafbf;
+    -webkit-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+    -moz-box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+    box-shadow: inset 0px 0px 10px 0px rgba(0, 0, 0, .1);
+    color: #e0e0e0;
+    text-shadow: 0px 1px 0px #4d7a85;
+    filter: dropshadow(color=#4d7a85, offx=0, offy=1);
+    border: 1px solid #55838f;
+    position: relative;
+    margin: -1px;
+}
+.ui-datepicker-unselectable .ui-state-default {
+    background: #f4f4f4;
+    color: #b4b3b3;
+}
+.ui-datepicker-calendar td:first-child .ui-state-active {
+    width: 29px;
+    margin-left: 0;
+}
+.ui-datepicker-calendar td:last-child .ui-state-active {
+    width: 29px;
+    margin-right: 0;
+}
+.ui-datepicker-calendar tr:last-child .ui-state-active {
+    height: 29px;
+    margin-bottom: 0;
+}
+
+#overlay {
+    opacity: 0.4;
+    filter: alpha(opacity=40);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: black;
+    width: 100%;
+    height: 100%;
+    z-index: 90;
+    overflow: auto;
+}
+
+@media all and (max-width: 460px) {
+    .modal-ring-list li .cap-right input[type="text"],
+    .modal-ring-list li .right input[type="text"],
+    .content-modal-back-ring textarea,
+    .wrapper-modal-back-ring{
+        width: 100%!important;
+        box-sizing: border-box;
+    }
+
+    .modal-ring-list li .left,
+    .modal-ring-list li .right,
+    .modal-ring-list li .cap-right,
+    .modal-ring-list li .cap-left{
+        float: none!important;
+    }
+}
+
+.ui-helper-hidden-accessible{
+    display: none!important;
+}
+
+.ui-autocomplete li a{
+    display: block;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 5px 15px;
+    color: #000;
+    cursor: pointer;
+}
+
+.ui-autocomplete li a:hover{
+    background: #EAE9E9;
+}
+
+.ui-autocomplete{
+    position: absolute;
+    margin: 0;
+    padding: 5px 0;
+    list-style: none;
+    background: #fff;
+    box-shadow: 0 1px 6px 1px rgba(0,0,0,0.2);
+    max-height: 200px;
+    overflow: auto;
+}

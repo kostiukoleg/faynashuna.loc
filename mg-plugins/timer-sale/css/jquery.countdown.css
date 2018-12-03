@@ -1,0 +1,145 @@
+/* jQuery Countdown styles 2.0.0. */
+.timer-sale-block .mg-timer{
+    text-align: center;
+}
+
+.timer-sale-block table tr .icon{
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: #1B70BA;
+    display: none;
+}
+.countdown-rtl {
+	direction: rtl;
+}
+.countdown-holding span {
+	color: #888;
+}
+.countdown-row {
+	clear: both;
+	width: 100%;
+	padding: 0 2px;
+	text-align: center;
+}
+.countdown-show1 .countdown-section {
+	width: 98%;
+}
+.countdown-show2 .countdown-section {
+	width: 48%;
+}
+.countdown-show3 .countdown-section {
+	width: 32.5%;
+}
+.countdown-show4 .countdown-section {
+	width: 23%;
+}
+.countdown-show5 .countdown-section {
+	width: 19.5%;
+}
+.countdown-show6 .countdown-section {
+	width: 16.25%;
+}
+.countdown-show7 .countdown-section {
+	width: 14%;
+}
+.countdown-section {
+        height: 35px; 
+	display: block;
+	float: left;
+	font-size: 75%;
+	text-align: center;
+}
+.countdown-amount {
+    font-size: 16px;
+}
+.timer-sale-block  .mg-timer-label{
+    font-size: 14px;
+    color: #888;
+    display: block;
+}
+.countdown-descr {
+	display: block;
+	width: 100%;
+}
+
+.timer-sale-block .percent {
+    width: auto;
+    color: #CC0000;
+    font-weight: bold;
+    font-size: 12px;
+    display: inline-block;
+}
+
+.timer-sale-block .discount{
+    font-size: 14px;
+    line-height: 12px;
+    margin: 0 0 10px 0;
+}
+
+.timer-sale-block{
+    background: #fff;
+    margin: 10px 3px;
+    display: inline-block;
+    padding: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.timer-sale-block img{
+    width: 16px;
+    height: 16px;
+    float:left;
+}
+
+.mg-timer-sale .number-wrap span{
+    display: block;
+    font-weight: bold;
+    font-size: 11px;
+    line-height: 11px;
+    text-transform: uppercase;
+    color: #9B9B9B;
+    margin: 0 0 3px -4px;
+}
+
+.mg-timer-sale .number-wrap{
+    display: inline-block;
+}
+
+.mg-timer-sale .number{
+    display: inline-block;
+    font-size: 25px;
+    color: #fff;
+    line-height: 28px;
+    letter-spacing: 9px;
+    text-align: right;
+    width: 50px;
+    height: 34px;
+    background: url("../image/number-bg.png") no-repeat;
+    font-family: Tahoma, Arial, sans-serif;
+}
+
+.mg-timer-sale .number.last{
+    background: url("../image/number-bg-last.png") no-repeat;
+}
+
+.timer-sale-block.mg-timer-in-catalog{
+    display: block;
+    text-align: center;
+}
+
+.timer-sale-block.mg-timer-in-catalog table{
+    width: 100%;
+}
+
+.timer-sale-block.mg-timer-in-catalog .mg-timer-sale .number-wrap span{
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.timer-sale-block.mg-timer-in-catalog .number{
+    width: 35px;
+    height: 29px;
+    line-height: 20px;
+    font-size: 16px;
+    letter-spacing: 7px;
+    background-size: contain;
+}

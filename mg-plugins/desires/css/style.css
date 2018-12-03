@@ -1,0 +1,155 @@
+﻿  .desires-container {
+    font-family:"Trebuchet MS", Tahoma, Verdana, Arial, Helvetica, sans-serif;
+    margin:10px 0pt 15px;
+    width: 100%;
+    text-align: left;
+  }
+  
+    .desires-container  table {
+		width: 100%;
+	}
+  
+  .desires-container thead tr th, .desires-container tfoot tr th {
+    border: 1px solid #FFF;
+    font-size: 11pt;
+    padding: 4px;
+    padding-right: 20px;
+	font-weight: bold;
+  }
+
+  .desires-container tbody td {
+    color: #3D3D3D;
+    padding: 4px;
+    font-size: 11pt;
+    background-color: #FFF;
+    vertical-align: top;
+  }
+  .desires-container tbody tr.odd td {
+    background-color:#E0F4D7;
+  }
+
+  .view-text{
+    width:90%;
+  }
+
+   .desires-container .actions {
+	text-align: center;
+   }
+  
+ .desires-container .action-list {
+	padding: 0px;
+	margin: 0px;
+} 
+  
+  .desires-container .action-list li {
+	list-style-type: none;
+	display: inline-block;
+  }
+  
+.desires-container table td {
+	vertical-align: middle;
+	border-bottom: 1px dashed #DAE1E3;
+}
+  
+.desires-container .product-image {
+	width: 30px;
+	vertical-align: middle;
+}
+
+.desires-container .price .old-price {
+	text-decoration: line-through;
+	color: #E63131;
+}
+
+.desires-container .product a {
+	text-decoration: none;
+}
+/*Стили кнопки*/
+.wishlist {
+	text-align: center;
+	margin: 9px;
+}
+a.btn.addToWishList {
+    text-decoration: none;
+    border-bottom: 1px dashed;
+    font-size: 13px;
+	/*margin: 10px 0 0 0;*/
+	box-shadow: none;
+	position: relative;
+}
+
+a.btn.addToWishList:hover{
+    background: none;
+    border-bottom: 1px solid transparent;
+	box-shadow: none;
+}
+
+a.btn.addToWishList:active{
+    background: none;
+    border: none;
+	box-shadow: none;
+}
+
+a.btn.addToWishList.desire-added:before {
+    content:"";
+    background: url("../images/wishlist.png")15px 0;
+}
+
+a.btn.addToWishList:before {
+    content:"";
+    background: url("../images/wishlist.png")0 0;
+    position: absolute;
+    width: 15px;
+    height: 14px;
+    margin-left: -17px;
+	margin-top: 3px;
+}
+
+/*Для стилей на странице product.php*/
+.product-details-block .btn.addToWishList {
+	position: relative;
+}
+
+.product-details-block .btn.addToWishList:before {
+}
+
+/*Для стилей на странице index.php*/
+.owl-item  .product-wrapper .btn.addToWishList {
+  
+}
+
+#desires{
+  background: white;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  position: fixed;
+  top: 20%;
+  right: 20px;
+  z-index: 99999;
+  border: 0.5em solid #CCC;
+}
+
+#desires .count {
+  display: inline-block;
+  position: relative;
+  padding-top: 0.5em;
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 0.5em;
+  right: -30px;
+  top: -60px;
+  background: orange;
+  border-radius: 1.5em;
+  border: 1px solid #CD7F32;
+  color: #000;
+}
+
+/* admin style */
+.section-desires .spoiler .title {
+  background: #444;
+}
+
+.section-desires .spoiler .title h3 {
+  color: #fff;
+}

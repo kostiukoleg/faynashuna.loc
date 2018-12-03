@@ -1,0 +1,1681 @@
+1Array
+(
+    [result] => Array
+        (
+            [catalogItems] => Array
+                (
+                    [0] => Array
+                        (
+                            [id] => 62
+                            [category_url] => programmnoe-obespechenie/
+                            [product_url] => windows-7-home-premium
+                            [sort] => 62
+                            [cat_id] => 1
+                            [title] => Windows 7 Home Premium
+                            [description] => <p><span style="font-size:14px;"><span style="color: rgb(53, 53, 53); font-family: Verdana; line-height: 18px; text-align: justify;">К отличительным особенностям&nbsp;</span><strong style="color: rgb(53, 53, 53); font-family: Verdana; font-size: 12px; line-height: 18px; text-align: justify;">Microsoft Windows 7 Home Premium OEM</strong><span style="color: rgb(53, 53, 53); font-family: Verdana; line-height: 18px; text-align: justify;">&nbsp;относится&nbsp;</span><span style="color: rgb(53, 53, 53); font-family: Verdana; line-height: 18px; text-align: justify;">быстрый запуск и завершение сеансов, простое переключение между пользователями и сеансами, а также большой выбор встроенных приложений и инструментов. Рациональное распределение нагрузки обеспечивает стабильную работу, отличную производительность без сбоев и зависаний системы. В числе множества достоинств усовершенствованная навигация и система поиска, оптимизация привычной панели задач, возможность блокировать несанкционированный доступ к определенным данным.</span></span></p>
+                            [price] => 2 500
+                            [url] => windows-7-home-premium
+                            [image_url] => product/000/62/windows_7_hp1448985467.png
+                            [code] => CN107
+                            [count] => -1
+                            [activity] => 1
+                            [meta_title] => Windows
+                            [meta_keywords] => Windows  купить, CN107, Windows,
+                            [meta_desc] => 
+                            [old_price] => 0
+                            [recommend] => 0
+                            [new] => 0
+                            [related] => 
+                            [inside_cat] => 
+                            [1c_id] => 
+                            [weight] => 0
+                            [link_electro] => /uploads/windows_7_hp.png
+                            [currency_iso] => RUR
+                            [price_course] => 2500
+                            [image_title] => 
+                            [image_alt] => 
+                            [yml_sales_notes] => 
+                            [count_buy] => 0
+                            [system_set] => 1
+                            [related_cat] => 
+                            [variant_exist] => 
+                            [rate] => 0
+                            [count_sort] => 1000000
+                            [thisUserFields] => Array
+                                (
+                                    [69] => Array
+                                        (
+                                            [property_id] => 69
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 69
+                                            [name] => Глубина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 69
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [68] => Array
+                                        (
+                                            [property_id] => 68
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 68
+                                            [name] => Необходимые компоненты
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 68
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [67] => Array
+                                        (
+                                            [property_id] => 67
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 67
+                                            [name] => Компоненты, входящие в комплект
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 67
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [66] => Array
+                                        (
+                                            [property_id] => 66
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 66
+                                            [name] => Выступ, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 66
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [65] => Array
+                                        (
+                                            [property_id] => 65
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 65
+                                            [name] => Ширина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 65
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [64] => Array
+                                        (
+                                            [property_id] => 64
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 64
+                                            [name] => Длина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 64
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [63] => Array
+                                        (
+                                            [property_id] => 63
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 63
+                                            [name] => Тип цоколя лампы
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 63
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [62] => Array
+                                        (
+                                            [property_id] => 62
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 62
+                                            [name] => Тип лампы
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 62
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [61] => Array
+                                        (
+                                            [property_id] => 61
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 61
+                                            [name] => Страна производителя
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 61
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [60] => Array
+                                        (
+                                            [property_id] => 60
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 60
+                                            [name] => Общее кол-во ламп
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 60
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [59] => Array
+                                        (
+                                            [property_id] => 59
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 59
+                                            [name] => Напряжение питания лампы, V
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 59
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [58] => Array
+                                        (
+                                            [property_id] => 58
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 58
+                                            [name] => Максимальная мощность лампы, W
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 58
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [57] => Array
+                                        (
+                                            [property_id] => 57
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 57
+                                            [name] => Лампы в комплекте
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 57
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [56] => Array
+                                        (
+                                            [property_id] => 56
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 56
+                                            [name] => Коллекция
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 56
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [55] => Array
+                                        (
+                                            [property_id] => 55
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 55
+                                            [name] => Диаметр, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 55
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [54] => Array
+                                        (
+                                            [property_id] => 54
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 54
+                                            [name] => Высота, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 54
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [53] => Array
+                                        (
+                                            [property_id] => 53
+                                            [value] => 
+                                            [product_id] => 62
+                                            [id] => 53
+                                            [name] => Модель
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 53
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [52] => Array
+                                        (
+                                            [property_id] => 52
+                                            [value] => Microsoft
+                                            [product_id] => 62
+                                            [id] => 52
+                                            [name] => Автор
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 52
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [51] => Array
+                                        (
+                                            [property_id] => 51
+                                            [value] => 3
+                                            [product_id] => 62
+                                            [id] => 51
+                                            [name] => Бренд
+                                            [type] => assortmentCheckBox
+                                            [default] => 
+                                            [data] => 1|2|3|4|5
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 51
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 1|2|3|4|5
+                                        )
+
+                                    [35] => Array
+                                        (
+                                            [property_id] => 35
+                                            [value] => Синий#0#
+                                            [product_id] => 62
+                                            [id] => 35
+                                            [name] => Цвет
+                                            [type] => assortment
+                                            [default] => 
+                                            [data] => Орех|Белый|Бук|Груша|Ольха|Вишня
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 22
+                                            [filter] => 1
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => Зеленый|Синий|Красный
+                                        )
+
+                                )
+
+                            [propertyIdsForCat] => Array
+                                (
+                                    [0] => 69
+                                    [1] => 68
+                                    [2] => 67
+                                    [3] => 66
+                                    [4] => 65
+                                    [5] => 64
+                                    [6] => 63
+                                    [7] => 62
+                                    [8] => 61
+                                    [9] => 60
+                                    [10] => 59
+                                    [11] => 58
+                                    [12] => 57
+                                    [13] => 56
+                                    [14] => 55
+                                    [15] => 54
+                                    [16] => 53
+                                    [17] => 52
+                                    [18] => 51
+                                    [19] => 35
+                                )
+
+                            [currency] => руб.
+                            [actionBuy] => <a href="http://postelnoe50.ru/catalog?inCartProductId=62" rel="nofollow" class="addToCart product-buy" data-item-id="62">Купить</a>
+                            [actionCompare] => <a href="http://postelnoe50.ru/compare?inCompareProductId=62" rel="nofollow" class="addToCompare" data-item-id="62">Сравнить</a>
+                            [actionView] => <a href="http://postelnoe50.ru/programmnoe-obespechenie/windows-7-home-premium" class="product-info">Подробнее</a>
+                            [link] => http://postelnoe50.ru/programmnoe-obespechenie/windows-7-home-premium
+                            [real_old_price] => 
+                            [real_price] => 2500
+                            [images_product] => Array
+                                (
+                                    [0] => product/000/62/windows_7_hp1448985467.png
+                                )
+
+                            [images_title] => Array
+                                (
+                                    [0] => 
+                                )
+
+                            [images_alt] => Array
+                                (
+                                    [0] => 
+                                )
+
+                            [variants] => 
+                        )
+
+                    [1] => Array
+                        (
+                            [id] => 65
+                            [category_url] => programmnoe-obespechenie/
+                            [product_url] => windows-7-professional
+                            [sort] => 65
+                            [cat_id] => 1
+                            [title] => Windows 7 Professional
+                            [description] => <p><span style="font-size:14px;"><span style="color: rgb(53, 53, 53); font-family: Verdana; line-height: 18px; text-align: justify;">Операционная система&nbsp;</span><strong style="color: rgb(53, 53, 53); font-family: Verdana; font-size: 12px; line-height: 18px; text-align: justify;">Microsoft Windows 7 Professional</strong><span style="color: rgb(53, 53, 53); font-family: Verdana; line-height: 18px; text-align: justify;">&nbsp;разработана на базе системы&nbsp;</span><em style="color: rgb(53, 53, 53); font-family: Verdana; font-size: 12px; line-height: 18px; text-align: justify;">Windows Vista</em><span style="color: rgb(53, 53, 53); font-family: Verdana; line-height: 18px; text-align: justify;">&nbsp;и является оптимальным решением для работы и дома. Обладает расширенными возможностями для развлечений и работы с мультимедиа, ведения бизнеса, безопасного хранения, архивации, а также надежной защиты и восстановления данных.</span></span></p><p style="margin-bottom: 20px; color: rgb(53, 53, 53); font-family: Verdana; font-size: 12px; line-height: 18px; text-align: justify;"><span style="font-size:14px;">К числу важных достоинств&nbsp;<strong>Microsoft Windows 7 Профессиональная</strong>&nbsp;относится значительное увеличение производительности: быстрый запуск и завершение работы, переключение сеансов и режимов; оптимизация распределения нагрузки, защита системы от сбоев и зависаний, ускорение поиска необходимых файлов и программ, удобная система просмотра результатов поиска.</span></p>
+                            [price] => 3 800
+                            [url] => windows-7-professional
+                            [image_url] => product/000/65/windows_7_pro1448985696.png
+                            [code] => CN110
+                            [count] => -1
+                            [activity] => 1
+                            [meta_title] => Windows 7 Professional
+                            [meta_keywords] => Windows 7 Professional купить, CN110, Windows, 7 Professional
+                            [meta_desc] => Операционная системаMicrosoft Windows 7 Professionalразработана на базе системыWindows Vistaи является оптимальным решением для работы и дома. Обладает расширенными возможностями для развлечений и работы с мультимедиа, ведения бизнеса, безопасного хранения, архивации, а также надежной защиты и восстановления данных
+                            [old_price] => 0
+                            [recommend] => 0
+                            [new] => 0
+                            [related] => 
+                            [inside_cat] => 
+                            [1c_id] => 
+                            [weight] => 0
+                            [link_electro] => /uploads/test/apple_1.jpg
+                            [currency_iso] => RUR
+                            [price_course] => 3800
+                            [image_title] => 
+                            [image_alt] => 
+                            [yml_sales_notes] => 
+                            [count_buy] => 2
+                            [system_set] => 1
+                            [related_cat] => 
+                            [variant_exist] => 
+                            [rate] => 0
+                            [count_sort] => 1000000
+                            [thisUserFields] => Array
+                                (
+                                    [69] => Array
+                                        (
+                                            [property_id] => 69
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 69
+                                            [name] => Глубина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 69
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [68] => Array
+                                        (
+                                            [property_id] => 68
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 68
+                                            [name] => Необходимые компоненты
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 68
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [67] => Array
+                                        (
+                                            [property_id] => 67
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 67
+                                            [name] => Компоненты, входящие в комплект
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 67
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [66] => Array
+                                        (
+                                            [property_id] => 66
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 66
+                                            [name] => Выступ, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 66
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [65] => Array
+                                        (
+                                            [property_id] => 65
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 65
+                                            [name] => Ширина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 65
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [64] => Array
+                                        (
+                                            [property_id] => 64
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 64
+                                            [name] => Длина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 64
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [63] => Array
+                                        (
+                                            [property_id] => 63
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 63
+                                            [name] => Тип цоколя лампы
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 63
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [62] => Array
+                                        (
+                                            [property_id] => 62
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 62
+                                            [name] => Тип лампы
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 62
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [61] => Array
+                                        (
+                                            [property_id] => 61
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 61
+                                            [name] => Страна производителя
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 61
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [60] => Array
+                                        (
+                                            [property_id] => 60
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 60
+                                            [name] => Общее кол-во ламп
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 60
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [59] => Array
+                                        (
+                                            [property_id] => 59
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 59
+                                            [name] => Напряжение питания лампы, V
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 59
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [58] => Array
+                                        (
+                                            [property_id] => 58
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 58
+                                            [name] => Максимальная мощность лампы, W
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 58
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [57] => Array
+                                        (
+                                            [property_id] => 57
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 57
+                                            [name] => Лампы в комплекте
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 57
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [56] => Array
+                                        (
+                                            [property_id] => 56
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 56
+                                            [name] => Коллекция
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 56
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [55] => Array
+                                        (
+                                            [property_id] => 55
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 55
+                                            [name] => Диаметр, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 55
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [54] => Array
+                                        (
+                                            [property_id] => 54
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 54
+                                            [name] => Высота, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 54
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [53] => Array
+                                        (
+                                            [property_id] => 53
+                                            [value] => 
+                                            [product_id] => 65
+                                            [id] => 53
+                                            [name] => Модель
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 53
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [52] => Array
+                                        (
+                                            [property_id] => 52
+                                            [value] => Microsoft
+                                            [product_id] => 65
+                                            [id] => 52
+                                            [name] => Автор
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 52
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [51] => Array
+                                        (
+                                            [property_id] => 51
+                                            [value] => 2
+                                            [product_id] => 65
+                                            [id] => 51
+                                            [name] => Бренд
+                                            [type] => assortmentCheckBox
+                                            [default] => 
+                                            [data] => 1|2|3|4|5
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 51
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 1|2|3|4|5
+                                        )
+
+                                    [35] => Array
+                                        (
+                                            [property_id] => 35
+                                            [value] => Зеленый#0#|Красный#0#
+                                            [product_id] => 65
+                                            [id] => 35
+                                            [name] => Цвет
+                                            [type] => assortment
+                                            [default] => 
+                                            [data] => Орех|Белый|Бук|Груша|Ольха|Вишня
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 22
+                                            [filter] => 1
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => Зеленый|Синий|Красный
+                                        )
+
+                                )
+
+                            [propertyIdsForCat] => Array
+                                (
+                                    [0] => 69
+                                    [1] => 68
+                                    [2] => 67
+                                    [3] => 66
+                                    [4] => 65
+                                    [5] => 64
+                                    [6] => 63
+                                    [7] => 62
+                                    [8] => 61
+                                    [9] => 60
+                                    [10] => 59
+                                    [11] => 58
+                                    [12] => 57
+                                    [13] => 56
+                                    [14] => 55
+                                    [15] => 54
+                                    [16] => 53
+                                    [17] => 52
+                                    [18] => 51
+                                    [19] => 35
+                                )
+
+                            [currency] => руб.
+                            [actionBuy] => <a href="http://postelnoe50.ru/catalog?inCartProductId=65" rel="nofollow" class="addToCart product-buy" data-item-id="65">Купить</a>
+                            [actionCompare] => <a href="http://postelnoe50.ru/compare?inCompareProductId=65" rel="nofollow" class="addToCompare" data-item-id="65">Сравнить</a>
+                            [actionView] => <a href="http://postelnoe50.ru/programmnoe-obespechenie/windows-7-professional" class="product-info">Подробнее</a>
+                            [link] => http://postelnoe50.ru/programmnoe-obespechenie/windows-7-professional
+                            [real_old_price] => 
+                            [real_price] => 3800
+                            [images_product] => Array
+                                (
+                                    [0] => product/000/65/windows_7_pro1448985696.png
+                                )
+
+                            [images_title] => Array
+                                (
+                                    [0] => 
+                                )
+
+                            [images_alt] => Array
+                                (
+                                    [0] => 
+                                )
+
+                            [variants] => 
+                        )
+
+                    [2] => Array
+                        (
+                            [id] => 66
+                            [category_url] => programmnoe-obespechenie/
+                            [product_url] => windows-7-ultimate
+                            [sort] => 66
+                            [cat_id] => 1
+                            [title] => Windows 7 Ultimate
+                            [description] => <p><strong>Windows 7 Ultimate (Максимальная)</strong>&nbsp;- это наиболее полноцункциональный и мощный выпуск, предназначенный для корпоративных клиентов и клиентов, которым необходим полный набор возможностей. Этот выпуск позволяет эффективно работать где угодно, повышает безопасность и контроль и оптимизирует управление ПК. Сочетает развлекательные функции Windows 7 Home Premium и функции для бизнеса выпуска Windows 7 Professional, а также гибкий интерфейс с поддержкой различных языков. Помимо ранее перечисленных возможностей, этот выпуск включает следующие:</p><ul>	<li>шифромание диска и защита данных Microsoft BitLocker и BitLocker To Go на внутренних и внешних дисках и устройствах хранения;</li>	<li>технология DirectAccess для более безопасного подключения к корпоративной сети через Интернет;</li>	<li>технология Microsoft BranchCache, обеспечивающий ускоренный доступ к содержимому с удаленных файловых и веб-серверов филиалов;</li>	<li>технология Microsoft AppLocker, которая предотвращает запуск несанкционированного ПО на компьютерах сотрудников;</li>	<li>области поиска в корпоративной среде, облегчающие обнаружение и поиск содержимого на порталах интрасети;</li>	<li>пакеты многоязычного интерфейса пользователя, обеспечивающие работу на любом из 35 языков.</li></ul>
+                            [price] => 5 100
+                            [url] => windows-7-ultimate
+                            [image_url] => product/000/66/windows_7_ult1449040631.png
+                            [code] => CN110-1
+                            [count] => -1
+                            [activity] => 1
+                            [meta_title] => Windows 7 Ultimate
+                            [meta_keywords] => Windows 7 Ultimate купить, CN110-1, Windows, 7 Ultimate
+                            [meta_desc] => Windows 7 Ultimate (Максимальная)- это наиболее полноцункциональный и мощный выпуск, предназначенный для корпоративных клиентов и клиентов, которым необходим полный набор возможностей
+                            [old_price] => 7000
+                            [recommend] => 0
+                            [new] => 0
+                            [related] => 
+                            [inside_cat] => 
+                            [1c_id] => 
+                            [weight] => 0
+                            [link_electro] => 
+                            [currency_iso] => RUR
+                            [price_course] => 5100
+                            [image_title] => 
+                            [image_alt] => 
+                            [yml_sales_notes] => 
+                            [count_buy] => 8
+                            [system_set] => 1
+                            [related_cat] => 
+                            [variant_exist] => 
+                            [rate] => 0
+                            [count_sort] => 1000000
+                            [thisUserFields] => Array
+                                (
+                                    [69] => Array
+                                        (
+                                            [property_id] => 69
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 69
+                                            [name] => Глубина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 69
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [68] => Array
+                                        (
+                                            [property_id] => 68
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 68
+                                            [name] => Необходимые компоненты
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 68
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [67] => Array
+                                        (
+                                            [property_id] => 67
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 67
+                                            [name] => Компоненты, входящие в комплект
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 67
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [66] => Array
+                                        (
+                                            [property_id] => 66
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 66
+                                            [name] => Выступ, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 66
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [65] => Array
+                                        (
+                                            [property_id] => 65
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 65
+                                            [name] => Ширина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 65
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [64] => Array
+                                        (
+                                            [property_id] => 64
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 64
+                                            [name] => Длина, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 64
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [63] => Array
+                                        (
+                                            [property_id] => 63
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 63
+                                            [name] => Тип цоколя лампы
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 63
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [62] => Array
+                                        (
+                                            [property_id] => 62
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 62
+                                            [name] => Тип лампы
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 62
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [61] => Array
+                                        (
+                                            [property_id] => 61
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 61
+                                            [name] => Страна производителя
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 61
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [60] => Array
+                                        (
+                                            [property_id] => 60
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 60
+                                            [name] => Общее кол-во ламп
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 60
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [59] => Array
+                                        (
+                                            [property_id] => 59
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 59
+                                            [name] => Напряжение питания лампы, V
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 59
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [58] => Array
+                                        (
+                                            [property_id] => 58
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 58
+                                            [name] => Максимальная мощность лампы, W
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 58
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [57] => Array
+                                        (
+                                            [property_id] => 57
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 57
+                                            [name] => Лампы в комплекте
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 57
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [56] => Array
+                                        (
+                                            [property_id] => 56
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 56
+                                            [name] => Коллекция
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 56
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [55] => Array
+                                        (
+                                            [property_id] => 55
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 55
+                                            [name] => Диаметр, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 55
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [54] => Array
+                                        (
+                                            [property_id] => 54
+                                            [value] => 
+                                            [product_id] => 66
+                                            [id] => 54
+                                            [name] => Высота, мм
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 54
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [53] => Array
+                                        (
+                                            [property_id] => 53
+                                            [value] => Windows 7 Ultimate
+                                            [product_id] => 66
+                                            [id] => 53
+                                            [name] => Модель
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 53
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [52] => Array
+                                        (
+                                            [property_id] => 52
+                                            [value] => Microsoft
+                                            [product_id] => 66
+                                            [id] => 52
+                                            [name] => Автор
+                                            [type] => string
+                                            [default] => 
+                                            [data] => 
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 52
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 
+                                        )
+
+                                    [51] => Array
+                                        (
+                                            [property_id] => 51
+                                            [value] => 1
+                                            [product_id] => 66
+                                            [id] => 51
+                                            [name] => Бренд
+                                            [type] => assortmentCheckBox
+                                            [default] => 
+                                            [data] => 1|2|3|4|5
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 51
+                                            [filter] => 0
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => 1|2|3|4|5
+                                        )
+
+                                    [35] => Array
+                                        (
+                                            [property_id] => 35
+                                            [value] => Зеленый#0#|Синий#0#|Красный#0#
+                                            [product_id] => 66
+                                            [id] => 35
+                                            [name] => Цвет
+                                            [type] => assortment
+                                            [default] => 
+                                            [data] => Орех|Белый|Бук|Груша|Ольха|Вишня
+                                            [all_category] => 0
+                                            [activity] => 1
+                                            [sort] => 22
+                                            [filter] => 1
+                                            [description] => 
+                                            [type_filter] => 
+                                            [1c_id] => 
+                                            [plugin] => 
+                                            [unit] => 
+                                            [type_view] => select
+                                            [product_margin] => Зеленый|Синий|Красный
+                                        )
+
+                                )
+
+                            [propertyIdsForCat] => Array
+                                (
+                                    [0] => 69
+                                    [1] => 68
+                                    [2] => 67
+                                    [3] => 66
+                                    [4] => 65
+                                    [5] => 64
+                                    [6] => 63
+                                    [7] => 62
+                                    [8] => 61
+                                    [9] => 60
+                                    [10] => 59
+                                    [11] => 58
+                                    [12] => 57
+                                    [13] => 56
+                                    [14] => 55
+                                    [15] => 54
+                                    [16] => 53
+                                    [17] => 52
+                                    [18] => 51
+                                    [19] => 35
+                                )
+
+                            [currency] => руб.
+                            [actionBuy] => <a href="http://postelnoe50.ru/catalog?inCartProductId=66" rel="nofollow" class="addToCart product-buy" data-item-id="66">Купить</a>
+                            [actionCompare] => <a href="http://postelnoe50.ru/compare?inCompareProductId=66" rel="nofollow" class="addToCompare" data-item-id="66">Сравнить</a>
+                            [actionView] => <a href="http://postelnoe50.ru/programmnoe-obespechenie/windows-7-ultimate" class="product-info">Подробнее</a>
+                            [link] => http://postelnoe50.ru/programmnoe-obespechenie/windows-7-ultimate
+                            [real_old_price] => 7000
+                            [real_price] => 5100
+                            [images_product] => Array
+                                (
+                                    [0] => product/000/66/windows_7_ult1449040631.png
+                                )
+
+                            [images_title] => Array
+                                (
+                                    [0] => 
+                                )
+
+                            [images_alt] => Array
+                                (
+                                    [0] => 
+                                )
+
+                            [variants] => 
+                        )
+
+                )
+
+            [pager] => 
+            [totalCountItems] => 3
+            [filterBarHtml] => <form name="filter" class="filter-form" action="/programmnoe-obespechenie" data-print-res="true"><div class="mg-filter-head"><div class="filter-preview"><div class="loader-search"></div><span></span></div> <input type="hidden" name="cat_id" value="" class="price-input"/><div class="wrapper-field"><div class="filter-select"><div class="select"><span class="label-field">Сортировать по:</span><select name="sorter" class="last-items-dropdown"><option value="price_course|-1" selected="selected">цене, сначала недорогие</option><option value="price_course|1" >цене, сначала дорогие</option><option value="id|1" >новизне</option><option value="count_buy|1" >популярности</option><option value="recommend|1" >сначала рекомендуемые</option><option value="new|1" >сначала новинки</option><option value="old_price|1" >сначала распродажа</option><option value="sort|1" >порядку</option><option value="count|1" >наличию</option></select></div></div></div><div class="wrapper-field range-field">
+                <div class="price-slider-wrapper">
+                <ul class="price-slider-list">
+                 <li><span class="label-field from">Цена от</span><input type="text" id="minCost" class="price-input start-price numericProtection  price-input" data-fact-min="2500" name="price_course&#91;&#93;" value="2500" /></li>
+                 <li><span class="label-field to">до</span><input type="text" id="maxCost" class="price-input end-price numericProtection  price-input" data-fact-max="5100" name="price_course&#91;&#93;" value="5100" /><span>руб.</span></li>
+                </ul>
+                <div class="clear"></div>
+                <div id="price-slider"></div>
+              </div>
+              </div> <input type="hidden" name="applyFilter" value="1" class="price-input"/></div><div class="mg-filter-body"><div class="mg-filter"><div class="mg-filter-item" style=""><h4>Цвет</h4><ul> </ul>
+        </div></div></div><div class="wrapper-field filter-buttons"><input type="submit" value="Фильтровать" class="filter-btn"><a href="http://postelnoe50.ru/programmnoe-obespechenie" class="refreshFilter"><span>Сбросить</span></a></div></form>
+        )
+
+    [args] => Array
+        (
+            [0] => 6
+            [1] => 
+            [2] => 1
+        )
+
+)
