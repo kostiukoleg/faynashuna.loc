@@ -44,6 +44,7 @@
                     <div class="l-row min-0--align-center">
                         <div class="l-col min-0--12 min-768--3">
                             <a  itemprop="logo" class="c-logo" href="<?php echo SITE ?>"><?php echo mgLogo(); ?></a> <!-- логотип -->
+                          <p><?php echo MG::getSetting('shopName') ?></p>
                         </div>
                         <div class="l-col min-0--12 min-768--9">
                             <div class="min-0--flex min-0--justify-center min-768--justify-end">
