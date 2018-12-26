@@ -59,7 +59,7 @@ class BreadCrumbs {
           }
         }
       }
-      $breadcrumbs = "<div class='bread-crumbs'>".$breadcrumbs."</div>";
+      $breadcrumbs = "<div id='content' class='padb10'>".$breadcrumbs."</div>";
       //сохраняем объект в кэш
       Storage::save(md5('breadcrumbs'.URL::getUrl()), $breadcrumbs);
     }
