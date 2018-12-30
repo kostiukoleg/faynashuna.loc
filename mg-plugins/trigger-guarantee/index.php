@@ -142,7 +142,7 @@ class trigger {
         }
        
         $unit = $options['unit']==2 ? 'px' : '%';
-        $style = ' background-color:#'.$options['background_icon'].'; color:#'.$options['color_icon'].'; border-radius: '.$radius.'; font-size: '.$options['fontSize'].'em;"';
+        $style = 'background-color:#'.$options['background_icon'].'; color:#'.$options['color_icon'].'; border-radius: '.$radius.'; font-size: '.$options['fontSize'].'em;"';
                
         $layout = $options['layout'] == 'column' ? 'layout_column.php' : 'layout.php';
         if ($options['layout']=='vertleft'||$options['layout']=='vertright') {

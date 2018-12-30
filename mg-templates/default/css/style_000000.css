@@ -682,7 +682,9 @@ background: #006fa7 url("../images/bg-slider.png") 50% 0;
     padding-top: 30px;
 }
 h2.underlogo {
-    float: left;
+    margin: 0 auto;
+    width: 222px;
+    color: #000;
 }
 .bar-right .mg-search-block .search-button{
     border: none;
@@ -720,6 +722,7 @@ h2.underlogo {
     width: 19%;
     text-align: center;
     margin: 10px 0 0 0;
+    text-decoration: none;
 }
 
 .logo img{
@@ -778,6 +781,7 @@ h2.underlogo {
     font-size: 16px;
     line-height: 18px;
     white-space: nowrap;
+    padding: 0 0 10px 20px;
 }
 
 .header .mg-contacts-block{
@@ -789,7 +793,7 @@ h2.underlogo {
 
 .header .mg-contacts-block .phone,
 .header .mg-contacts-block .address{
-    padding: 0 0 20px 35px;
+    /* padding: 0 0 20px 35px; */
     position: relative;
 }
 
@@ -4637,23 +4641,19 @@ body .mg-scrollTop:hover{
 
 .wrapper .wrapper-back-ring .back-ring-button:active,
 .wrapper .wrapper-back-ring .back-ring-button:hover{
-    border-bottom: 1px dashed transparent;
-    box-shadow: none;
-    background: none;
+    border-bottom: 2px solid #FF5942;
+    background: linear-gradient(to bottom, #E13119 0%, #FF5942 100%);
 }
 
 .wrapper .wrapper-back-ring .back-ring-button{
-    padding: 0;
-    background: none;
-    border: none;
-    box-shadow: none;
-    font-weight: normal;
-    color: #1391C7;
-    font-size: 14px;
-    line-height: 16px;
-    height: auto;
-    border-bottom: 1px dashed #1391C7;
-    border-radius: 0;
+    background: linear-gradient(to bottom, #FF5942 0%, #E13119 100%);
+    display: block;
+    margin: 4px 0;
+    color: #ffffff;
+    font-size: 16px;
+    text-align: center;
+    border-radius: 3px;
+    border-bottom: 2px solid #AB1B07;
 }
 
 .wrapper .filter-form .price-slider-list li input[type="text"]{
@@ -5027,7 +5027,7 @@ blockquote {
 }
 
 .container {
-    margin-top: 20px;
+    margin-top: 45px;
 }
 
 .container .side-block + .center{

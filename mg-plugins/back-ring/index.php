@@ -298,7 +298,7 @@ class BackRing {
    } 
     
    $html = "
-	<div class='wrapper-back-ring'><button type='submit' class='back-ring-button default-btn'>Заказать бесплатный звонок</button></div>";
+	<div class='wrapper-back-ring'><button type='submit' class='back-ring-button default-btn'>Обратный звонок</button></div>";
     $html .= "
     <div class='wrapper-modal-back-ring'>    
       <div class='header-modal-back-ring'>

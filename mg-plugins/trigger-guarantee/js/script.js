@@ -26,12 +26,6 @@ var triggerGuarantee = (function () {
           triggerGuarantee.showIcons();
         }
       });
-//      $('.admin-center').on('mouseover', '.section-trigger-guarantee .font-awesome-icons span .fa', function() {
-//        $(this).addClass('fa-3x');
-//      });
-//      $('.admin-center').on('mouseleave', '.section-trigger-guarantee .font-awesome-icons span .fa', function() {
-//        $(this).removeClass('fa-3x');
-//      });
       $('.admin-center').on('click', '.section-trigger-guarantee .font-awesome-icons .fa', function () {
         var className = $(this).attr('class');
         $('.section-trigger-guarantee .add-trigger-element .img').html('<i class="' + className + ' fa-4x"></i>');
@@ -314,10 +308,9 @@ var triggerGuarantee = (function () {
       $('.section-trigger-guarantee #add-plug-modal  input[name="icon"]').val(file.url);
       if ($('.section-trigger-guarantee #add-plug-modal img').length != 0) {
         $('.section-trigger-guarantee #add-plug-modal  img').attr('src', file.url);
-        $('.section-trigger-guarantee #add-plug-modal  img').attr('width', '170');
         $('.section-trigger-guarantee #add-plug-modal  img').attr('alt', 'tempAlt');
       } else {
-        $('.section-trigger-guarantee #add-plug-modal  .img').html('<img class="img" width="170" alt="tempAlt" src="' + file.url + '">');
+        $('.section-trigger-guarantee #add-plug-modal  .img').html('<img class="img" alt="tempAlt" src="' + file.url + '">');
       }
 
     },
