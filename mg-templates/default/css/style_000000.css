@@ -1065,7 +1065,7 @@ h2.underlogo {
     display: block;
     width: 40px;
     height: 40px;
-    background: #1A4D82;
+    background: #FF5942;
     box-shadow: 0 2px 12px rgba(0,0,0,0.20);
     border-radius: 100%;
     position: relative;
@@ -5024,6 +5024,10 @@ blockquote {
     -ms-flex-pack: justify;
     justify-content: space-between;
     align-items: center;
+}
+
+.container {
+    margin-top: 20px;
 }
 
 .container .side-block + .center{
