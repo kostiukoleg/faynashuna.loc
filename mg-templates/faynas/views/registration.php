@@ -33,65 +33,65 @@ mgSEO($data);
 <script src="<?php echo SITE ?>/mg-core/script/jquery.maskedinput.min.js"></script>
 
 <?php if ($data['form']){?>
-    <div class="l-row">
-        <div class="l-col min-0--12">
-            <div class="c-title"><?php echo lang('registrationTitle'); ?></div>
-        </div>
-
+        <h1 class="new-products-title"><?php echo lang('registrationTitle'); ?></h1>
+        
         <?php if ($data['message']): ?>
-            <div class="l-col min-0--12">
-                <div class="c-alert c-alert--green mg-success"><?php echo $data['message'] ?></div>
-            </div>
+            <span class="mg-success">
+                <span class="succes-reg"><?php echo $data['message'] ?></span>
+            </span>
         <?php endif; ?>
 
         <?php if ($data['error']): ?>
-            <div class="l-col min-0--12">
-                <div class="c-alert c-alert--red msgError"><?php echo $data['error'] ?></div>
-            </div>
+            <span class="msgError">
+                <span class="msgError"><?php echo $data['error'] ?></span>
+            </span>
         <?php endif; ?>
 
-        <div class="l-col min-0--12">
-            <form class="c-form c-form--width" action="<?php echo SITE ?>/registration" method="POST">
-                <div class="c-form__row">
-                    <input type="text" name="email" placeholder="Email" value="<?php echo $_POST['email'] ?>" required>
-                </div>
-                <div class="c-form__row">
-                    <input type="password" placeholder="<?php echo lang('enterPass'); ?>" name="pass" required>
-                </div>
-                <div class="c-form__row">
-                    <input type="password" placeholder="<?php echo lang('registrationConfirmPass'); ?>" name="pass2" required>
-                </div>
-                <div class="c-form__row">
-                    <input type="text" name="name" placeholder="<?php echo lang('fname'); ?>" value="<?php echo $_POST['name'] ?>" required>
-                </div>
-                <div class="c-form__row">
-                    <input type="hidden" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR'] ?>" required>
-                </div>
-                <?php if (MG::getSetting('useCaptcha') == "true" && MG::getSetting('useReCaptcha') != 'true'):?>
-                    <div class="c-form__row">
-                        <b><?php echo lang('captcha'); ?></b>
+        <div class="create-user-account-form box">
+            <div class="box-header">Новый пользователь</div>
+            <div class="box-body">
+                <p class="custom-text">Заполните форму ниже, чтобы получить дополнительные возможности в нашем интерент-магазине.</p>
+                <form class="c-form c-form--width" action="<?php echo SITE ?>/registration" method="POST">
+                    <ul class="form-list">
+                        <li>
+                            <span><?php echo lang('email'); ?>:<i class="red-star">*</i></span>
+                            <input type="text" name="email" placeholder="<?php echo lang('email'); ?>" value="<?php echo $_POST['email'] ?>" required>
+                        </li>
+                        <li>
+                            <span><?php echo lang('enterPass'); ?>:<i class="red-star">*</i></span>
+                            <input type="password" placeholder="<?php echo lang('enterPass'); ?>" name="pass" required>
+                        </li>
+                        <li>
+                            <span><?php echo lang('fname'); ?>:<i class="red-star">*</i></span>
+                            <input type="text" placeholder="<?php echo lang('fname'); ?>" name="name" value="<?php echo $_POST['name'] ?>" required>
+                        </li>
+                        <li>
+                            <input type="hidden" placeholder="<?php echo lang('fname'); ?>" name="ip" value="<?php echo $_SERVER['REMOTE_ADDR'] ?>" required>
+                        </li>
+                        <?php if (MG::getSetting('useCaptcha') == "true" && MG::getSetting('useReCaptcha') != 'true'):?>
+                            <li>
+                                <b><?php echo lang('captcha'); ?></b>
+                            </li>
+                            <li>
+                                <img style="background: url('<?php echo PATH_TEMPLATE ?>/images/cap.png');" src="captcha.html" width="140" height="36">
+                            </li>
+                            <li>
+                                <input type="text" name="capcha" class="captcha" required>
+                            </li>
+                        <?php endif; ?>
+                        <?php echo MG::printReCaptcha(); ?>
+                    </ul>
+                    <div class="clearfix">
+                        <button type="submit" class="register-btn default-btn" name="registration"><?php echo lang('registrationButton'); ?></button>
                     </div>
-                    <div class="c-form__row">
-                        <img style="background: url('<?php echo PATH_TEMPLATE ?>/images/cap.png');" src="captcha.html" width="140" height="36">
-                    </div>
-                    <div class="c-form__row">
-                        <input type="text" name="capcha" class="captcha" required>
-                    </div>
-                <?php endif; ?>
-                <?php echo MG::printReCaptcha(); ?>
-                <div class="c-form__row">
-                    <button type="submit" class="c-button" name="registration"><?php echo lang('registrationButton'); ?></button>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
 
     <?php } else { ?>
-
-    <?php if ($data['message']): ?>
-        <div class="l-col min-0--12">
-            <div class="-alert c-alert--green mg-success"><?php echo $data['message'] ?></div>
-        </div>
-    <?php endif; ?>
-
+        <?php if ($data['message']): ?>
+            <span class="mg-success">
+                <span class="succes-reg"><?php echo $data['message'] ?></span>
+            </span>
+        <?php endif; ?>
  <?php } ?>

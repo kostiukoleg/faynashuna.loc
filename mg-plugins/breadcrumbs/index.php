@@ -4,7 +4,7 @@
   Plugin Name: Хлебные крошки
   Description: Выводит навигационную цепочку в каталоге товаров. Для вывода в файлах темы views/catalog.php и views/product.php необходимо вставить шорт код [brcr]
   Author: Дмитрий Гринчевский, Авдеев Марк
-  Version: 2.1.9
+  Version: 2.1.6
  */
 new BreadCrumbs;
 
@@ -35,31 +35,31 @@ class BreadCrumbs {
       foreach ($sections as $section) {
         $url = $section;
         $cat = 'title';
-        $i++;
         if ($url != 'catalog') {
-          $data = self::checkURLname('*', 'category', $section, 'url', $par);
+        $data = self::checkURLname('*', 'category', $section, 'url', $par);
 
-          $url = $data[0]['parent_url'].$section;
-          $res = $data[0]['title'];
-          $par = $data[0]['id'];
+        $url = $data[0]['parent_url'].$section;
+        $res = $data[0]['title'];
+        $par = $data[0]['id'];
 
-          if (!$data[0]['title']) {
-            $cat = 'name';
-            $n = '';
-            $result = self::checkURLname('*', 'product', $section, 'url', $n);
-            $url = $data[0]['parent_url'].$sections[1].'/'.$sections[2];
-            $categoryRes = self::checkURLname('url, parent_url', 'category', $result[0]['cat_id'], 'id');
-            $url = $categoryRes[0]['parent_url'].$categoryRes[0]['url'].'/'.$result[0]['url'];
-            $res = $result[0]['title'];
-          }
-          if ($max == $i) {
-            $breadcrumbs .= ' <span class="separator">&nbsp;/&nbsp;</span> <span class="last-crumb">'.$res.'</span>';
-          } else {
-            $breadcrumbs .= ' <span class="separator">&nbsp;/&nbsp;</span> <a href="'.SITE.'/'.$url.'"><span itemprop="category">'.$res.'</span></a>';
-          }
+        if (!$data[0]['title']) {
+          $cat = 'name';
+          $n = '';
+          $result = self::checkURLname('*', 'product', $section, 'url', $n);
+          $url = $data[0]['parent_url'].$sections[1].'/'.$sections[2];
+          $categoryRes = self::checkURLname('url, parent_url', 'category', $result[0]['cat_id'], 'id');
+          $url = $categoryRes[0]['parent_url'].$categoryRes[0]['url'].'/'.$result[0]['url'];
+          $res = $result[0]['title'];
+        }
+        }
+        $i++;
+        if ($max == $i) {
+          $breadcrumbs .= ' » <span class="last-crumb">'.$res.'</span>';
+        } else {
+          $breadcrumbs .= ' » <a href="'.SITE.'/'.$url.'"><span itemprop="category">'.$res.'</span></a>';
         }
       }
-      $breadcrumbs = "<div id='content' class='padb10'>".$breadcrumbs."</div>";
+      $breadcrumbs = "<div class='bread-crumbs'>".$breadcrumbs."</div>";
       //сохраняем объект в кэш
       Storage::save(md5('breadcrumbs'.URL::getUrl()), $breadcrumbs);
     }

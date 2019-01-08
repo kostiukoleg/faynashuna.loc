@@ -93,43 +93,36 @@ mgSEO($data);
     <!-- hit - end -->
     <!-- sales - start -->
     <?php if (!empty($data['saleProducts'])): ?>
-        <div class="l-col min-0--12">
-            <div class="c-carousel">
-                <div class="c-carousel__title">
-                    <a href="<?php echo SITE; ?>/group?type=sale">
-                        <span class="c-carousel__title--span">
-                            <?php echo lang('indexSale'); ?> <span class="c-carousel__title--more"><?php echo lang('indexViewAll'); ?></span>
-                        </span>
-                    </a>
-                </div>
-                <div class="<?php echo count($data['saleProducts']) > 0 ? "c-carousel__content" : "" ?>">
-                    <?php foreach ($data['saleProducts'] as $item) {
-                        $data['item'] = $item;
-                        layout('mini_product', $data);
-                    } ?>
-                </div>
+        <div class="m-p-products sale">
+            <div class="title">
+                <a href="<?php echo SITE; ?>/group?type=sale">
+                    <?php echo lang('indexSale'); ?>
+                </a>
             </div>
+            <div class="m-p-products-slider">
+            <div class="m-p-products-slider-start">
+                <?php foreach ($data['saleProducts'] as $item) {
+                    $data['item'] = $item;
+                    layout('mini_product', $data);
+                } ?>
+            </div>
+            </div>
+            <div class="clear"></div>
         </div>
     <?php endif; ?>
     <!-- sales - end -->
-    <!-- brand - start -->
-    <?php if (class_exists('brand')): ?>
-        <div class="l-col min-0--12 max-767--hide">
-            <div class="mg-brand c-carousel ">
-                <div class="c-carousel__title">
-                    <span class="c-carousel__title--span"><?php echo lang('indexBrand'); ?></span>
-                </div>
-                [brand]
-            </div>
-        </div>
-    <?php endif; ?>
-    <!-- brand - end -->
     <!-- seo - start -->
-        <div class="l-col min-0--12">
-            <div class="c-description c-description__bottom">
-                <?php echo $data['cat_desc'] ?>
-            </div>
+        <div class="cat-desc">
+            <?php echo $data['cat_desc'] ?>
         </div>
     <!-- seo - end -->
-
+    <div class="two-banners">
+        <a href="javascript:void(0);">
+            <img src="<?php echo PATH_SITE_TEMPLATE; ?>/images/b1_1.png" alt="">
+        </a>
+        <a href="javascript:void(0);">
+            <img src="<?php echo PATH_SITE_TEMPLATE; ?>/images/b2_2.png" alt="">
+        </a>
+    </div>
+    <!-- /два баннера -->
 </div>

@@ -1,5 +1,19 @@
 <?php if($thisUser = $data['thisUser']): ?>
-<a href="<?php echo SITE?>/personal" id="loginbtn" class="login"><?php echo lang('authAccount'); ?></a>
+
+    <a class="c-login" href="<?php echo SITE?>/personal">
+        <!--<div class="c-login__icon">
+            <svg class="icon icon--user"><use xlink:href="#icon--user"></use></svg>
+        </div>-->
+        <div class="c-login__text"><?php echo lang('authAccount'); ?></div>
+    </a>
+
 <?php else: ?>
-<a href="<?php echo SITE?>/enter" id="loginbtn" class="login"><?php echo lang('authAccountLogin'); ?></a>
+
+    <a class="c-login" href="<?php echo SITE?>/enter">
+        <!--<div class="c-login__icon">
+            <svg class="icon icon--user"><use xlink:href="#icon--user"></use></svg>
+        </div>-->
+        <div class="c-login__text"><?php echo lang('authAccount'); ?></div>
+    </a>
+
 <?php endif; ?>

@@ -8648,7 +8648,7 @@ html.mg-admin-html {
 
 .mg-admin-html .mg-enter {
     width: 320px;
-    top: 50px;
+    top: calc(50% - 113px);
     margin: 0 auto;
     box-sizing: border-box
 }

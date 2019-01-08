@@ -341,9 +341,9 @@ if(USER::isAuth() && (USER::access('admin_zone') == 1)): ?>
             <?php echo MG::getSetting('trialVersion').' Если Вы администратор сайта и у вас возникли вопросы обращайтесь на info@moguta.ru'?>
         </div>
         <?php endif;?>
-            <div class="enter-header">
+            <!--<div class="enter-header">
                 <div class="enter-logo"><img src="<?php echo $adminLogo; ?>"></div>
-            </div>
+            </div>-->
              <?php echo!empty($data['msgError'])?$data['msgError']:'' ?>
             <div class="enter-body">
                 <h2>Вход в панель управления</h2>
