@@ -61,15 +61,7 @@ mgSEO($data);
     <?php endif; ?>
     <!-- new - end -->
 
-   <!--  blok editor start -->
-   <?php if (class_exists('SiteBlockEditor')): ?>
-    <div class="site-blocks l-col">
-        [site-block id=1]
-        [site-block id=2]
-        [site-block id=3]
-    </div>
-   <?php endif ?>
-   <!--  blok editor end -->    
+  
     <!-- hit - start -->
     <?php if (!empty($data['recommendProducts'])): ?>
         <div class="l-col min-0--12">

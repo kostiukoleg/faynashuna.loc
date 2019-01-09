@@ -41,53 +41,42 @@ mgSEO($data);
     <?php endif ?>
     <!-- new - start -->
     <?php if (!empty($data['newProducts'])): ?>
-        <div class="l-col min-0--12">
-            <div class="c-carousel c-carousel--first">
-                <div class="c-carousel__title">
-                    <a href="<?php echo SITE; ?>/group?type=latest">
-                        <span class="c-carousel__title--span">
-                            <?php echo lang('indexNew'); ?> <span class="c-carousel__title--more"><?php echo lang('indexViewAll'); ?></span>
-                        </span>
-                    </a>
-                </div>
-                <div class="<?php echo count($data['newProducts']) > 0 ? "c-carousel__content" : "" ?>">
+        <div class="m-p-products sale">
+            <div class="title">
+                <a href="<?php echo SITE; ?>/group?type=latest">
+                    <?php echo lang('indexNew'); ?>
+                </a>
+            </div>
+            <div class="m-p-products-slider">
+                <div class="<?php echo count($data['newProducts']) > 0 ? "m-p-products-slider-start" : "" ?>">
                     <?php foreach ($data['newProducts'] as $item) {
                         $data['item'] = $item;
                         layout('mini_product', $data);
                     } ?>
                 </div>
-            </div>
+            </div>            
+            <div class="clear"></div>
         </div>
     <?php endif; ?>
     <!-- new - end -->
-
-   <!--  blok editor start -->
-   <?php if (class_exists('SiteBlockEditor')): ?>
-    <div class="site-blocks l-col">
-        [site-block id=1]
-        [site-block id=2]
-        [site-block id=3]
-    </div>
-   <?php endif ?>
-   <!--  blok editor end -->    
+  
     <!-- hit - start -->
     <?php if (!empty($data['recommendProducts'])): ?>
-        <div class="l-col min-0--12">
-            <div class="c-carousel">
-                <div class="c-carousel__title">
-                    <a href="<?php echo SITE; ?>/group?type=recommend">
-                        <span class="c-carousel__title--span">
-                            <?php echo lang('indexHit'); ?> <span class="c-carousel__title--more"><?php echo lang('indexViewAll'); ?></span>
-                        </span>
-                    </a>
-                </div>
-                <div class="<?php echo count($data['recommendProducts']) > 0 ? "c-carousel__content" : "" ?>">
+        <div class="m-p-products sale">
+            <div class="title">
+                <a href="<?php echo SITE; ?>/group?type=recommend">
+                    <?php echo lang('indexHit'); ?>
+                </a>
+            </div>
+            <div class="m-p-products-slider">
+                <div class="<?php echo count($data['recommendProducts']) > 0 ? "m-p-products-slider-start" : "" ?>">
                     <?php foreach ($data['recommendProducts'] as $item) {
                         $data['item'] = $item;
                         layout('mini_product', $data);
                     } ?>
                 </div>
-            </div>
+            </div>            
+            <div class="clear"></div>
         </div>
     <?php endif; ?>
     <!-- hit - end -->
@@ -100,12 +89,12 @@ mgSEO($data);
                 </a>
             </div>
             <div class="m-p-products-slider">
-            <div class="m-p-products-slider-start">
-                <?php foreach ($data['saleProducts'] as $item) {
-                    $data['item'] = $item;
-                    layout('mini_product', $data);
-                } ?>
-            </div>
+                <div class="<?php echo count($data['saleProducts']) > 0 ? "m-p-products-slider-start" : "" ?>">
+                    <?php foreach ($data['saleProducts'] as $item) {
+                        $data['item'] = $item;
+                        layout('mini_product', $data);
+                    } ?>
+                </div>
             </div>
             <div class="clear"></div>
         </div>
@@ -116,13 +105,14 @@ mgSEO($data);
             <?php echo $data['cat_desc'] ?>
         </div>
     <!-- seo - end -->
+
+   <!--  blok editor start -->
+   <?php if (class_exists('SiteBlockEditor')): ?>
     <div class="two-banners">
-        <a href="javascript:void(0);">
-            <img src="<?php echo PATH_SITE_TEMPLATE; ?>/images/b1_1.png" alt="">
-        </a>
-        <a href="javascript:void(0);">
-            <img src="<?php echo PATH_SITE_TEMPLATE; ?>/images/b2_2.png" alt="">
-        </a>
+        [site-block id=1]
+        [site-block id=2]
+        [site-block id=3]
     </div>
-    <!-- /два баннера -->
+   <?php endif ?>
+   <!--  blok editor end -->  
 </div>

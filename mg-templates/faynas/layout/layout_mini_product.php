@@ -26,6 +26,9 @@ itemscope itemtype="http://schema.org/Product"<?php endif; ?>>
         }
     ?>
     </div>
+    
+    <?php if (class_exists('MyDesiresPlugin')): ?>[addtowishlist product=<?php echo $item['id']; ?>]<?php endif; ?>
+
     <div class="product-name">
         <a href="<?php echo $data['item']["link"] ?>" <?php if(MG::get('controller')!=="controllers_product"): ?>  <?php endif; ?>><span itemprop="name"><?php echo $data['item']["title"] ?></span></a>
     </div>

@@ -3185,7 +3185,7 @@ a.c-amount__down.down {
 .c-carousel .owl-nav.disabled{
     display: none;
 }
-.c-carousel.owl-loaded{
+.c-carousel.owl-carousel{
     display: block;
 }
 .c-carousel.owl-loading{

@@ -241,7 +241,7 @@ $(document).on('click', function(e) {
         ]
     });
 
-    if ($('.c-carousel__content').hasClass('owl-loaded')) {
+    if ($('.c-carousel__content').hasClass('owl-carousel')) {
         $('.c-carousel').addClass('c-carousel--active');
     }
 

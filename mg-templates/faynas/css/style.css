@@ -793,7 +793,7 @@ h2.underlogo {
 
 .header .mg-contacts-block .phone,
 .header .mg-contacts-block .address{
-    /* padding: 0 0 20px 35px; */
+    padding: 0 0 0 35px;
     position: relative;
 }
 
@@ -3278,6 +3278,7 @@ li.c-order__list--item.c-order__checkbox label {
 .m-p-products-slider .owl-item{
     padding: 0 15px;
     box-sizing: border-box;
+    float: left;
 }
 
 .m-p-products-slider .owl-buttons{
