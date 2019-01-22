@@ -42,13 +42,9 @@
 <?php mgAddMeta('<script src="' . SCRIPT . 'standard/js/order.js"></script>'); ?>
 <?php mgAddMeta('<link href="' . SCRIPT . 'standard/css/datepicker.css" rel="stylesheet" type="text/css">'); ?>
 
-<div class="l-row">
+<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
     <?php if (!empty($data['fileToOrder'])) { ?>
-
-        <div class="l-col min-0--12">
-            <div class="c-title"><?php echo $data['fileToOrder']['infoMsg'] ?></div>
-        </div>
-
+        <h1 class="new-products-title"><?php echo $data['fileToOrder']['infoMsg'] ?></h1>
         <?php if (!empty($data['fileToOrder']['electroInfo'])) { ?>
             <div class="l-col min-0--12">
                 <ul class="c-history__list">
@@ -74,88 +70,85 @@
     $data['totalSumm'] = $cartData['totalSumm'];
     ?>
 
-    <div class="l-col min-0--12">
-        <h1 class="new-products-title"><?php echo lang('orderCheckout'); ?></h1>
-    </div>
+<h1 class="new-products-title"><?php echo lang('orderCheckout'); ?></h1>
 
-    <?php if (class_exists('MinOrder')): ?>
-        <div class="l-col min-0--12">
-            [min-order]
+
+<?php if (class_exists('MinOrder')): ?>
+    <div class="l-col min-0--12">
+        [min-order]
+    </div>
+<?php endif; ?>
+
+<div class="l-col min-0--12">
+    <div class="product-cart" style="display:<?php echo !$data['isEmpty'] ? 'none' : 'block'; ?>">
+        <div class="cart-wrapper">
+            <form method="post" action="<?php echo SITE ?>/cart" class="cart-form">
+                <div class="table-wrapper">
+                    <table class="cart-table">
+                        <thead>
+                            <tr>
+                                <th><span></span></th>
+                                <th><span class="text">Изображение</span></th>
+                                <th><strong class="text">Наименование</strong></th>
+                                <th><span class="text">Количество</span></th>
+                                <th><span class="text">Цена</span></th>
+                            </tr>
+                        </thead>
+                        <?php $i = 1;
+                        foreach ($data['productPositions'] as $product): ?>
+                            <tr>
+                                <td class="delete-cell">
+                                    <a class="deleteItemFromCart delete-btn" href="<?php echo SITE ?>/cart"
+                                        data-delete-item-id="<?php echo $product['id'] ?>"
+                                        data-property="<?php echo $product['property'] ?>"
+                                        data-variant="<?php echo $product['variantId'] ?>" title="<?php echo lang('orderRemoveProduct'); ?>">
+                                        </a>
+                                </td>
+                                <td class="img-cell">
+                                    <a href="<?php echo $product["link"] ?>" target="_blank" class="cart-img">
+                                        <img src="<?php echo mgImageProductPath($product["image_url"], $product['id'], 'small') ?>" alt="image">
+                                    </a>
+                                    <a class="deleteItemFromCart delete-btn mobile-delete" href="<?php echo SITE ?>/cart" data-delete-item-id="19" data-property="0" data-variant="" title="Удалить товар"></a>
+                                </td>
+                                <td class="name-cell">
+                                    <a class="" href="<?php echo $product["link"] ?>" target="_blank">
+                                        <?php echo $product['title'] ?>
+                                    </a>
+                                    <div class="cart-property"><?php echo $product['property_html'] ?></div>
+                                </td>
+                                <td class="count-cell">
+                                    <div class="cart_form">
+                                        <input type="text" name="item_<?php echo $product['id'] ?>[]"
+                                                    class="amount_input zeroToo" data-max-count="<?php echo $data['maxCount'] ?>"
+                                                    value="<?php echo $product['countInCart'] ?>"/>
+                                        <div class="amount_change">
+                                            <a href="#" class="up">+</a>
+                                            <a href="#" class="down">-</a>
+                                        </div>
+                                    </div>
+                                    <input type="hidden" name="property_<?php echo $product['id'] ?>[]" value="<?php echo $product['property'] ?>"/>
+                                    <button type="submit" name="refresh" class="refresh" title="Пересчитать" value="Пересчитать">Пересчитать                                        </button>
+                                </td>
+                                <td class="price-cell">
+                                    <?php echo MG::numberFormat($product['countInCart'] * $product['price']) ?> <?php echo $data['currency']; ?>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                    </table>
+                </div>
+            </form>
+        </div>
+        <div class="total-wrapper clearfix"></div>
+    </div>
+    <?php if ((class_exists('OikDisountCoupon')) || (class_exists('PromoCode')) && $data['isEmpty'] ): ?>
+        <div class="c-promo-code">
+            [promo-code]
         </div>
     <?php endif; ?>
-
-    <div class="l-col min-0--12">
-        <div class="product-cart" style="display:<?php echo !$data['isEmpty'] ? 'none' : 'block'; ?>">
-           <div class="cart-wrapper">
-                <form method="post" action="<?php echo SITE ?>/cart" class="cart-form">
-                    <div class="table-wrapper">
-                        <table class="cart-table">
-                            <thead>
-                                <tr>
-                                    <th><span></span></th>
-                                    <th><span class="text">Изображение</span></th>
-                                    <th><strong class="text">Наименование</strong></th>
-                                    <th><span class="text">Количество</span></th>
-                                    <th><span class="text">Цена</span></th>
-                                </tr>
-                            </thead>
-                           <?php $i = 1;
-                           foreach ($data['productPositions'] as $product): ?>
-                               <tr>
-                                    <td class="delete-cell">
-                                       <a class="deleteItemFromCart delete-btn" href="<?php echo SITE ?>/cart"
-                                          data-delete-item-id="<?php echo $product['id'] ?>"
-                                          data-property="<?php echo $product['property'] ?>"
-                                          data-variant="<?php echo $product['variantId'] ?>" title="<?php echo lang('orderRemoveProduct'); ?>">
-                                          </a>
-                                   </td>
-                                   <td class="img-cell">
-                                       <a href="<?php echo $product["link"] ?>" target="_blank" class="cart-img">
-                                           <img src="<?php echo mgImageProductPath($product["image_url"], $product['id'], 'small') ?>" alt="image">
-                                       </a>
-                                       <a class="deleteItemFromCart delete-btn mobile-delete" href="<?php echo SITE ?>/cart" data-delete-item-id="19" data-property="0" data-variant="" title="Удалить товар"></a>
-                                   </td>
-                                   <td class="name-cell">
-                                       <a class="" href="<?php echo $product["link"] ?>" target="_blank">
-                                           <?php echo $product['title'] ?>
-                                       </a>
-                                       <div class="cart-property"><?php echo $product['property_html'] ?></div>
-                                   </td>
-                                   <td class="count-cell">
-                                        <div class="cart_form">
-                                            <input type="text" name="item_<?php echo $product['id'] ?>[]"
-                                                       class="amount_input zeroToo" data-max-count="<?php echo $data['maxCount'] ?>"
-                                                       value="<?php echo $product['countInCart'] ?>"/>
-                                            <div class="amount_change">
-                                                <a href="#" class="up">+</a>
-                                                <a href="#" class="down">-</a>
-                                            </div>
-                                        </div>
-                                       <input type="hidden" name="property_<?php echo $product['id'] ?>[]" value="<?php echo $product['property'] ?>"/>
-                                       <button type="submit" name="refresh" class="refresh" title="Пересчитать" value="Пересчитать">Пересчитать                                        </button>
-                                   </td>
-                                   <td class="price-cell">
-                                       <?php echo MG::numberFormat($product['countInCart'] * $product['price']) ?> <?php echo $data['currency']; ?>
-                                   </td>
-                               </tr>
-                           <?php endforeach; ?>
-                        </table>
-                    </div>
-                </form>
-            </div>
-            <div class="total-wrapper clearfix"></div>
-        </div>
-        <?php if ((class_exists('OikDisountCoupon')) || (class_exists('PromoCode'))): ?>
-            <div class="c-promo-code">
-                [promo-code]
-            </div>
-        <?php endif; ?>
-        <div class="c-alert c-alert--blue empty-cart-block alert-info" style="display:<?php echo !$data['isEmpty'] ? 'block' : 'none'; ?>">
-            <?php echo lang('cartIsEmpty'); ?>
-        </div>
+    <div class="c-alert c-alert--blue empty-cart-block alert-info" style="display:<?php echo !$data['isEmpty'] ? 'block' : 'none'; ?>">
+        <?php echo lang('cartIsEmpty'); ?>
     </div>
 </div>
-
 <div class="l-row">
     <div class="c-order checkout-form-wrapper" style="display:<?php echo $data['isEmpty'] ? 'block' : 'none'; ?>">
         <p class="custom-text">Для того чтобы совершить покупку, корректно заполните форму ниже.</p>
@@ -332,9 +325,7 @@
         </div>
     <?php endif; ?>
 
-    <div class="l-col min-0--12">
-        <h1 class="new-products-title"><?php echo lang('orderPayment'); ?></h1>
-    </div>
+    <h1 class="new-products-title"><?php echo lang('orderPayment'); ?></h1>
 
     <?php if (!$data['pay'] && $data['payment'] == 'fail'): ?>
         <div class="l-col min-0--12">
@@ -345,17 +336,11 @@
     <?php else: ?>
 
         <div class="payment-form-block">
-            <div class="l-col min-0--12">
-                <div class="c-alert c-alert--green">
-                    <?php echo lang('orderPaymentForm1'); ?> <strong>№ <?php echo $data['orderNumber'] ?></strong> <?php echo lang('orderPaymentForm2'); ?>
-                </div>
+            <div class="text-success">
+                <?php echo lang('orderPaymentForm1'); ?> <strong>№ <?php echo $data['orderNumber'] ?></strong> <?php echo lang('orderPaymentForm2'); ?>
             </div>
-            <div class="l-col min-0--12">
-                <div class="c-alert c-alert--blue">
-                    <p><?php echo lang('orderPaymentForm3'); ?></p>
-                    <p><?php echo lang('orderPaymentForm4'); ?> <b>№ <?php echo $data['orderNumber'] ?></b> <?php echo lang('orderPaymentForm5'); ?> <b><?php echo MG::numberFormat($data['summ']) ?></b> <?php echo $data['currency']; ?></p>
-                </div>
-            </div>
+            <p><?php echo lang('orderPaymentForm3'); ?></p><hr>
+            <p><?php echo lang('orderPaymentForm4'); ?> <b>№ <?php echo $data['orderNumber'] ?></b> <?php echo lang('orderPaymentForm5'); ?> <b><?php echo MG::numberFormat($data['summ']) ?></b> <?php echo $data['currency']; ?></p>
         </div>
 
         <div class="l-col min-0--12">
@@ -371,8 +356,8 @@
             break; case 3: $data['meta_title'] = lang('orderPaymentConfirmTitle'); mgSEO($data); if ($data['msg']): ?>
         </div>
 
-        <div class="l-col min-0--12">
-            <div class="c-alert c-alert--green text-success">
+        <div class="payment-form-block">
+            <div class="text-success">
                 <?php echo $data['msg'] ?>
             </div>
         </div>
@@ -384,7 +369,7 @@
                 <div class="c-title"><?php echo lang('orderPaymentConfirmTitle'); ?></div>
             </div>
             <div class="l-col min-0--12">
-                <div class="c-alert c-alert--green auth-text"><?php echo lang('orderPaymentConfirm1'); ?><?php echo $data['orderNumber'] ?> <?php echo lang('orderPaymentConfirm2'); ?></div>
+                <div class="auth-text"><?php echo lang('orderPaymentConfirm1'); ?><?php echo $data['orderNumber'] ?> <?php echo lang('orderPaymentConfirm2'); ?></div>
             </div>
         <?php endif;
 
@@ -565,7 +550,7 @@
                     <div class="c-history__content--right">
                         <div class="order-total">
                             <ul class="c-history__list total-list">
-<?php viewData($order) ?>
+                                <?php viewData($order) ?>
                                 <?php if($coupon): ?>
                                 <li class="c-history__list--item">
                                     <b><?php echo lang('orderFinalCoupon'); ?></b> <span title="<?php echo $coupon ?>"><?php echo MG::textMore($coupon, 20) ?></span>

@@ -36,7 +36,7 @@
 // Установка значений в метатеги title, keywords, description.
 mgSEO($data);
 ?>
-
+<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
 <?php if (empty($data['searchData'])): ?>
 
     <!-- catalog - start -->

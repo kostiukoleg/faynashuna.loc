@@ -23,9 +23,7 @@
     <?php layout('icons'); ?>
     <!-- svg иконки -->
     <?php layout('ie9'); ?>
-
     <div class="wrapper">
-
         <!--Шапка сайта-->
         <div class="header">
             <div class="top-bar">
@@ -36,17 +34,17 @@
                         
                         <?php if($thisUser = $data['thisUser']): ?>
 
-                            <a class="enter-link" href="<?php echo SITE?>/personal">
-                                <span class="text"><?php echo lang('authAccount'); ?></span>
-                            </a>
+                        <a class="enter-link" href="<?php echo SITE?>/personal">
+                            <span class="text"><?php echo lang('authAccount'); ?></span>
+                        </a>
 
-                            <?php else: ?>
+                        <?php else: ?>
 
-                                <a class="enter-link" href="<?php echo SITE?>/enter">
-                                    <span class="text"><?php echo lang('authAccount'); ?></span>
-                                </a>
+                        <a class="enter-link" href="<?php echo SITE?>/enter">
+                            <span class="text"><?php echo lang('authAccount'); ?></span>
+                        </a>
 
-                                <?php endif; ?>
+                        <?php endif; ?>
                     </div>
                     <div class="top-menu-block">            
                     <?php 
@@ -92,36 +90,31 @@
                     <div class="work-hours">
                             <a href="javascript:void(0)" class="clock-icon"></a>
                             <div class="hours">
-                                <?php $workTime = explode(',', MG::getSetting('timeWork')); ?>
-                                    <?php echo lang('mon-fri'); ?>
-                                        </span>
-                                        <?php echo trim($workTime[0]); ?>
-                                            <?php echo lang('sat-sun'); ?>
-                                                </span>
-                                                <?php echo trim($workTime[1]); ?>
+                            <?php $workTime = explode(',', MG::getSetting('timeWork')); ?>
+                            <span>
+                            <?php echo lang('mon-fri'); ?>
+                            <?php echo trim($workTime[0]); ?>
+                            <?php echo lang('sat-sun'); ?>
+                            <?php echo trim($workTime[1]); ?>
+                            </span>
                             </div>
                         </div>
                     <!--/Вывод логотипа сайта-->
 
                     <div class="bar-right clearfix">
                         <!--Вывод аякс поиска-->
-
                         <?php layout('search'); ?>
-                            <!--/Вывод аякс поиска-->
+                        <!--/Вывод аякс поиска-->
 
-                            <div class="icons-wrapper clearfix">
-                                <!--Индикатор сравнения товаров-->
-
-                                <?php layout('compare'); ?>
-                                    <!--/Индикатор сравнения товаров-->
-
-                                    <!--Вывод корзины-->
-                                    
-                                    <div class="mg-layer" style="display: none"></div>
-
-                                    <?php layout('cart'); ?>
-                                    <!--/Вывод корзины-->
-                            </div>
+                        <div class="icons-wrapper clearfix">
+                            <!--Индикатор сравнения товаров-->
+                            <?php layout('compare'); ?>
+                            <!--/Индикатор сравнения товаров-->
+                            <!--Вывод корзины-->
+                            <div class="mg-layer" style="display: none"></div>
+                            <?php layout('cart'); ?>
+                            <!--/Вывод корзины-->
+                        </div>
                     </div>
                 </div>
             </div>
@@ -141,14 +134,11 @@
                 <?php layout('leftmenu'); ?>            
                 </div>-->
                 <div class="center">
-                    <!-- плагин хлебных крошек -->
-                    <div class="bread-crumbs"><?php if (class_exists('BreadCrumbs')&&MG::get('controller')=="controllers_catalog"): ?>[brcr]<?php endif; ?></div>
-                    <!-- /плагин хлебных крошек -->
                     <?php layout('content'); ?> <!-- содержимое страниц -->
                 </div>
             </div>
         </div>
-        <?php if (class_exists('brand')): ?>
+        <?php if (class_exists('brand') && URL::isSection(null)): ?>
             [brand] 
         <?php endif; ?>
         <!--Подвал сайта-->
