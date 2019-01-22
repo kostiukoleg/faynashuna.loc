@@ -12,6 +12,8 @@
     <?php mgMeta("meta","css","jquery"); ?>
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.fake.cart.css" rel="stylesheet"/>');?>
+    <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.cart.css" rel="stylesheet"/>');?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/owl.carousel.min.js"></script>'); ?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/jquery.hoverIntent.js"></script>'); ?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/script.js"></script>'); ?>

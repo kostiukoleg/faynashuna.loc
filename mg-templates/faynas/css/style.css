@@ -314,10 +314,10 @@ body.grey-bg{
 .top-bar{
     background: #EFF1F0;
     position: relative;
-    z-index: 99;
+    /* z-index: 99; */
 }
 
-.centered{
+.centered, .j-container{
     max-width: 1200px;
     margin: 0 auto;
     /* padding: 0 15px; */
@@ -383,6 +383,8 @@ ul.j-page__ul.j-offcanvas__menu li {
         height: 40px;
     }
     .j-page__nav .j-page__ul {
+        padding: 0;
+        margin: 0;
         display: -webkit-box;
         display: -webkit-flex;
         display: -ms-flexbox;
@@ -654,7 +656,7 @@ background: #006fa7 url("../images/bg-slider.png") 50% 0;
     background: #fff;
     box-shadow: 0 2px 12px rgba(0,0,0,0.3);
     position: relative;
-    z-index: 55;
+    /* z-index: 55; */
     /* margin: 0 0 20px 0; */
 }
 
@@ -1076,6 +1078,10 @@ h2.underlogo {
     top: 0;
     left: 0;
     margin: 0 auto 3px;
+}
+
+.wrapper .mg-desktop-cart .small-cart-icon:hover{
+    background:#2B7DD5;
 }
 
 .wrapper .mg-desktop-cart .small-cart-icon:before{
@@ -1704,6 +1710,10 @@ h2 {
     box-shadow: 0 2px 25px rgba(0,0,0,0.20);
 }
 
+.addToCompare:hover:before{
+    background: url("../images/libra-icon.png") 0 -16px no-repeat;
+}
+
 .addToCompare:before{
     content: "";
     width: 20px;
@@ -1753,9 +1763,9 @@ body .wrapper .default-btn, .mg-buy-click-button {
     line-height: 40px;
     height: 40px;
     color: #fff;
-    background: #1A4D82;
+    background: linear-gradient(to bottom, #FF5942 0%, #E13119 100%);
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 5px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.2);
     text-shadow: none;
     transition: background 0.2s ease-in-out;
@@ -2110,7 +2120,11 @@ body .wrapper .default-btn:hover,
 .product-cart .cart-wrapper{
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
     background: #fff;
-    margin: 60px 0 40px 0;
+    margin: 60px 0 0 0;
+}
+
+.c-promo-code{
+    margin-bottom: 20px;
 }
 
 .cart-table tr td .amount_input {
@@ -2189,6 +2203,7 @@ body .wrapper .default-btn:hover,
 .cart-table tr td a.cart-img img{
     display: inline-block;
     vertical-align: top;
+    width: 150px;
 }
 
 .cart-table tr td strong {
@@ -2513,6 +2528,10 @@ body .wrapper .default-btn:hover,
     padding: 0 40px;
     border: 1px solid #CBCBCB;
     margin: 0 0 20px 0;
+}
+
+.cart_form span.maxCount{
+    position: absolute;
 }
 
 .property-form .qty-text {
@@ -4328,6 +4347,15 @@ li.c-order__list--item.c-order__checkbox label {
     position: relative;
 }
 
+.mg-product-to-compare a:hover{
+    box-shadow: 0 2px 25px rgba(0,0,0,0.20);
+    border-bottom: 2px solid transparent;
+}
+
+.mg-product-to-compare a:hover:before{
+    background: url("../images/libra-icon.png") 0 -16px no-repeat;
+}
+
 .mg-product-to-compare a:before{
     content: "";
     width: 20px;
@@ -4646,8 +4674,8 @@ body .mg-scrollTop:hover{
 
 .wrapper .wrapper-back-ring .back-ring-button:active,
 .wrapper .wrapper-back-ring .back-ring-button:hover{
-    border-bottom: 2px solid #FF5942;
-    background: linear-gradient(to bottom, #E13119 0%, #FF5942 100%);
+    border-bottom: 2px solid rgb(0, 61, 126);
+    background: #2B7DD5;
 }
 
 .wrapper .wrapper-back-ring .back-ring-button{
@@ -4657,7 +4685,6 @@ body .mg-scrollTop:hover{
     color: #ffffff;
     font-size: 16px;
     text-align: center;
-    border-radius: 3px;
     border-bottom: 2px solid #AB1B07;
 }
 

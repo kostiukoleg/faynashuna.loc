@@ -75,7 +75,7 @@
     ?>
 
     <div class="l-col min-0--12">
-        <div class="c-title"><?php echo lang('orderCheckout'); ?></div>
+        <h1 class="new-products-title"><?php echo lang('orderCheckout'); ?></h1>
     </div>
 
     <?php if (class_exists('MinOrder')): ?>
@@ -86,65 +86,70 @@
 
     <div class="l-col min-0--12">
         <div class="product-cart" style="display:<?php echo !$data['isEmpty'] ? 'none' : 'block'; ?>">
-           <div class="c-form cart-wrapper">
+           <div class="cart-wrapper">
                 <form method="post" action="<?php echo SITE ?>/cart" class="cart-form">
-                    <div class="c-table">
+                    <div class="table-wrapper">
                         <table class="cart-table">
+                            <thead>
+                                <tr>
+                                    <th><span></span></th>
+                                    <th><span class="text">Изображение</span></th>
+                                    <th><strong class="text">Наименование</strong></th>
+                                    <th><span class="text">Количество</span></th>
+                                    <th><span class="text">Цена</span></th>
+                                </tr>
+                            </thead>
                            <?php $i = 1;
                            foreach ($data['productPositions'] as $product): ?>
                                <tr>
-                                   <td class="c-table__img img-cell">
-                                       <a href="<?php echo $product["link"] ?>" target="_blank" class="cart-img">
-                                           <img src="<?php echo mgImageProductPath($product["image_url"], $product['id'], 'small') ?>" alt="image">
-                                       </a>
-                                   </td>
-                                   <td class="c-table__name name-cell">
-                                       <a class="c-table__link" href="<?php echo $product["link"] ?>" target="_blank">
-                                           <?php echo $product['title'] ?>
-                                       </a>
-                                       <br/><?php echo $product['property_html'] ?>
-                                   </td>
-                                   <td class="c-table__count count-cell">
-                                        <div class="cart_form">
-                                            <div class="c-amount amount_change">
-                                                <a href="#" class="c-amount__up up">
-                                                    <svg class="icon icon--arrow-right"><use xlink:href="#icon--arrow-right"></use></svg>
-                                                </a>
-                                                <input type="text" name="item_<?php echo $product['id'] ?>[]"
-                                                       class="amount_input zeroToo" data-max-count="<?php echo $data['maxCount'] ?>"
-                                                       value="<?php echo $product['countInCart'] ?>"/>
-                                                <a href="#" class="c-amount__down down">
-                                                    <svg class="icon icon--arrow-left"><use xlink:href="#icon--arrow-left"></use></svg>
-                                                </a>
-                                            </div>
-                                        </div>
-                                       <input type="hidden" name="property_<?php echo $product['id'] ?>[]" value="<?php echo $product['property'] ?>"/>
-                                   </td>
-                                   <td class="c-table__price     price-cell">
-                                       <?php echo MG::numberFormat($product['countInCart'] * $product['price']) ?> <?php echo $data['currency']; ?>
-                                   </td>
-                                   <td class="c-table__remove     remove-cell">
+                                    <td class="delete-cell">
                                        <a class="deleteItemFromCart delete-btn" href="<?php echo SITE ?>/cart"
                                           data-delete-item-id="<?php echo $product['id'] ?>"
                                           data-property="<?php echo $product['property'] ?>"
                                           data-variant="<?php echo $product['variantId'] ?>" title="<?php echo lang('orderRemoveProduct'); ?>">
-                                              &nbsp;&nbsp;<div class="icon__cart">
-                                              <svg class="icon icon--remove"><use xlink:href="#icon--remove"></use></svg>
-                                          </div>&nbsp;&nbsp;
                                           </a>
+                                   </td>
+                                   <td class="img-cell">
+                                       <a href="<?php echo $product["link"] ?>" target="_blank" class="cart-img">
+                                           <img src="<?php echo mgImageProductPath($product["image_url"], $product['id'], 'small') ?>" alt="image">
+                                       </a>
+                                       <a class="deleteItemFromCart delete-btn mobile-delete" href="<?php echo SITE ?>/cart" data-delete-item-id="19" data-property="0" data-variant="" title="Удалить товар"></a>
+                                   </td>
+                                   <td class="name-cell">
+                                       <a class="" href="<?php echo $product["link"] ?>" target="_blank">
+                                           <?php echo $product['title'] ?>
+                                       </a>
+                                       <div class="cart-property"><?php echo $product['property_html'] ?></div>
+                                   </td>
+                                   <td class="count-cell">
+                                        <div class="cart_form">
+                                            <input type="text" name="item_<?php echo $product['id'] ?>[]"
+                                                       class="amount_input zeroToo" data-max-count="<?php echo $data['maxCount'] ?>"
+                                                       value="<?php echo $product['countInCart'] ?>"/>
+                                            <div class="amount_change">
+                                                <a href="#" class="up">+</a>
+                                                <a href="#" class="down">-</a>
+                                            </div>
+                                        </div>
+                                       <input type="hidden" name="property_<?php echo $product['id'] ?>[]" value="<?php echo $product['property'] ?>"/>
+                                       <button type="submit" name="refresh" class="refresh" title="Пересчитать" value="Пересчитать">Пересчитать                                        </button>
+                                   </td>
+                                   <td class="price-cell">
+                                       <?php echo MG::numberFormat($product['countInCart'] * $product['price']) ?> <?php echo $data['currency']; ?>
                                    </td>
                                </tr>
                            <?php endforeach; ?>
                         </table>
                     </div>
                 </form>
-                <?php if ((class_exists('OikDisountCoupon')) || (class_exists('PromoCode'))): ?>
-                    <div class="c-promo-code">
-                        [promo-code]
-                    </div>
-                <?php endif; ?>
             </div>
+            <div class="total-wrapper clearfix"></div>
         </div>
+        <?php if ((class_exists('OikDisountCoupon')) || (class_exists('PromoCode'))): ?>
+            <div class="c-promo-code">
+                [promo-code]
+            </div>
+        <?php endif; ?>
         <div class="c-alert c-alert--blue empty-cart-block alert-info" style="display:<?php echo !$data['isEmpty'] ? 'block' : 'none'; ?>">
             <?php echo lang('cartIsEmpty'); ?>
         </div>
@@ -153,6 +158,7 @@
 
 <div class="l-row">
     <div class="c-order checkout-form-wrapper" style="display:<?php echo $data['isEmpty'] ? 'block' : 'none'; ?>">
+        <p class="custom-text">Для того чтобы совершить покупку, корректно заполните форму ниже.</p>
         <?php if ($data['msg']): ?>
             <div class="l-col min-0--12">
                 <div class="c-alert c-alert--red mg-error">
@@ -327,7 +333,7 @@
     <?php endif; ?>
 
     <div class="l-col min-0--12">
-        <div class="c-title"><?php echo lang('orderPayment'); ?></div>
+        <h1 class="new-products-title"><?php echo lang('orderPayment'); ?></h1>
     </div>
 
     <?php if (!$data['pay'] && $data['payment'] == 'fail'): ?>

@@ -51,6 +51,15 @@ mgSEO($data);
                <form class="cart-form" method="post" action="<?php echo SITE ?>/cart">
                    <div class="c-table">
                        <table class="cart-table">
+                           <thead>
+                                <tr>
+                                    <th><span></span></th>
+                                    <th><span class="text">Изображение</span></th>
+                                    <th><strong class="text">Наименование</strong></th>
+                                    <th><span class="text">Количество</span></th>
+                                    <th><span class="text">Цена</span></th>
+                                </tr>
+                            </thead>
                            <?php $i = 1;
                            foreach ($data['productPositions'] as $product): ?>
                                <tr>
