@@ -4,7 +4,7 @@
             echo($data['maxCount'] == "0" || !$data['activity'] ? 'style="display:none"' : '');
         } ?> >
 
-        <div class="c-buy hidder-element" <?php echo($data['noneButton'] ? 'style="display:none"' : '') ?> >
+        <div class="hidder-element" <?php echo($data['noneButton'] ? 'style="display:none"' : '') ?> >
             <input type="hidden" name="inCartProductId" value="<?php echo $data['id'] ?>">
 
            

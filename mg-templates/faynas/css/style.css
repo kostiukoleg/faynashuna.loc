@@ -494,7 +494,6 @@ ul.j-page__ul.j-offcanvas__menu li {
         display: inline-block;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
-        float: right;
         font-size: 10px;
         margin-right: -10px;
         color: #999999;
@@ -577,7 +576,6 @@ ul.j-page__ul.j-offcanvas__menu li {
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
         content: "\e902";
-        float: right;
         margin-left: 10px;
         font-size: 12px;
     }
@@ -1017,10 +1015,6 @@ h2.underlogo {
     color: #000;
     margin: 5px 0;
     display: inline-block;
-    -webkit-transition: all 0.20s ease-in-out;
-    -moz-transition: all 0.20s ease-in-out;
-    -ms-transition: all 0.20s ease-in-out;
-    -o-transition: all 0.20s ease-in-out;
     font-size: 14px;
 }
 
@@ -1700,10 +1694,6 @@ h2 {
     border-radius: 100%;
     position: relative;
     transition: box-shadow 0.2s ease-in-out;
-}
-.list .product-buttons .wrapper-mg-buy-click {
-    padding: 0;
-    width: auto;
 }
 
 .addToCompare:hover{
@@ -4934,14 +4924,6 @@ div.spoiler div.spoiler-title div.spoiler-toggle {
     -webkit-user-modify: read-only;
 }
 
-div.spoiler div.spoiler-title div.hide-icon {
-   /* background: url('../images/minus.png') no-repeat scroll left center transparent;*/
-}
-
-div.spoiler div.spoiler-title div.show-icon {
-   /* background: url('../images/plus.png') no-repeat scroll left center transparent;*/
-}
-
 div.spoiler div.spoiler-content {
     font-size: 13px;
     border: 1px solid #bbbbbb;
@@ -5059,7 +5041,8 @@ blockquote {
 }
 
 .container {
-    margin-top: 45px;
+    padding-top: 45px;
+    min-height: 400px;
 }
 
 .container .side-block + .center{

@@ -40,93 +40,51 @@ mgSEO($data);
 <?php if (empty($data['searchData'])): ?>
 
     <!-- catalog - start -->
-    <div class="l-row">
-        <!-- c-title - start -->
-        <div class="l-col min-0--12 c-title__categoty">
-            <h1 class="c-title"><?php echo $data['titeCategory'] ?></h1>
-        </div>
-        <!-- c-title - end -->
-
-        <!-- c-description - start -->
-        <?php if ($cd = str_replace("&nbsp;", "", $data['cat_desc'])): ?>
-            <div class="l-col min-0--12 c-description_category">
-                <div class="c-description c-description__top">
-                    <?php if ($data['cat_img']): ?>
-                        <img src="<?php echo SITE . $data['cat_img'] ?>" alt="<?php echo $data['seo_alt'] ?>" title="<?php echo $data['seo_title'] ?>">
-                    <?php endif; ?>
-                    <?php if (URL::isSection('catalog')||(((MG::getSetting('catalogIndex')=='true') && (URL::isSection('index') || URL::isSection(''))))): ?>
-            <!-- Здесь можно добавить описание каталога - информация для пользователей (выводится только на странице каталог (не в категории)) -->
-        <?php else :?>
-            <?php echo $data['cat_desc'] ?>
-        <?php endif;?>
-                </div>
-            </div>
-        <?php endif; ?>
-        <!-- c-description - end -->
-
+    <div class="center">
         <!-- c-sub - start -->
         <?php if (MG::getSetting('picturesCategory') == 'true'): ?>
             <?php echo mgSubCategory($data['cat_id']); ?>
         <?php endif; ?>
         <!-- c-sub - end -->
 
-
-        <!-- mobile filter - start -->
-        <div class="l-col min-0--12 min-768--6 min-1025--hide ">
-            <a href="#c-filter" class="c-button c-filter__button">
-                <svg class="icon icon--filter"><use xlink:href="#icon--filter"></use></svg>
-                <?php echo lang('mobileShowFilter'); ?>
-            </a>
-        </div>
-        <!-- mobile filter - end -->
-
-        <!-- c-switcher - start -->
-        <div class="l-col min-0--hide min-768--6 min-1025--12 c-catalog__switchers">
-            <div class="c-switcher">
-                <div class="c-switcher__item c-switcher__item--active" data-type="c-goods--grid" title="<?php echo lang('viewNet'); ?>">
-                    <svg class="icon icon--grid"><use xlink:href="#icon--grid"></use></svg>
-                </div>
-                <div class="c-switcher__item" data-type="c-goods--list" title="<?php echo lang('viewList'); ?>">
-                    <svg class="icon icon--list"><use xlink:href="#icon--list"></use></svg>
-                </div>
-            </div>
-        </div>
-        <!-- c-switcher - end -->
-
-        <!-- c-apply - start -->
-        <?php layout("apply_filter", $data['applyFilter']); ?>
-        <!-- c-switcher - end -->
+        <!-- c-title - start -->
+        <h1 class="new-products-title"><?php echo $data['titeCategory'] ?></h1>
+        <!-- c-title - end -->
 
         <!-- c-goods - start -->
-        <div class="l-col min-0--12">
-            <div class="c-goods products-wrapper catalog">
-                <div class="l-row">
-                    <?php foreach ($data['items'] as $item) {
-                        $data['item'] = $item; ?>
-                        <div class="l-col min-0--6 min-768--4 min-990--3 min-1025--4 c-goods__trigger">
-                            <?php layout('mini_product', $data); ?>
-                        </div>
-                    <?php } ?>
-
-                    <!-- pager - start -->
-                    <div class="l-col min-0--12">
-                        <div class="c-pagination">
-                            <?php echo $data['pager']; ?>
-                        </div>
+        <div class="products-wrapper catalog list">
+            <div class="form-group">
+                <!-- c-switcher - start -->
+                <div class="view-switcher">
+                    <span class="form-title">Вид каталога:</span>
+                    <div class="btn-group" data-toggle="buttons-radio">
+                        <button class="view-btn grid" title="Вид сеткой" data-type="grid"></button>
+                        <button class="view-btn list active" title="Вид списком" data-type="list"></button>
                     </div>
-                    <!-- pager - end -->
-
                 </div>
+                <div class="count-viewed"></div>
+                <div class="clear"></div>
+                <!-- c-switcher - end -->
+            </div>
+            <div class="products-holder clearfix">
+                <?php foreach ($data['items'] as $item) {
+                    $data['item'] = $item; ?>
+                        <?php layout('mini_product', $data); ?>
+                <?php } ?>
+
+                <!-- pager - start -->
+                <div class="clear"></div>
+                <?php echo $data['pager']; ?>
+                <div class="clear"></div>
+                <!-- pager - end -->    
             </div>
         </div>
         <!-- c-goods - end -->
 
         <!-- seo - start -->
         <?php if($data['cat_desc_seo']){ ?>
-        <div class="l-col min-0--12">
-            <div class="c-description c-description__bottom">
-                <?php echo $data['cat_desc_seo'] ?>
-            </div>
+        <div class="cat-desc-text">
+            <?php echo $data['cat_desc_seo'] ?>
         </div>
         <?php } ?>
         <!-- seo - end -->
