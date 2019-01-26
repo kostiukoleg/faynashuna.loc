@@ -49,7 +49,7 @@ mgSEO($data);
             <?php endif; ?>
 
             <div class="feedback-form-wrapper box">
-                <img src="http://dress2.template.moguta.ru/mg-templates/mg-boutique/images/woman.png" alt="" class="woman-img">
+                <img src="<?php echo PATH_SITE_TEMPLATE ?>/images/tiers.png" alt="" class="woman-img">
                 <div class="box-header"><?php echo lang('feedbackTitle'); ?></div>
                 <div class="box-body">
                     <form class="c-form c-form--width" action="" method="post" name="feedback">

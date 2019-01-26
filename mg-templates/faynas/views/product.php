@@ -51,166 +51,136 @@
 mgSEO($data);
 ?>
 
+<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
+<div class="c-product product-details-block" itemscope itemtype="http://schema.org/Product">
+        <div class="product-status clearfix">
+            <div class="mg-product-slides margin">
+                <?php mgGalleryProduct($data); ?>
+            </div>
+            <div class="buy-block">
+                <div class="buy-block-inner">
+                    <div class="product-bar">
+                        <h1 class="product-title" itemprop="name"><?php echo $data['title'] ?></h1>
+                        <div>
 
-<div class="c-product product-details-block">
+                            <div class="product-code">
+                                <span>
+                                <?php echo lang('productCode'); ?> <span class="c-product__code--span label-article code" itemprop="productID"> <?php echo $data['code'] ?></span>
+                                </span>
+                                <span class="price">
+                                    <span content="<?php echo str_replace(' ', '', $data['price'])?>"></span>
+                                    <span content="<?php echo $data['currency']; ?>"></span>
+                                </span>
+                            </div>
 
-    <div class="l-row">
-        <div class="l-col min-0--12">
-            <div class="product-status" itemscope itemtype="http://schema.org/Product">
-                <?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
-                <div class="l-row">
-                    <div class="l-col min-0--12 min-768--6">
-                        <?php mgGalleryProduct($data); ?>
-                    </div>
-                    <div class="l-col min-0--12 min-768--6">
-                        <div class="c-product__content buy-block">
-                            <div class="buy-block-inner">
-                                <div class="product-bar">
-                                    <div class="c-product__row">
-                                        <h1 class="c-title" itemprop="name"><?php echo $data['title'] ?></h1>
-                                    </div>
-                                    <div class="c-product__row">
-                                        <div class="c-product__block">
-                                            <div class="c-product__block--left">
-                                                <div class="c-product__row">
-                                                    <div class="c-product__code product-code">
-                                                        <span>
-                                                        <?php echo lang('productCode'); ?> <span class="c-product__code--span label-article code" itemprop="productID"> <?php echo $data['code'] ?></span>
-                                                        </span>
-                                                        <span class="price">
-                                                            <span content="<?php echo str_replace(' ', '', $data['price'])?>"></span>
-                                                            <span content="<?php echo $data['currency']; ?>"></span>
-                                                        </span>
-                                                    </div>
-                                                    <div class="available">
-                                                        <?php layout('count_product', $data); ?>                                                                                                            
-                                                    </div>
-                                                </div>
-                                                <?php if (class_exists('NonAvailable')): ?>
-                                                    <div class="c-product__row">[non-available id="<?php echo $data['id']?>"]</div>
-                                                <?php endif; ?>
-                                                <div class="c-product__row">
-                                                    <ul class="product-status-list">
-                                                        <li <?php echo (!$data['weight']) ? 'style="display:none"' : 'style="display:block"' ?>>
-                                                            <?php echo lang('productWeight1'); ?> <span class="label-black weight"><?php echo $data['weight'] ?></span> <?php echo lang('productWeight2'); ?>
-                                                        </li>
-                                                    </ul>
-                                                </div>  
+                            <div class="product-price">
+                                <ul itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-status-list">
+                                    <li>
+                                        <div class="c-product__price c-product__price--current normal-price">
+                                            <div class="c-product__price--title">
+                                                <?php echo lang('productPrice'); ?>
                                             </div>
-                                            <div class="c-product__block--right">
-                                                <div class="c-product__row">
-                                                    <div class="default-price">
-                                                        <div class="product-price">
-                                                            <ul itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="product-status-list">
-                                                                <li>
-                                                                    <div class="c-product__price c-product__price--current normal-price">
-                                                                        <div class="c-product__price--title">
-                                                                            <?php echo lang('productPrice'); ?>
-                                                                        </div>
-                                                                        <span class="c-product__price--value price">
-                                                                            <span itemprop="price" content="<?php echo MG::numberDeFormat($data['price']);?>"><?php echo $data['price'] ?></span> <span itemprop="priceCurrency"><?php echo $data['currency']; ?></span>
-                                                                        </span>
-                                                                    </div>
-                                                                </li>
-                                                                <li <?php echo (!$data['old_price']) ? 'style="display:none"' : 'style="display:block"' ?>>
-                                                                    <div class="c-product__price c-product__price--old old">
-                                                                        <div class="c-product__price--title">
-                                                                            <?php echo lang('productOldPrice'); ?>
-                                                                        </div>
-                                                                        <s class="c-product__price--value old-price">
-                                                                            <?php echo MG::numberFormat($data['old_price']) . " " . $data['currency']; ?>
-                                                                        </s>
-                                                                    </div>
-                                                                </li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="c-product__row">
-                                                <?php if (class_exists('Rating')): ?>
-                                                    <div class="c-product__row">[rating id = "<?php echo $data['id'] ?>"]</div>
-                                                <?php endif; ?>                                                    
-                                                </div>
-                                                
-
-                                            </div>
+                                            <span class="c-product__price--value price">
+                                                <span itemprop="price" content="<?php echo MG::numberDeFormat($data['price']);?>"><?php echo $data['price'] ?></span> <span itemprop="priceCurrency"><?php echo $data['currency']; ?></span>
+                                            </span>
                                         </div>
-                                    </div>
-                                      <div class="c-product__row">
-                                        <?php echo MG::layoutManager('layout_wholesales_info', $data['wholesalesData']); ?>
-                                    </div>
-
-                                    <div class="c-product__row">
-                                        <?php echo MG::layoutManager('layout_storage_info', $data); ?>
-                                        <?php echo $data['propertyForm'] ?>
-                                    </div>
-
-                                </div>
+                                    </li>
+                                    <li <?php echo (!$data['old_price']) ? 'style="display:none"' : 'style="display:block"' ?>>
+                                        <div class="c-product__price c-product__price--old old">
+                                            <div class="c-product__price--title">
+                                                <?php echo lang('productOldPrice'); ?>
+                                            </div>
+                                            <s class="c-product__price--value old-price">
+                                                <?php echo MG::numberFormat($data['old_price']) . " " . $data['currency']; ?>
+                                            </s>
+                                        </div>
+                                    </li>
+                                </ul>
                             </div>
+
+                            <div>
+                                <?php if (class_exists('Rating')): ?>
+                                    <div class="c-product__row">[rating id = "<?php echo $data['id'] ?>"]</div>
+                                <?php endif; ?>                                                    
+                            </div>
+
+                            <div class="available">
+                                <?php layout('count_product', $data); ?>
+                                <?php if (class_exists('NonAvailable')): ?>
+                                    <div>[non-available id="<?php echo $data['id']?>"]</div>
+                                <?php endif; ?>
+                                <ul class="product-status-list">
+                                    <li <?php echo (!$data['weight']) ? 'style="display:none"' : 'style="display:block"' ?>>
+                                        <?php echo lang('productWeight1'); ?> <span class="label-black weight"><?php echo $data['weight'] ?></span> <?php echo lang('productWeight2'); ?>
+                                    </li>
+                                </ul>                                                                                                           
+                            </div>
+
                         </div>
-                    </div>
-                    <div class="l-col min-0--12">
-                        <div class="c-tab">
-                            <div class="c-tab__nav">
-                                <a class="c-tab__link c-tab__link--active" href="#c-tab__tab1"><?php echo lang('productDescription'); ?></a>
-                                
-                                <?php if(!empty($data['stringsProperties'])): ?>
-                                <a class="c-tab__link" href="#c-tab__property"><?php echo lang('productCharacteristics'); ?></a>
-                                <?php endif; ?>
-
-                                <?php if (class_exists('mgTreelikeComments')): ?>
-                                    <a class="c-tab__link" href="#c-tab__tree-comments"><?php echo lang('productComments'); ?></a>
-                                <?php endif; ?>
-								
-                                <?php if (class_exists('CommentsToMoguta')): ?>
-                                    <a class="c-tab__link" href="#c-tab__comments-mg"><?php echo lang('productComments'); ?></a>
-                                <?php endif; ?>
-
-                                <?php foreach ($data['thisUserFields'] as $key => $value) {
-                                    if ($value['type']=='textarea'&&$value['value']) {?>
-                                        <a class="c-tab__link" href="#c-tab__tab<?php echo $key?>"><?php echo $value['name']?></a>
-                                    <?php   }
-                                }?>
-                            </div>
-
-                            <div class="c-tab__content c-tab__content--active" id="c-tab__tab1" itemprop="description">
-                                <?php echo $data['description'] ?>
-                            </div>
-
-                            <?php if(class_exists('mgTreelikeComments')): ?>
-                                <div class="c-tab__content" id="c-tab__tree-comments" itemscope itemtype="http://schema.org/Review">
-                                    <span style="display: none;" itemprop="itemReviewed" content="<?php echo $data['product_title'] ?>"></span>
-                                   [mg-treelike-comments type="product"]
-                                </div>
-                            <?php endif; ?>
-
-                            <?php if(class_exists('CommentsToMoguta')): ?>
-                                <div class="c-tab__content" id="c-tab__comments-mg" itemscope itemtype="http://schema.org/Review">
-                                    <span style="display: none;" itemprop="itemReviewed" content="<?php echo $data['product_title'] ?>"></span>
-                                    [comments]
-                                </div>
-                            <?php endif; ?>
-                            
-                            <?php if(!empty($data['stringsProperties'])): ?>
-                                <div class="c-tab__content" id="c-tab__property">
-								 <?php layout('property',$data);?>							
-                                </div>
-                            <?php endif; ?>
-
-                            <?php foreach ($data['thisUserFields'] as $key => $value) {
-                                if ($value['type']=='textarea') { ?>
-                                    <div class="c-tab__content" id="c-tab__tab<?php echo $key?>">
-                                        <?php echo preg_replace('/\<br(\s*)?\/?\>/i', "\n", $value['value'])?>
-                                    </div>
-                                <?php  }
-                            }?>
-                        </div>
+                        <?php echo MG::layoutManager('layout_wholesales_info', $data['wholesalesData']); ?>
+                        <?php echo MG::layoutManager('layout_storage_info', $data); ?>
+                        <?php echo $data['propertyForm'] ?>
                     </div>
                 </div>
-              
             </div>
         </div>
+        <div class="product-details-wrapper">
 
+            <ul class="product-tabs">
+                <li><a class="active" href="#c-tab__tab1"><?php echo lang('productDescription'); ?></a></li>
+                
+                <?php if(!empty($data['stringsProperties'])): ?>
+                    <li><a href="#c-tab__property"><?php echo lang('productCharacteristics'); ?></a></li>
+                <?php endif; ?>
+
+                <?php if (class_exists('mgTreelikeComments')): ?>
+                    <li><a href="#c-tab__tree-comments"><?php echo lang('productComments'); ?></a></li>
+                <?php endif; ?>
+                
+                <?php if (class_exists('CommentsToMoguta')): ?>
+                    <li><a href="#c-tab__comments-mg"><?php echo lang('productComments'); ?></a></li>
+                <?php endif; ?>
+
+                <?php foreach ($data['thisUserFields'] as $key => $value) {
+                    if ($value['type']=='textarea'&&$value['value']) {?>
+                        <li><a href="#c-tab__tab<?php echo $key?>"><?php echo $value['name']?></a></li>
+                    <?php   }
+                }?>
+            </ul>
+            <div class="product-tabs-container">
+                <div id="c-tab__tab1" itemprop="description">
+                    <?php echo $data['description'] ?>
+                </div>
+
+                <?php if(class_exists('mgTreelikeComments')): ?>
+                    <div id="c-tab__tree-comments" itemscope itemtype="http://schema.org/Review">
+                        <span style="display: none;" itemprop="itemReviewed" content="<?php echo $data['product_title'] ?>"></span>
+                        [mg-treelike-comments type="product"]
+                    </div>
+                <?php endif; ?>
+
+                <?php if(class_exists('CommentsToMoguta')): ?>
+                    <div id="c-tab__comments-mg" itemscope itemtype="http://schema.org/Review">
+                        <span style="display: none;" itemprop="itemReviewed" content="<?php echo $data['product_title'] ?>"></span>
+                        [comments]
+                    </div>
+                <?php endif; ?>
+                
+                <?php if(!empty($data['stringsProperties'])): ?>
+                    <div id="c-tab__property">
+                        <?php layout('property',$data);?>							
+                    </div>
+                <?php endif; ?>
+
+                <?php foreach ($data['thisUserFields'] as $key => $value) {
+                    if ($value['type']=='textarea') { ?>
+                        <div id="c-tab__tab<?php echo $key?>">
+                            <?php echo preg_replace('/\<br(\s*)?\/?\>/i', "\n", $value['value'])?>
+                        </div>
+                    <?php  }
+                }?>
+            </div>
+        </div>
         <div class="l-col min-0--12">
             <?php echo $data['related'] ?> 
         </div>
@@ -227,6 +197,4 @@ mgSEO($data);
         <div class="l-col min-0--12">
             <?php if(class_exists('SetGoods')): ?>[set-goods id="<?php echo $data['id']?>"]<?php endif; ?>
         </div>
-
-    </div>
 </div>

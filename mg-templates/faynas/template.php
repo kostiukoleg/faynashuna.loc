@@ -14,6 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.fake.cart.css" rel="stylesheet"/>');?>
     <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.cart.css" rel="stylesheet"/>');?>
+    <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.search.css" rel="stylesheet"/>');?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/owl.carousel.min.js"></script>'); ?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/jquery.hoverIntent.js"></script>'); ?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/script.js"></script>'); ?>
@@ -129,10 +130,15 @@
                 <?php endif; ?>
                 <?php endif; ?>
                 <!-- /плагин слайдер акций -->
-            <div class="centered clearfix">    
-                <!--<div class="side-block">
-                <?php layout('leftmenu'); ?>            
-                </div>-->
+            <div class="centered clearfix">   
+                <?php if (isCatalog() && !isSearch()) : ?> 
+                <div class="side-block">
+                    <?php layout('leftmenu'); ?>     
+                    <div class="filter-block ">
+                        <?php filterCatalog(); ?>
+                    </div>    
+                </div>
+                <?php endif; ?>
                 <div class="center">
                     <?php layout('content'); ?> <!-- содержимое страниц -->
                 </div>
@@ -147,20 +153,12 @@
                 <div class="centered clearfix">
                     <div class="col">
                         <h2>Сайт</h2>
-                        <ul class="footer-column">
-                            <li><a href="http://dress2.template.moguta.ru/catalog"><span>Каталог</span></a></li>
-                            <li><a href="http://dress2.template.moguta.ru/dostavka"><span>Доставка и оплата</span></a></li>
-                        </ul>
-                        <ul class="footer-column">
-                            <li><a href="http://dress2.template.moguta.ru/feedback"><span>Обратная связь</span></a></li>
-                            <li><a href="http://dress2.template.moguta.ru/contacts"><span>Контакты</span></a></li>
-                        </ul>
+                        <?php echo MG::get('pages')->getFooterPagesUl(); ?>
                     </div>
                     <div class="col">
                         <h2>Продукция</h2>
                         <ul class="footer-column">
-                            <li><a href="http://dress2.template.moguta.ru/mujskaya-odejda"><span>Мужская одежда</span></a></li>
-                            <li><a href="http://dress2.template.moguta.ru/jenskaya-odejda"><span>Женская одежда</span></a></li>
+                            <?php echo MG::get('category')->getCategoryListUl(0, 'public', false); ?>
                         </ul>
                     </div>
                     <div class="col">

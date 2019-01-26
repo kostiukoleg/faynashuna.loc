@@ -693,6 +693,10 @@ h2.underlogo {
     top: 3px;
     width: 20px;
     height: 20px;
+    background: url("../images/search-icon.png") 0 -20px no-repeat;
+}
+
+.bar-right .mg-search-block .search-button:hover{
     background: url("../images/search-icon.png") no-repeat;
 }
 
@@ -1076,6 +1080,8 @@ h2.underlogo {
 
 .wrapper .mg-desktop-cart .small-cart-icon:hover{
     background:#2B7DD5;
+    box-shadow: 0 2px 25px rgba(0,0,0,0.20);
+    border-bottom: 2px solid transparent;
 }
 
 .wrapper .mg-desktop-cart .small-cart-icon:before{
@@ -1820,7 +1826,7 @@ body .wrapper .default-btn:hover,
     position: absolute;
     z-index: 1;
     bottom: 0;
-    left: -10px;
+    left: -90px;
 }
 
 .feedback-form-wrapper form{
@@ -2062,9 +2068,9 @@ body .wrapper .default-btn:hover,
 
 .mg-pager ul li a:hover,
 .mg-pager ul li a.active {
-    background: #1A4D82;
+    background: #f92517;
     color: #fff;
-    border-color: #1A4D82;
+    border-color: #E13119;
 }
 
 .form-group .mg-pager ul,
@@ -2335,7 +2341,7 @@ body .wrapper .default-btn:hover,
     display: inline-block;
     font-family: "OpenSans-Bold", sans-serif;
     font-size: 14px;
-    color: #064c80;
+    color: #f92517;
     padding-left: 15px;
     background: url("../images/b-arrow.png") left center no-repeat;
 }
@@ -4049,7 +4055,7 @@ li.c-order__list--item.c-order__checkbox label {
 }
 
 .wrapper .ui-slider .ui-slider-range{
-    background: #1A4D82;
+    background: #f92517;
 }
 
 .summ-info .order-summ,
@@ -4583,7 +4589,7 @@ li.c-order__list--item.c-order__checkbox label {
 .wrapper .ui-slider .ui-slider-handle{
     width: 15px;
     height: 15px;
-    background: #1A4C82;
+    background: #f92517;
     border-radius: 100px;
     top: -5px;
     transition: background 0.2s ease-in-out;
@@ -5136,6 +5142,10 @@ ul.mg-menu, .filter-block {
     height: 15px;
     background: #1A4D82;
     display: none;
+}
+
+.icon {
+    color: #f92517;
 }
 
 .wrapper .filter-form .mg-filter .mg-filter-item ul li label input[type="checkbox"]:checked + .unit:after{
