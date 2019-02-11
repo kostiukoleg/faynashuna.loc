@@ -174,11 +174,6 @@ mgSEO($data);
         </div>
         <?php if(class_exists('RecentlyViewed')) {?>
         <div class="l-col min-0--12">
-            <div class="c-carousel__title">
-                <span class="c-carousel__title--span">
-                    <?php echo lang('RecentlyViewed'); ?>
-                </span>
-            </div>
             [recently-viewed countPrint=4 count=5 random=1]
         </div>
         <?php }?>
