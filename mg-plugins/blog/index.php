@@ -24,6 +24,7 @@ class Blog {
     mgAddShortcode('blog-categories', array(__CLASS__, 'handleBlogCategoriesShortCode')); // Инициализация шорткода [blog-categories] - доступен в любом HTML коде движка. 
     mgAddShortcode('blog-category', array(__CLASS__, 'handleBlogCategoryShortCode'));
     mgAddShortcode('blog-article', array(__CLASS__, 'handleBlogArticleShortCode'));
+    mgAddShortcode('blog-index', array(__CLASS__, 'handleBlogIndexShortCode'));
     mgAddAction('mg_start', array(__CLASS__, 'blogFeed'));
 
     self::$pluginName = PM::getFolderPlugin(__FILE__);
@@ -444,6 +445,55 @@ class Blog {
     return $result;
   }
   
+  static function printSmallArticle($arg){
+    $result = $arg['result'];
+    
+    $data = $arg['article'];
+    $data['catPath'] = SITE.'/'.str_replace($data['url'], '', trim(URL::getClearUri(), '/'));
+    $text = explode("<!--end-preview-->", $data['description']);
+    
+    if(count($text) < 2){
+      $text = explode("&lt;!--end-preview--&gt;", $data['description']);          
+    }
+    
+    if(count($text) > 1){
+      $data['previewText'] = $text[0];
+      $data['detailText'] = $text[1];
+      unset($data['description']);
+    }else{
+      $data['detailText'] = $data['description'];
+    }
+    
+    $tags = explode(",", $data['tags']);
+      
+    if(count($tags) > 0){
+      $data['tags'] = array();
+
+      foreach($tags as $tag){
+        if(empty($tag)){
+          continue;
+        }
+
+        $data['tags'][] = array(
+          'value' => $tag,
+          'url' => SITE.'/'.self::$pluginName.'?tag='.trim($tag),
+        );
+      }
+    }
+    
+    $option = MG::getSetting('blog-option');
+    $option = stripslashes($option);
+    $options = unserialize($option);
+    
+    $realDocumentRoot = str_replace(DIRECTORY_SEPARATOR.'mg-plugins'.DIRECTORY_SEPARATOR.self::$pluginName, '', dirname(__FILE__));
+    ob_start();
+    include($realDocumentRoot.'/mg-pages/'.self::$pluginName.'/small_article.php');
+    $result = ob_get_contents();
+    ob_end_clean();
+    
+    return $result;
+  }
+
   /**
    * Обрабатывает адрес и определяет что выводить список, или статью.
    * @param array $arg
@@ -870,6 +920,24 @@ class Blog {
     return $result;
   }
   
+static function handleBlogIndexShortCode($args){
+  $result = '';
+
+  if(intval($args['id']) > 0){
+    $articleInfo = self::getArticleById($args['id']);
+  }else{
+    return self::$lang['NOT_SET'];
+  }
+
+  if(!empty($articleInfo)){
+    $result = self::printSmallArticle(array('article'=>$articleInfo));
+  }else{
+    return self::$lang['NOT_FOUND'];
+  }
+
+  return $result;
+}
+
   /*
    * Функция импорта новостных статей в плагин блога
    */

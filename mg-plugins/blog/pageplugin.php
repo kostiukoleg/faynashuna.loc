@@ -14,7 +14,7 @@
     <div class="product-table-wrapper add-news-form">
       <div class="widget-table-title">
         <h4 class="pages-table-icon" id="modalTitle"><?php echo $lang['MODAL_TITLE'];?></h4>
-        <div class="b-modal_close tool-tip-bottom" title="<?php echo $lang['T_TIP_CLOSE_MODAL'];?>"></div>
+        <div class="b-modal_close tool-tip-bottom" title="<?php echo $lang['T_TIP_CLOSE_MODAL'];?>">x</div>
       </div>
       <div class="widget-table-body">
         <div class="add-product-form-wrapper">

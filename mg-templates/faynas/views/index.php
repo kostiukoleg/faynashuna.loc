@@ -59,7 +59,11 @@ mgSEO($data);
         </div>
     <?php endif; ?>
     <!-- new - end -->
-  
+    <div class="middle-banner" style="background: url('<?php echo PATH_SITE_TEMPLATE ?>/images/banners.jpg') center center no-repeat"><!-- фоновая картинка разрешением 1920х400px -->
+        <div class="centered clearfix">
+            [blog-index id=1] 
+        </div>
+    </div>
     <!-- hit - start -->
     <?php if (!empty($data['recommendProducts'])): ?>
         <div class="m-p-products sale">
