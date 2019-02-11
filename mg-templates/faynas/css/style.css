@@ -5517,6 +5517,7 @@ svg:not(:root){
 }
 .product-status .mg-buy-click-button {
     max-width: 200px;
+    box-sizing: content-box;
 }
 .agreement-container{
     display: block;
