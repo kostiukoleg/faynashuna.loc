@@ -15,7 +15,7 @@
     <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.fake.cart.css" rel="stylesheet"/>');?>
     <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.cart.css" rel="stylesheet"/>');?>
     <?php mgAddMeta('<link type="text/css" href="'.PATH_SITE_TEMPLATE.'/css/layout.search.css" rel="stylesheet"/>');?>
-    <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/owl.carousel.min.js"></script>'); ?>
+    <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/owl.carousel.js"></script>'); ?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/jquery.hoverIntent.js"></script>'); ?>
     <?php mgAddMeta('<script src="'.PATH_SITE_TEMPLATE.'/js/script.js"></script>'); ?>
 </head>

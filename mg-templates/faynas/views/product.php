@@ -54,9 +54,7 @@ mgSEO($data);
 <?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
 <div class="product-details-block" itemscope itemtype="http://schema.org/Product">
         <div class="product-status clearfix">
-            <div class="mg-product-slides margin">
-                <?php mgGalleryProduct($data); ?>
-            </div>
+            <?php mgGalleryProduct($data); ?>
             <div class="buy-block">
                 <div class="buy-block-inner">
                     <h1 class="product-title" itemprop="name"><?php echo $data['title'] ?></h1>
