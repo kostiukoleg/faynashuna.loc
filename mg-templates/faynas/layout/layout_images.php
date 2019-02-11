@@ -1,4 +1,5 @@
 <?php mgAddMeta('<link type="text/css" href="'.SCRIPT.'standard/css/jquery.fancybox.css" rel="stylesheet"/>'); ?>
+<?php mgAddMeta('<link type="text/css" href="'. PATH_SITE_TEMPLATE .'/css/layout.images.css" rel="stylesheet"/>'); ?>
 <?php mgAddMeta('<script src="'.SCRIPT.'jquery.fancybox.pack.js"></script>'); ?>
 <?php mgAddMeta('<script src="'.SCRIPT.'jquery.bxslider.min.js"></script>'); ?>
 <?php mgAddMeta('<script src="' . PATH_SITE_TEMPLATE . '/js/layout.images.js"></script>'); ?>
@@ -21,7 +22,11 @@
                 <?php }?>
             </div>
         </div>    
-        <div class="thumb-controls clearfix"></div>        
+        <div class="thumb-controls clearfix">
+            <div id="thumb-prev" class="thumb-arrow"></div>
+            <div id="slide-counter"></div>
+            <div id="thumb-next" class="thumb-arrow"></div>
+        </div>        
     </div>
     <?php }?>
     <div class="main-image">

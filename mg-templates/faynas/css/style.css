@@ -2440,9 +2440,10 @@ body .wrapper .default-btn:hover,
     margin: 0 0 20px 0;
 }
 
-.buy-block .product-price .price{
+.buy-block .product-price .price,
+.buy-block .product-price .currency{
     font-size: 20px;
-    color: #064c80;
+    color: #f92517;
     font-family: "OpenSans-Bold", sans-serif;
 }
 

@@ -2057,7 +2057,7 @@ class Models_Product {
       'status' => 'success',
       'data' => array(
         'title' => $product['title'],
-        'price' => MG::numberFormat($product['price']).' '.MG::getSetting('currency'),
+        'price' => MG::numberFormat($product['price']),//.' '.MG::getSetting('currency')
         'old_price' => MG::numberFormat($product['old_price']).' '.MG::getSetting('currency'),
         'code' => $product['code'],
         'count' => $product['count'],

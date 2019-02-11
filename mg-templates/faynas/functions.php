@@ -28,14 +28,14 @@ mgAddAction('mg_seometa', 'seoMeta', 1);
 
 /*
 Этой функцией можно отключать ненужные css и js подключаемые плагинами и движком
+*/
 mgExcludeMeta(
   array(
-   '/mg-plugins/rating/css/rateit.css',
-   '/mg-plugins/rating/js/rating.js',
-   '/mg-core/script/standard/css/layout.agreement.css'
+   '/mg-core/script/standard/js/layout.images.js',
+   '/mg-core/script/standard/css/layout.images.css'
  )
 );
-*/
+
 
 
 

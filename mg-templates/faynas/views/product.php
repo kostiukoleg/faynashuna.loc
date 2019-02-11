@@ -83,7 +83,7 @@ mgSEO($data);
                                         <!--<div class="c-product__price--title">
                                             <?php echo lang('productPrice'); ?>
                                         </div>-->
-                                        <span itemprop="price" content="<?php echo MG::numberDeFormat($data['price']);?>"><?php echo $data['price'] ?></span> <span itemprop="priceCurrency"><?php echo $data['currency']; ?></span>
+                                        <span class="price" itemprop="price" content="<?php echo MG::numberDeFormat($data['price']);?>"><?php echo $data['price'] ?></span> <span class="currency" itemprop="priceCurrency"><?php echo $data['currency']; ?></span>
                                     </div>
                                 </li>
                             </ul>
