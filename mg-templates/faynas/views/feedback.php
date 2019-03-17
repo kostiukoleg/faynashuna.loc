@@ -31,7 +31,7 @@ mgSEO($data);
 ?>
 
         <div class="title-row clearfix">
-            <h1 class="new-products-title fl-left"><?php echo lang('feedbackTitle'); ?></h1>
+            <h1 class="new-products-title"><?php echo lang('feedbackTitle'); ?></h1>
             <a href="<?php echo SITE?>/catalog" class="go-back fl-right">Вернуться к покупкам</a>
         </div>
 

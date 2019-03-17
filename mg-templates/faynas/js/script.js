@@ -172,8 +172,8 @@ $(document).ready(function(){
     });
 
 
-    // Accordion menu
-    $('.j-accordion-menu__parent').on('click', function() {
+  // Accordion menu
+  $('.j-accordion-menu__parent').on('click', function() {
 
         var AccordionMenu = $(this).parent('li');
 
@@ -199,12 +199,23 @@ $(document).ready(function(){
 
             AccordionMenu.siblings('li').find('ul').slideUp();
         }
-    });
-    $('#j-catalog__button').click(function(){
+  });
+
+  $('#j-catalog__button').click(function(){
     $('.j-catalog__nav.j-offcanvas').addClass('j-offcanvas--open');
   });
+
   $('.mg-buy-click-button, .close-mg-buy-button').on('click', function (){
     $('body').toggleClass('scrollBlock');
   });
 
+  // Personal Tabs 
+  $( "#tabs" ).tabs({
+        active: localStorage.getItem("currentIdx"),
+        activate: function (event, ui) {
+            localStorage.setItem("currentIdx", $(this).tabs('option','active'));
+        }
+  });
+
+  $( "#ui-id-5" ).parent().attr("aria-controls","");
 });

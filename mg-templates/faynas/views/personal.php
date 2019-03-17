@@ -37,409 +37,338 @@ mgSEO($data);
 <?php mgAddMeta('<link type="text/css" href="'.SCRIPT.'standard/css/datepicker.css" rel="stylesheet"/>'); ?>
 <?php mgAddMeta('<script src="'.SCRIPT.'jquery.maskedinput.min.js"></script>'); ?>
 
-<div class="l-row">
+<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
+<div class="person-page">
     <?php switch($data['status']){ case 1: ?>
 
-        <div class="l-col min-0--12">
-            <div class="c-alert c-alert--red"><?php echo lang('personalBlocked'); ?></div>
-        </div>
+        <div class="msgError"><?php echo lang('personalBlocked'); ?></div>
 
         <?php break; case 2: ?>
 
-        <div class="l-col min-0--12">
-            <div class="c-alert c-alert--red"><?php echo lang('personalNotActivated'); ?></div>
-        </div>
+        <div class="msgError"><?php echo lang('personalNotActivated'); ?></div>
 
-        <div class="l-col min-0--12">
-            <form class="c-form" action="<?php echo SITE ?>/registration" method="POST">
-                <div class="c-form__row">
-                    <input type="text" name="activateEmail" placeholder="Email" required>
-                </div>
-                <div class="c-form__row">
-                    <input type="submit" class="c-button" name="reActivate" value="<?php echo lang('send'); ?>">
-                </div>
-            </form>
-        </div>
+        <form class="c-form" action="<?php echo SITE ?>/registration" method="POST">
+            <div class="c-form__row">
+                <input type="text" name="activateEmail" placeholder="Email" required>
+            </div>
+            <div class="c-form__row">
+                <input type="submit" class="c-button" name="reActivate" value="<?php echo lang('send'); ?>">
+            </div>
+        </form>
 
         <?php break; case 3: $userInfo = $data['userInfo'] ?>
 
-        <div class="l-col min-0--12">
-            <div class="c-title c-title--no-border"><?php echo lang('personalAccount'); ?> "<?php echo $userInfo->name ?>"</div>
-        </div>
-
+        <h1 class="new-products-title"><?php echo lang('personalAccount'); ?> "<?php echo $userInfo->name ?>"</h1>
+        <p class="custom-text">В своем кабинете Вы сможете следить за статусами Ваших заказов, так же изменять свои личные данные.</p>
         <?php if($data['message']): ?>
-            <div class="l-col min-0--12">
-                <div class="c-alert c-alert--green mg-success"><?php echo $data['message'] ?></div>
-            </div>
+            <div class="mg-success"><?php echo $data['message'] ?></div>
         <?php endif; ?>
 
         <?php if($data['error']): ?>
-            <div class="l-col min-0--12">
-                <div class="c-alert c-alert--red mg-error"><?php echo $data['error'] ?></div>
-            </div>
+            <div class="mg-error"><?php echo $data['error'] ?></div>
         <?php endif; ?>
 
+            <div id="tabs" class="personal-tabs">
+                <ul class="personal-tabs-list">    
+                    <li><a href="#orders-history"><?php echo lang('personalTab3'); ?></a></li>
+                    <li><a href="#personal"><?php echo lang('personalTab1'); ?></a></li>
+                    <li><a href="#change-pass"><?php echo lang('personalTab2'); ?></a></li>
+                    <li><a href="<?php echo SITE?>/enter?logout=1"><?php echo lang('personalTab4'); ?></a></li>            
+                </ul>
+                
+                <div class="personal-tabs-content">
+                    <!-- c-tab__data - start -->
+                    <div id="personal">
+                        <p class="change-pass-title">Личные данные</p>
+                        <form class="" action="<?php echo SITE ?>/personal" method="POST">                               
+                            <ul class="form-list">
+                                <li><span>Email: <i class="normal-text"><?php echo $userInfo->email ?></i></span></li>
+                                <li><span><?php echo lang('personalRegisterDate'); ?> <i><?php echo date('d.m.Y', strtotime($userInfo->date_add)) ?></i></span></li>
+                                <li><span><?php echo lang('fname'); ?>:</span><input type="text" name="name" value="<?php echo $userInfo->name ?>" placeholder="<?php echo lang('fname'); ?>"></li>
+                                <li><span><?php echo lang('lname'); ?>:</span><input type="text" name="sname" value="<?php echo $userInfo->sname ?>" placeholder="<?php echo lang('lname'); ?>"></li>
+                                <li><span><?php echo lang('personalBirthday'); ?>:</span><input class="birthday" type="text" name="birthday" value="<?php echo $userInfo->birthday?date('d.m.Y', strtotime($userInfo->birthday)):'' ?>" placeholder="<?php echo lang('personalBirthday'); ?>"></li>
+                                <li><span><?php echo lang('phone'); ?>:</span><input type="text" name="phone" value="<?php echo $userInfo->phone ?>" placeholder="<?php echo lang('phone'); ?>"></li>
+                                <li><span><?php echo lang('orderPhAdres'); ?>:</span><textarea class="address-area" name="address" placeholder="<?php echo lang('orderPhAdres'); ?>"><?php echo $userInfo->address ?></textarea></li>
+                                <li>
+                                    <select name="customer">
+                                        <?php $selected = $userInfo->inn?'selected':''; ?>
+                                        <option value="fiz"><?php echo lang('orderFiz'); ?></option>
+                                        <option value="yur" <?php echo $selected ?>><?php echo lang('orderYur'); ?></option>
+                                    </select>
+                                </li>
+                            </ul>
+                            <?php if(!$userInfo->inn){$style = 'style="display:none"'; } ?>
+                            <ul class="form-list yur-field" <?php echo $style ?>>
+                                <li><span><?php echo lang('orderPhNameyur'); ?></span><input type="text" name="nameyur" value="<?php echo $userInfo->nameyur ?>" placeholder="<?php echo lang('orderPhNameyur'); ?>"></li>
+                                <li><span><?php echo lang('orderPhAdress'); ?></span><input type="text" name="adress" value="<?php echo $userInfo->adress ?>" placeholder="<?php echo lang('orderPhAdress'); ?>"></li>
+                                <li><span><?php echo lang('orderPhInn'); ?></span> <input type="text" name="inn" value="<?php echo $userInfo->inn ?>" placeholder="<?php echo lang('orderPhInn'); ?>"></li>
+                                <li><span><?php echo lang('orderPhKpp'); ?></span><input type="text" name="kpp" value="<?php echo $userInfo->kpp ?>" placeholder="<?php echo lang('orderPhKpp'); ?>"></li>
+                                <li><span><?php echo lang('orderPhBank'); ?></span><input type="text" name="bank" value="<?php echo $userInfo->bank ?>" placeholder="<?php echo lang('orderPhBank'); ?>"></li>
+                                <li><span><?php echo lang('orderPhBik'); ?></span><input type="text" name="bik" value="<?php echo $userInfo->bik ?>" placeholder="<?php echo lang('orderPhBik'); ?>"></li>
+                                <li><span><?php echo lang('orderPhKs'); ?></span><input type="text" name="ks" value="<?php echo $userInfo->ks ?>" placeholder="<?php echo lang('orderPhKs'); ?>"></li>
+                                <li><span><?php echo lang('orderPhRs'); ?></span><input type="text" name="rs" value="<?php echo $userInfo->rs ?>" placeholder="<?php echo lang('orderPhRs'); ?>"></li>
+                            </ul>
+                            <div class="clearfix">
+                                <button type="submit" class="save-btn default-btn" name="userData" value="save"><?php echo lang('save'); ?></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- c-tab__data - end -->
 
-        <div class="l-col min-0--12">
-            <div class="c-tab">
-                <div class="c-tab__nav">
-                    <a class="c-tab__link c-tab__link--active" href="#c-tab__orders"><?php echo lang('personalTab3'); ?></a>
-                    <a class="c-tab__link" href="#c-tab__data"><?php echo lang('personalTab1'); ?></a>
-                    <a class="c-tab__link" href="#c-tab__password"><?php echo lang('personalTab2'); ?></a>
-                    <a class="c-tab__link c-tab__link--logout" href="<?php echo SITE?>/enter?logout=1"><?php echo lang('personalTab4'); ?></a>
-                </div>
+                    <!-- c-tab__password - start -->
+                    <div id="change-pass">
+                        <p class="change-pass-title">Сменить пароль</p>
+                        <form class="" action="<?php echo SITE ?>/personal" method="POST">
+                            <p class=""><span class="red-star">*</span>Поля отмеченные красной звездочкой, обязательны к заполнению.</p>
+                            <ul class="form-list">
+                                <li><span><?php echo lang('personalOldPass'); ?></span><input type="password" name="pass" placeholder="<?php echo lang('personalOldPass'); ?>" required></li>
+                                <li><span><?php echo lang('forgotPass1'); ?></span><input type="password" name="newPass" placeholder="<?php echo lang('forgotPass1'); ?>" required></li>
+                                <li><span><?php echo lang('personalPassRepeat'); ?></span><input type="password" name="pass2" placeholder="<?php echo lang('personalPassRepeat'); ?>" required></li>
+                            </ul>
+                            <div class="clearfix">
+                                <button type="submit" class="save-btn default-btn" name="chengePass" value="save"><?php echo lang('save'); ?></button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- c-tab__password - end -->
 
-                <!-- c-tab__data - start -->
-                <div class="c-tab__content" id="c-tab__data">
-                    <form class="c-form c-form--width" action="<?php echo SITE ?>/personal" method="POST">
-                        <div class="c-form__row">
-                            <b>Email:</b> <?php echo $userInfo->email ?>
-                        </div>
-                        <div class="c-form__row">
-                            <b><?php echo lang('personalRegisterDate'); ?></b> <?php echo date('d.m.Y', strtotime($userInfo->date_add)) ?>
-                        </div>
-                        <div class="c-form__row">
-                            <input type="text" name="name" value="<?php echo $userInfo->name ?>" placeholder="<?php echo lang('fname'); ?>">
-                        </div>
-                        <div class="c-form__row">
-                            <input type="text" name="sname" value="<?php echo $userInfo->sname ?>" placeholder="<?php echo lang('lname'); ?>">
-                        </div>
-                        <div class="c-form__row">
-                            <input class="birthday" type="text" name="birthday" value="<?php echo $userInfo->birthday?date('d.m.Y', strtotime($userInfo->birthday)):'' ?>" placeholder="<?php echo lang('personalBirthday'); ?>">
-                        </div>
-                        <div class="c-form__row">
-                            <input type="text" name="phone" value="<?php echo $userInfo->phone ?>" placeholder="<?php echo lang('phone'); ?>">
-                        </div>
-                        <div class="c-form__row">
-                            <textarea class="address-area" name="address" placeholder="<?php echo lang('orderPhAdres'); ?>"><?php echo $userInfo->address ?></textarea>
-                        </div>
-                        <div class="c-form__row">
-                            <select name="customer">
-                                <?php $selected = $userInfo->inn?'selected':''; ?>
-                                <option value="fiz"><?php echo lang('orderFiz'); ?></option>
-                                <option value="yur" <?php echo $selected ?>><?php echo lang('orderYur'); ?></option>
-                            </select>
-                        </div>
-                        <?php if(!$userInfo->inn){$style = 'style="display:none"'; } ?>
-                        <div class="c-form__row yur-field" <?php echo $style ?>>
-                            <div class="c-form__row">
-                                <input type="text" name="nameyur" value="<?php echo $userInfo->nameyur ?>" placeholder="<?php echo lang('orderPhNameyur'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="adress" value="<?php echo $userInfo->adress ?>" placeholder="<?php echo lang('orderPhAdress'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="inn" value="<?php echo $userInfo->inn ?>" placeholder="<?php echo lang('orderPhInn'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="kpp" value="<?php echo $userInfo->kpp ?>" placeholder="<?php echo lang('orderPhKpp'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="bank" value="<?php echo $userInfo->bank ?>" placeholder="<?php echo lang('orderPhBank'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="bik" value="<?php echo $userInfo->bik ?>" placeholder="<?php echo lang('orderPhBik'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="ks" value="<?php echo $userInfo->ks ?>" placeholder="<?php echo lang('orderPhKs'); ?>">
-                            </div>
-                            <div class="c-form__row">
-                                <input type="text" name="rs" value="<?php echo $userInfo->rs ?>" placeholder="<?php echo lang('orderPhRs'); ?>">
-                            </div>
-                        </div>
-                        <div class="c-form__row">
-                            <button type="submit" class="c-button" name="userData" value="save"><?php echo lang('save'); ?></button>
-                        </div>
-                    </form>
-                </div>
-                <!-- c-tab__data - end -->
+                    <!-- c-tab__orders - start -->
+                    <div id="orders-history">
+                        <?php if($data['orderInfo']): ?>
+                        <div class="order-history-list">
+                            <p class="change-pass-title">История заказов</p>
+                            <?php $currencyShort = MG::getSetting('currencyShort'); $currencyShopIso = MG::getSetting('currencyShopIso'); foreach($data['orderInfo'] as $order): ?>
+                            <div class="order-history" id="<?php echo $order['id'] ?>">
+                                <div class="order-number">
+                                    <strong><?php echo $order['number']!=''?$order['number']:$order['id'] ?></strong> от <?php echo date('d.m.Y', strtotime($order['add_date'])) ?>
+                                    <span class="order-status">
+                                        <span class="c-history__status <?php echo (empty($data['assocStatusClass'][$order['status_id']]) ? 'customStatus' : $data['assocStatusClass'][$order['status_id']])?>" 
+                                        <?php 
+                                            echo ' style="';
+                                            if (isset($data['orderColors'][$order['status_id']]['bgColor'])) {
+                                            echo 'background-color:'.$data['orderColors'][$order['status_id']]['bgColor'].';';
+                                            }
+                                            if (isset($data['orderColors'][$order['status_id']]['textColor'])) {
+                                            echo 'color:'.$data['orderColors'][$order['status_id']]['textColor'].';';
+                                            }
+                                            echo '"';
+                                        ?>
+                                        ><?php echo $order['string_status_id'] ?></span>
+                                    </span>
+                                </div>
+                                    <table class="status-table">
+                                        <?php 
+                                            $perOrder['currency_iso'] = $perOrder['currency_iso']?$perOrder['currency_iso']:$currencyShopIso;
+                                            $perCurrencyShort = MG::getSetting('currency');
+                                            $perOrders = unserialize(stripslashes($order['order_content']));
+                                        ?>
+                                        <?php if(!empty($perOrders)) foreach($perOrders as $perOrder): ?>
+                                            <?php 
+                                            $perCurrencyShort = $currencyShort[$perOrder['currency_iso']]?$currencyShort[$perOrder['currency_iso']]:MG::getSetting('currency');
+                                            $coupon = $perOrder['coupon'];
+                                            $res = DB::query("SELECT `".PREFIX."product`.id, `".PREFIX."category`.unit
+                                                            FROM `".PREFIX."product`
+                                                            LEFT JOIN `".PREFIX."category` ON `".PREFIX."product`.cat_id = `".PREFIX."category`.id
+                                                            WHERE `".PREFIX."product`.id = ".DB::quoteInt($perOrder['id']));
+                                            $row = DB::fetchAssoc($res);
+                                            $unit = $row['unit'];
+                                            if (strlen($unit) < 1) {
+                                                $unit = 'шт.';
+                                            }
+                                        ?>
+                                        <tr>
+                                            <th>Товар</th>
+                                            <th>Артикул</th>
+                                            <th>Цена</th>
+                                            <th>Количество</th>
+                                            <th>Сумма</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <a class="" href="<?php echo $perOrder['url'] ?>" target="_blank">
+                                                    <?php echo $perOrder['name'] ?>
+                                                    <?php echo htmlspecialchars_decode(str_replace('&amp;', '&', $perOrder['property'])) ?>
+                                                </a>
+                                            </td>
+                                            <td>
+                                                <div class="">
+                                                    Код: <?php echo $perOrder['code'] ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="">
+                                                    <?php echo MG::numberFormat(($perOrder['price'])).'  '.$perCurrencyShort.'/'.$unit; ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="">
+                                                    <?php echo $perOrder['count'].' '.$unit ?>
+                                                </div>
+                                            </td>
+                                            <td>
+                                                <div class="">
+                                                    <?php echo MG::numberFormat(($perOrder['price']*$perOrder['count'])).'  '.$perCurrencyShort; ?>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php endforeach; ?>
+                                    </table>
+                                <div class="clear"></div>
+                                <div class="order-settings">
+                                    <form method="POST" action="<?php echo SITE ?>/order">
+                                        <input type="hidden" name="orderID" value="<?php echo $order['id'] ?>">
+                                        <input type="hidden" name="orderSumm" value="<?php echo $order['summ'] ?>">
+                                        <input type="hidden" name="paymentId" value="<?php echo $order['payment_id'] ?>">
+                                        <?php if($order['payment_id']!=3): ?>
+                                        <button type="submit" class="default-btn" name="pay" value="go"><?php echo lang('orderFinalButton'); ?></button>
+                                        <?php endif; ?>
+                                    </form>
+                                </div>
+                                <?php if(($order['status_id']==2||$order['status_id']==5)&&MG::getSetting('useElectroLink')!='false'): ?>
+                                <div class="c-history__row">
+                                    <a class="c-history__download download-link" href="<?php echo SITE.'/order?getFileToOrder='.$order['id'] ?>">
+                                        <svg class="icon icon--download"><use xlink:href="#icon--download"></use></svg>
+                                        <?php echo lang('orderDownloadDigital'); ?>
+                                    </a>
+                                </div>
+                                <?php endif; ?>
 
-                <!-- c-tab__password - start -->
-                <div class="c-tab__content" id="c-tab__password">
-                    <form class="c-form c-form--width" action="<?php echo SITE ?>/personal" method="POST">
-                        <div class="c-form__row">
-                            <input type="password" name="pass" placeholder="<?php echo lang('personalOldPass'); ?>" required>
-                        </div>
-                        <div class="c-form__row">
-                            <input type="password" name="newPass" placeholder="<?php echo lang('forgotPass1'); ?>" required>
-                        </div>
-                        <div class="c-form__row">
-                            <input type="password" name="pass2" placeholder="<?php echo lang('personalPassRepeat'); ?>" required>
-                        </div>
-                        <div class="c-form__row">
-                            <button type="submit" class="c-button" name="chengePass" value="save"><?php echo lang('save'); ?></button>
-                        </div>
-                    </form>
-                </div>
-                <!-- c-tab__password - end -->
+                                <?php $yurInfo = unserialize(stripslashes($order['yur_info'])); if(!empty($yurInfo['inn'])): ?>
+                                <div class="c-history__row">
+                                    <a class="c-history__download download-link" href="<?php echo SITE.'/order?getOrderPdf='.$order['id'] ?>">
+                                        <svg class="icon icon--download"><use xlink:href="#icon--download"></use></svg>
+                                        <?php echo lang('orderDownloadPdf'); ?>
+                                    </a>
+                                </div>
+                                <?php endif; ?>
 
-                <!-- c-tab__orders - start -->
-                <div class="c-tab__content c-tab__content--active" id="c-tab__orders">
-                    <?php if($data['orderInfo']): ?>
-                    <div class="l-row">
-                        <div class="l-col min-0--12">
-                            <div class="c-history order-history-list">
-                                <?php $currencyShort = MG::getSetting('currencyShort'); $currencyShopIso = MG::getSetting('currencyShopIso'); foreach($data['orderInfo'] as $order): ?>
+                                <?php if($order['status_id']<2): ?>
+                                <div class="order-settings">
+                                    <button href="#openModal" class="close-order" id="<?php echo $order['id'] ?>" date="<?php echo date('d.m.Y', strtotime($order['add_date'])) ?>" data-number="<?php echo $order['number']!=''?$order['number']:$order['id']; ?>">
+                                        <?php echo lang('orderCancel'); ?>
+                                    </button>
+                                    <?php $urInfo = unserialize(stripcslashes($order['yur_info'])); if(empty($urInfo['inn'])) { ?>
+                                    <button href="#changePayment" class="change-payment" id="<?php echo $order['id'] ?>" date="<?php echo date('d.m.Y', strtotime($order['add_date'])) ?>" data-number="<?php echo $order['number']!=''?$order['number']:$order['id']; ?>">
+                                        <?php echo lang('orderChangePayment'); ?>
+                                    </button>
+                                    <?php } ?>
+                                </div>
+                                <?php endif; ?>
 
-                                <div class="c-history__item order-history" id="<?php echo $order['id'] ?>">
-                                    <div class="c-history__header order-number">
-                                        <div class="c-history__header--left">
-                                            <strong><?php echo $order['number']!=''?$order['number']:$order['id'] ?></strong> от <?php echo date('d.m.Y', strtotime($order['add_date'])) ?>
-                                        </div>
-                                        <div class="c-history__header--right">
-                                            <span class="order-status">
-                                                <span class="c-history__status <?php echo (empty($data['assocStatusClass'][$order['status_id']]) ? 'customStatus' : $data['assocStatusClass'][$order['status_id']])?>" 
-                                                  <?php 
-                                                    echo ' style="';
-                                                    if (isset($data['orderColors'][$order['status_id']]['bgColor'])) {
-                                                      echo 'background-color:'.$data['orderColors'][$order['status_id']]['bgColor'].';';
-                                                    }
-                                                    if (isset($data['orderColors'][$order['status_id']]['textColor'])) {
-                                                      echo 'color:'.$data['orderColors'][$order['status_id']]['textColor'].';';
-                                                    }
-                                                    echo '"';
-                                                  ?>
-                                                  ><?php echo $order['string_status_id'] ?></span>
-                                            </span>
-                                        </div>
+                                <?php if(!empty($order['comment'])): ?>
+                                    <div class="alert-info">
+                                        <?php echo $order['comment']; ?>
                                     </div>
-                                    <div class="c-history__content">
-                                        <div class="c-history__content--top">
-                                            <div class="c-table c-table--hover c-history__table">
-                                                <table class="status-table">
-                                                    <?php 
-                                                        $perOrder['currency_iso'] = $perOrder['currency_iso']?$perOrder['currency_iso']:$currencyShopIso;
-                                                        $perCurrencyShort = MG::getSetting('currency');
-                                                        $perOrders = unserialize(stripslashes($order['order_content']));
-                                                    ?>
-                                                    <?php if(!empty($perOrders)) foreach($perOrders as $perOrder): ?>
-                                                        <?php 
-                                                        $perCurrencyShort = $currencyShort[$perOrder['currency_iso']]?$currencyShort[$perOrder['currency_iso']]:MG::getSetting('currency');
-                                                        $coupon = $perOrder['coupon'];
-                                                        $res = DB::query("SELECT `".PREFIX."product`.id, `".PREFIX."category`.unit
-                                                                        FROM `".PREFIX."product`
-                                                                        LEFT JOIN `".PREFIX."category` ON `".PREFIX."product`.cat_id = `".PREFIX."category`.id
-                                                                        WHERE `".PREFIX."product`.id = ".DB::quoteInt($perOrder['id']));
-                                                        $row = DB::fetchAssoc($res);
-                                                        $unit = $row['unit'];
-                                                        if (strlen($unit) < 1) {
-                                                            $unit = 'шт.';
-                                                        }
-                                                    ?>
-                                                    <tr>
-                                                        <td>
-                                                            <a class="c-history__table--title" href="<?php echo $perOrder['url'] ?>" target="_blank">
-                                                                <?php echo $perOrder['name'] ?>
-                                                                <?php echo htmlspecialchars_decode(str_replace('&amp;', '&', $perOrder['property'])) ?>
-                                                            </a>
-                                                        </td>
-                                                        <td>
-                                                            <div class="c-history__table--code">
-                                                                Код: <?php echo $perOrder['code'] ?>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="c-history__table--price">
-                                                                <?php echo MG::numberFormat(($perOrder['price'])).'  '.$perCurrencyShort.'/'.$unit; ?>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="c-history__table--quantity">
-                                                                <?php echo $perOrder['count'].' '.$unit ?>
-                                                            </div>
-                                                        </td>
-                                                        <td>
-                                                            <div class="c-history__table--total">
-                                                                <?php echo MG::numberFormat(($perOrder['price']*$perOrder['count'])).'  '.$perCurrencyShort; ?>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                    <?php endforeach; ?>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <div class="c-history__content--left">
-                                            <?php if(($order['status_id']==2||$order['status_id']==5)&&MG::getSetting('useElectroLink')!='false'): ?>
-                                                <div class="c-history__row">
-                                                    <a class="c-history__download download-link" href="<?php echo SITE.'/order?getFileToOrder='.$order['id'] ?>">
-                                                        <svg class="icon icon--download"><use xlink:href="#icon--download"></use></svg>
-                                                        <?php echo lang('orderDownloadDigital'); ?>
-                                                    </a>
-                                                </div>
-                                            <?php endif; ?>
+                                <?php endif; ?>
 
-                                            <?php $yurInfo = unserialize(stripslashes($order['yur_info'])); if(!empty($yurInfo['inn'])): ?>
-                                                <div class="c-history__row">
-                                                    <a class="c-history__download download-link" href="<?php echo SITE.'/order?getOrderPdf='.$order['id'] ?>">
-                                                        <svg class="icon icon--download"><use xlink:href="#icon--download"></use></svg>
-                                                        <?php echo lang('orderDownloadPdf'); ?>
-                                                    </a>
-                                                </div>
-                                            <?php endif; ?>
+                                <div class="order-total">
+                                    <ul class="total-list">
+                                        <?php if($coupon): ?>
+                                        <li>
+                                            <?php echo lang('orderFinalCoupon'); ?> <span title="<?php echo $coupon ?>"><?php echo MG::textMore($coupon, 20) ?></span>
+                                        </li>
+                                        <?php endif; ?>
 
-                                            <?php if($order['status_id']<2): ?>
-                                                <div class="order-settings">
-                                                    <div class="c-history__row">
-                                                        <a href="#c-modal__reason" class="c-button c-button--border close-order" id="<?php echo $order['id'] ?>" date="<?php echo date('d.m.Y', strtotime($order['add_date'])) ?>" data-number="<?php echo $order['number']!=''?$order['number']:$order['id']; ?>">
-                                                            <?php echo lang('orderCancel'); ?>
-                                                        </a>
-                                                    </div>
-                                                    <?php $urInfo = unserialize(stripcslashes($order['yur_info'])); if(empty($urInfo['inn'])) { ?>
-                                                    <div class="c-history__row">
-                                                        <a href="#c-modal__payment" class="c-button c-button--border change-payment" id="<?php echo $order['id'] ?>" date="<?php echo date('d.m.Y', strtotime($order['add_date'])) ?>" data-number="<?php echo $order['number']!=''?$order['number']:$order['id']; ?>">
-                                                            <?php echo lang('orderChangePayment'); ?>
-                                                        </a>
-                                                    </div>
-                                                    <?php } ?>
-                                                </div>
-                                            <?php endif; ?>
+                                        <li>
+                                            <?php echo lang('orderFinalTotal'); ?> <span class="total-summ"><?php echo MG::numberFormat($order['summ']).'  '.$perCurrencyShort ?></span>
+                                        </li>
 
-                                            <?php if(!empty($order['comment'])): ?>
-                                                <div class="c-history__row">
-                                                    <div class="c-alert c-alert--blue">
-                                                        <?php echo $order['comment']; ?>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
-                                        </div>
-                                        <div class="c-history__content--right">
-                                            <div class="order-total">
-                                                <ul class="c-history__list total-list">
+                                        <?php if($order['description']): ?>
+                                        <li>
+                                            <?php echo lang('orderFinalDeliv'); ?> <span><?php echo $order['description'] ?></span>
+                                        </li>
+                                        <?php endif; ?>
 
-                                                    <?php if($coupon): ?>
-                                                    <li class="c-history__list--item">
-                                                        <b><?php echo lang('orderFinalCoupon'); ?></b> <span title="<?php echo $coupon ?>"><?php echo MG::textMore($coupon, 20) ?></span>
-                                                    </li>
-                                                    <?php endif; ?>
+                                        <?php if($order['date_delivery']): ?>
+                                        <li>
+                                            <?php echo lang('orderFinalDelivDate'); ?> <span><?php echo date('d.m.Y', strtotime($order['date_delivery'])) ?></span>
+                                        </li>
+                                        <?php endif; ?>
 
-                                                    <li class="c-history__list--item">
-                                                        <b><?php echo lang('orderFinalTotal'); ?></b> <span class="total-summ"><?php echo MG::numberFormat($order['summ']).'  '.$perCurrencyShort ?></span>
-                                                    </li>
+                                        <li>
+                                            <?php echo lang('orderFinalPayment'); ?> <span class="paymen-name-to-history"><?php echo $order['name'] ?></span>
+                                        </li>
 
-                                                    <?php if($order['description']): ?>
-                                                    <li class="c-history__list--item">
-                                                        <b><?php echo lang('orderFinalDeliv'); ?></b> <span><?php echo $order['description'] ?></span>
-                                                    </li>
+                                        <?php $totSumm = $order['summ']+$order['delivery_cost']; ?>
+                                        <?php if($order['delivery_cost']): ?>
+                                            <li>
+                                                <?php echo lang('orderFinalDeliv'); ?> <span class="delivery-price"><?php echo MG::numberFormat($order['delivery_cost']).'  '.$perCurrencyShort; ?></span>
+                                            </li>
+                                        <?php endif; ?>
 
-                                                    <?php if($order['date_delivery']): ?>
-                                                    <li class="c-history__list--item">
-                                                        <b><?php echo lang('orderFinalDelivDate'); ?></b> <span><?php echo date('d.m.Y', strtotime($order['date_delivery'])) ?></span>
-                                                    </li>
-                                                    <?php endif; ?>
-                                                    <?php endif; ?>
+                                        <li>
+                                            <?php echo lang('orderFinalPay'); ?> <span class="total-order-summ"><?php echo MG::numberFormat($totSumm).'  '.$perCurrencyShort; ?></span>
+                                        </li>
 
-                                                    <li class="c-history__list--item">
-                                                        <b><?php echo lang('orderFinalPayment'); ?></b> <span class="paymen-name-to-history"><?php echo $order['name'] ?></span>
-                                                    </li>
+                                        <?php if(2>$order['status_id']): ?>
+                                        <?php endif; ?>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="clear">&nbsp;</div>
+                            </div> <!-- order-history -->
+                            <?php endforeach; ?>
 
-                                                    <?php $totSumm = $order['summ']+$order['delivery_cost']; ?>
-                                                    <?php if($order['delivery_cost']): ?>
-                                                        <li class="c-history__list--item">
-                                                            <b><?php echo lang('orderFinalDeliv'); ?></b> <span class="delivery-price"><?php echo MG::numberFormat($order['delivery_cost']).'  '.$perCurrencyShort; ?></span>
-                                                        </li>
-                                                    <?php endif; ?>
+                            <!-- change payment - start -->
 
-                                                    <li class="c-history__list--item c-history__list--total">
-                                                        <b><?php echo lang('orderFinalPay'); ?></b> <span class="total-order-summ"><?php echo MG::numberFormat($totSumm).'  '.$perCurrencyShort; ?></span>
-                                                    </li>
+                            <div class="change-payment">
+                                <div class="close-reason-wrapper" id="changePayment">
+                                    <p class="order-number">
+                                        <?php echo lang('personalOrderFrom1'); ?> <strong name="orderId" class="orderId"></strong> <?php echo lang('personalOrderFrom2'); ?> <span class="orderDate"></span>
+                                    </p>
+                                    <select class="order-changer-pay">
+                                        <?php
+                                            foreach($data['paymentList'] as $item){ if(empty($item)){ continue; }
+                                            $delivery = json_decode($item['deliveryMethod']);
+                                            if($delivery->{$order['delivery_id']}){ echo "<option value='".$item['id']."'>".$item['name'].'</option>'; }}
+                                        ?>
+                                    </select>
+                                    <button type="submit" class="change-payment-btn default-btn" ><?php echo lang('apply'); ?></button>
+                                </div>
+                            </div>
 
-                                                    <?php if(2>$order['status_id']): ?>
-                                                    <li class="c-history__list--item">
-                                                        <div class="order-settings">
-                                                            <form class="c-form" method="POST" action="<?php echo SITE ?>/order">
-                                                                <input type="hidden" name="orderID" value="<?php echo $order['id'] ?>">
-                                                                <input type="hidden" name="orderSumm" value="<?php echo $order['summ'] ?>">
-                                                                <input type="hidden" name="paymentId" value="<?php echo $order['payment_id'] ?>">
-                                                                <?php if($order['payment_id']!=3): ?>
-                                                                <button type="submit" class="c-button" name="pay" value="go"><?php echo lang('orderFinalButton'); ?></button>
-                                                                <?php endif; ?>
-                                                            </form>
-                                                        </div>
-                                                    </li>
-                                                    <?php endif; ?>
-                                                </ul>
-                                            </div>
-                                        </div>
+                            <!-- change payment - end -->
+
+                            <!-- reason - start -->
+                            <div class="close-reason">
+                                <div class="successful-closure" id="successModal">
+                                    <div class="close-reason-wrapper" id="openModal">
+                                        <p class="order-number" style="display: none;"><?php echo lang('personalOrderClose2'); ?><strong name="orderId" class="orderId"></strong> <?php echo lang('personalOrderClose3'); ?> <span class="orderDate"></span></p>
+                                        <p class="custom-text">Укажите причину закрытия заказа:</p>
+                                        <textarea class="reason-text" name="comment_textarea" placeholder="<?php echo lang('personalOrderClose1'); ?>"></textarea>
+                                        <button type="submit" class="close-order-btn default-btn"><?php echo lang('send'); ?></button>
+                                        <a class="close-order" href="#successModal" name="next"></a>
+                                        <a class="close-order" href="#errorModal" name="error"></a>
+                                        <div class="clear"></div>
                                     </div>
                                 </div>
-                                <?php endforeach; ?>
-
-                                <!-- change payment - start -->
-                                <div class="c-modal c-modal--500" id="c-modal__payment">
-                                    <div class="c-modal__wrap">
-                                        <div class="c-modal__content">
-                                            <div class="c-modal__close"><svg class="icon icon--close"><use xlink:href="#icon--close"></use></svg></div>
-                                            <div class="c-form" id="changePayment">
-                                                <div class="c-form__row">
-                                                    <div class="order-number">
-                                                        <?php echo lang('personalOrderFrom1'); ?> <strong name="orderId" class="orderId"></strong> <?php echo lang('personalOrderFrom2'); ?> <span class="orderDate"></span>
-                                                    </div>
-                                                </div>
-                                                <div class="c-form__row">
-                                                    <select class="order-changer-pay">
-                                                        <?php
-                                                            foreach($data['paymentList'] as $item){ if(empty($item)){ continue; }
-                                                            $delivery = json_decode($item['deliveryMethod']);
-                                                            if($delivery->{$order['delivery_id']}){ echo "<option value='".$item['id']."'>".$item['name'].'</option>'; }}
-                                                        ?>
-                                                    </select>
-                                                </div>
-                                                <div class="c-form__row">
-                                                    <button type="submit" class="c-button change-payment-btn default-btn" ><?php echo lang('apply'); ?></button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+                                <div class="successful-closure" id="successModal">
+                                    <?php echo lang('personalOrderClose4'); ?>
                                 </div>
-                                <!-- change payment - end -->
-
-                                <!-- reason - start -->
-                                <div class="c-modal c-modal--500" id="c-modal__reason">
-                                    <div class="c-modal__wrap">
-                                        <div class="c-modal__content">
-                                            <div class="c-modal__close"><svg class="icon icon--close"><use xlink:href="#icon--close"></use></svg></div>
-                                            <div class="c-form" id="openModal">
-                                                <div class="c-form__row">
-                                                    <textarea class="reason-text" name="comment_textarea" placeholder="<?php echo lang('personalOrderClose1'); ?>"></textarea>
-                                                </div>
-                                                <div class="c-form__row">
-                                                    <button type="submit" class="c-button close-order-btn"><?php echo lang('send'); ?></button>
-                                                </div>
-                                                <div class="order-number" style="display: none;"><?php echo lang('personalOrderClose2'); ?><strong name="orderId" class="orderId"></strong> <?php echo lang('personalOrderClose3'); ?> <span class="orderDate"></span></div>
-                                            </div>
-                                            <div class="c-history__hidden" id="successModal">
-                                                <div class="c-alert c-alert--green">
-                                                    <?php echo lang('personalOrderClose4'); ?>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- reason - end -->
+                                <div class="successful-closure" id="errorModal">Ошибка</div>
                             </div>
+                            <!-- reason - end -->
+                        </div> <!-- order-history-list -->
+
+                        <?php else: ?>
+                            <div class="alert-info msgError"><?php echo lang('personalNoOrders'); ?></div>
+                        <?php endif ?>
+
+                        <div class="c-pagination">
+                            <?php echo $data['pagination'];?>
                         </div>
                     </div>
-
-                    <?php else: ?>
-                        <div class="c-alert c-alert--blue msgError"><?php echo lang('personalNoOrders'); ?></div>
-                    <?php endif ?>
-
-                    <div class="c-pagination">
-                        <?php echo $data['pagination'];?>
-                    </div>
+                    <!-- c-tab__orders - end -->
                 </div>
-                <!-- c-tab__orders - end -->
+                <!-- personal-tabs-content - end -->
             </div>
-        </div>
-
+            <!-- ui-widget-content - end -->
         <?php break; default : ?>
 
-        <div class="l-col min-0--12">
-            <div class="c-alert c-alert--red msgError"><?php echo lang('personalNotAuthorised'); ?></div>
-        </div>
+        <div class="msgError"><?php echo lang('personalNotAuthorised'); ?></div>
 
     <?php } ?>
-</div>
+</div> <!-- END person-page -->
 
 
 <script>
