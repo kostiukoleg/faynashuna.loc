@@ -73,7 +73,7 @@
                                             <?php echo str_replace(' ', '', trim($item['old_price']))." ".$item['currency']; ?>
                                         </span>
                                     <?php endif; ?>
-                                        <?php echo $item['price'] ?> <?php echo $item['currency']; ?>
+                                    <?php echo $item['price'] ?> <?php echo $item['currency']; ?>
                                 </div>
                             </div>
                         </div>

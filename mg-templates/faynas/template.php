@@ -35,14 +35,18 @@
                         
                         <?php if($thisUser = $data['thisUser']): ?>
 
+                        <a class="exit-btn" href="<?php echo SITE?>/enter?logout=1">
+                            <span class="text"><?php echo lang('authLogout'); ?></span>
+                        </a>
+
                         <a class="enter-link" href="<?php echo SITE?>/personal">
-                            <span class="text"><?php echo lang('authAccount'); ?></span>
+                            <span class="text"><?php echo $thisUser->name; ?></span>
                         </a>
 
                         <?php else: ?>
 
                         <a class="enter-link" href="<?php echo SITE?>/enter">
-                            <span class="text"><?php echo lang('authAccount'); ?></span>
+                            <span class="text"><?php echo lang('authAccountLogin'); ?></span>
                         </a>
 
                         <?php endif; ?>
@@ -89,17 +93,19 @@
                     </a>
 
                     <div class="work-hours">
-                            <a href="javascript:void(0)" class="clock-icon"></a>
-                            <div class="hours">
+                        <a href="javascript:void(0)" class="clock-icon"></a>
+                        <div class="hours">
                             <?php $workTime = explode(',', MG::getSetting('timeWork')); ?>
                             <span>
-                            <?php echo lang('mon-fri'); ?>
-                            <?php echo trim($workTime[0]); ?>
-                            <?php echo lang('sat-sun'); ?>
-                            <?php echo trim($workTime[1]); ?>
+                                <?php echo lang('mon-fri'); ?>
+                                <?php echo trim($workTime[0]); ?>
+                                <?php echo lang('sat-sun'); ?>
+                                <?php echo trim($workTime[1]); ?>
                             </span>
-                            </div>
+                            <?php layout('language_select'); ?> <!-- блок выбора языка -->
+                            <?php layout('currency_select'); ?> 
                         </div>
+                    </div>
                     <!--/Вывод логотипа сайта-->
 
                     <div class="bar-right clearfix">

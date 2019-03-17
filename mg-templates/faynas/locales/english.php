@@ -173,6 +173,7 @@ $locale = array(
   'filterLabel1' => 'Sort by:',
   'filterLabel2' => 'Price from',
   'authAccount' => 'Account',
+  'authLogout' => 'Logout',
   'cartTitle' => 'List of products',
   'cartContinue' => 'Continue shopping',
   'cartCheckout' => 'Checkout',

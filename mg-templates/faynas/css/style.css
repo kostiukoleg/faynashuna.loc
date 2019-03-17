@@ -190,7 +190,7 @@ select:not([name="multiLang-selector"]):not([name="userCustomCurrency"]) {
 }
 
 span.currency-select, span.lang-select {
-    margin-top: 5px;
+    margin: 5px 0 0 15px;
     display: inline-block;
 }
 
@@ -292,14 +292,19 @@ body.grey-bg{
     background: url("../images/clock-icon.png") no-repeat;
 }
 
-.enter-link {
+.enter-link, .exit-btn {
     float: right;
-    padding: 12px 15px 12px 40px;
+    padding: 12px 5px 12px 40px;
     display: block;
     color: #123;
     text-decoration: none;
     position: relative;
     margin: 0 0 0 30px;
+}
+
+a.exit-btn {
+    margin-left: 0px;
+    padding-left: 10px;
 }
 
 .enter-link:before{
@@ -5902,4 +5907,36 @@ li.color-filter.disabled {
 
 div.showAccountStatements {
     padding-bottom: 15px;
+}
+
+.mg-compare-products .mg-compare-center .mg-compare-product {
+    width: 233px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    white-space: normal;
+}
+
+.mg-compare-products .mg-compare-fake-table-right .mg-compare-fake-table-row .mg-compare-fake-table-cell {
+    width: 215px;
+    padding: 10px;
+    display: inline-block;
+    height: 17px;
+    vertical-align: top;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.mg-compare-products .mg-compare-fake-table-right .mg-compare-fake-table-row .mg-compare-fake-table-cell {
+    width: 305px;
+}
+
+div.mg-compare-product div.cart_form {
+    display: block !important;
+}
+.wrapper-mg-buy-click {
+    display: none;
 }

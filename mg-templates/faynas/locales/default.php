@@ -174,6 +174,7 @@ $locale = array(
   'filterLabel2' => 'Цена от',
   'authAccount' => 'Личный кабинет',
   'authAccountLogin' => 'Войти в личный кабинет',
+  'authLogout' => 'Выход',
   'cartTitle' => 'Список товаров',
   'cartContinue' => 'Продолжить покупки',
   'cartCheckout' => 'Оформить',
