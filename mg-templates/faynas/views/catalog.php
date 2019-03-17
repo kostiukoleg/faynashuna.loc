@@ -116,9 +116,8 @@ mgSEO($data);
             <div class="clear"></div>
         </div>
 
-        <div class="mg-pager">
-            <?php echo $data['pager']; ?>
-        </div>
+        <?php echo $data['pager']; ?>
+
         <div class="clear"></div>
 
 <?php endif;?>
