@@ -1,7 +1,7 @@
 <script type="text/javascript">
   includeJS('../mg-plugins/partners-program/js/script.js');
 </script>
-<link rel='stylesheet' href='../mg-plugins/partners-program/css/style.css' type='text/css' />﻿
+<link rel='stylesheet' href='../mg-plugins/partners-program/css/style.css' type='text/css' />
 
 <div class="section-partners">
     <div class="widget-table-action">

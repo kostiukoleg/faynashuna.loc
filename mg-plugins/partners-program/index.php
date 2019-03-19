@@ -20,7 +20,7 @@ class PartnerProgram {
   static public $exitMoneyLimit = 50; //минимальная сумма для вывода
   static public $contract = false; // флаг для обязательного договора
   private $status = array('0' => 'Не доступно', 1 => 'Выплачен', 2 => 'Запрос отправлен', 3 => 'Доступно');
-
+  
   public function __construct() {
 
     mgActivateThisPlugin(__FILE__, array(__CLASS__, 'createDateBase'));
@@ -244,7 +244,7 @@ class PartnerProgram {
    * При добавлении нового заказа проверяем, наличие партнерской куки.
    */
   static function partnerToOrder($arg) {
-
+    
     $partnerId = self::getPartnerCookie();
     $partner = self::getPartner(self::getPartnerCookie($partnerId));
     $orderId = $arg['result']['id']; //для новой верси
@@ -293,6 +293,7 @@ class PartnerProgram {
     $data = array('nopartner' => true);
 
     $html = '
+      <h1 class="new-products-title">'.lang('partnersProgram').'</h1>
       <div class="partnerProgram">
       <div class="becomePartner">'.self::affiliatePanel()."</div>";
 

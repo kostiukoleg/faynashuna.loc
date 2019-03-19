@@ -757,13 +757,13 @@ class Upload {
               }
        
           } else {
-            return array('msg' => $this->lang['ACT_FILE_NOT_UPLOAD1'], 'status' => 'error');
+            return array('msg' => self::lang['ACT_FILE_NOT_UPLOAD1'], 'status' => 'error');
           }
         } else {
-          return array('msg' => $this->lang['ACT_FILE_NOT_UPLOAD2'], 'status' => 'error');
+          return array('msg' => self::lang['ACT_FILE_NOT_UPLOAD2'], 'status' => 'error');
         }
       } else {
-        return array('msg' => $this->lang['ACT_FILE_NOT_UPLOAD3'], 'status' => 'error');
+        return array('msg' => self::lang['ACT_FILE_NOT_UPLOAD3'], 'status' => 'error');
       }
     }
     return true;

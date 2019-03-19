@@ -1,5 +1,6 @@
 <?php
 $locale = array(
+  'partnersProgram' => 'Partners program',
   'defaultLanguage' => 'Russian',
   'wholesalesTypeCount' => 'By',
   'wholesalesTypeSum' => 'By',

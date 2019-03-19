@@ -28,7 +28,7 @@ class BreadCrumbs {
         $sections = explode('/', $cat['fullurl']);
         $sections[] = $product_url;
       }
-      $breadcrumbs = '<a href="'.SITE.'/catalog">Каталог</a>';
+      $breadcrumbs = '<a href="'.SITE.'/catalog">'.lang('menuCatalog').'</a>';
       $max = count($sections);
       $i = 0;
       $par = '';
@@ -61,7 +61,7 @@ class BreadCrumbs {
       }
       $breadcrumbs = "<div class='bread-crumbs'>".$breadcrumbs."</div>";
       //сохраняем объект в кэш
-      Storage::save(md5('breadcrumbs'.URL::getUrl()), $breadcrumbs);
+      //Storage::save(md5('breadcrumbs'.URL::getUrl()), $breadcrumbs);
     }
     return $breadcrumbs;
   }

@@ -1,5 +1,10 @@
 <?php
 $locale = array(
+  'site' => 'Site',
+  'products' => 'Products',
+  'payments' => 'We accept payment',
+  'social' => 'We are in social networks',
+  'partnersProgram' => 'Partners program',
   'defaultLanguage' => 'Russian',
   'wholesalesTypeCount' => 'By',
   'wholesalesTypeSum' => 'By',

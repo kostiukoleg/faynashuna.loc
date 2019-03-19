@@ -1,5 +1,6 @@
 <?php
 $locale = array(
+  'partnersProgram' => 'Партнерская программа',
   'defaultLanguage' => 'Русский',
   'wholesalesTypeCount' => 'При заказе от',
   'wholesalesTypeSum' => 'При заказе от',

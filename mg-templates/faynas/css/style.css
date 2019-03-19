@@ -5934,9 +5934,10 @@ div.showAccountStatements {
     width: 305px;
 }
 
+div.products-wrapper.catalog div.cart_form,
 div.mg-compare-product div.cart_form {
     display: block !important;
 }
-.wrapper-mg-buy-click {
+div.mg-compare-product .wrapper-mg-buy-click {
     display: none;
 }

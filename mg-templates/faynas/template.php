@@ -158,21 +158,21 @@
             <div class="footer-top">
                 <div class="centered clearfix">
                     <div class="col">
-                        <h2>Сайт</h2>
+                        <h2><?php echo lang('site'); ?></h2>
                         <?php echo MG::get('pages')->getFooterPagesUl(); ?>
                     </div>
                     <div class="col">
-                        <h2>Продукция</h2>
+                        <h2><?php echo lang('products'); ?></h2>
                         <ul class="footer-column">
                             <?php echo MG::get('category')->getCategoryListUl(0, 'public', false); ?>
                         </ul>
                     </div>
                     <div class="col">
-                        <h2>Мы принимаем оплату</h2>
+                        <h2><?php echo lang('payments'); ?></h2>
                         <img src="<?php echo PATH_SITE_TEMPLATE ?>/images/payments.png" title="Мы принимаем оплату" alt="Мы принимаем оплату">
                     </div>
                     <div class="col">
-                        <h2>Мы в соцсетях</h2>
+                        <h2><?php echo lang('social'); ?></h2>
                         <ul class="social-media">
                             <li>
                                 <a href="javascript:void(0);" class="vk-icon" title="VKontakte"></a>
