@@ -37,7 +37,6 @@ mgSEO($data);
 <?php mgAddMeta('<link type="text/css" href="'.SCRIPT.'standard/css/datepicker.css" rel="stylesheet"/>'); ?>
 <?php mgAddMeta('<script src="'.SCRIPT.'jquery.maskedinput.min.js"></script>'); ?>
 
-<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
 <div class="person-page">
     <?php switch($data['status']){ case 1: ?>
 
