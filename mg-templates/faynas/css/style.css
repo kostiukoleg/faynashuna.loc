@@ -5934,6 +5934,7 @@ div.showAccountStatements {
     width: 305px;
 }
 
+.product-wrapper.clearfix div.cart_form,
 div.products-wrapper.catalog div.cart_form,
 div.mg-compare-product div.cart_form {
     display: block !important;

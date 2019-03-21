@@ -10,8 +10,8 @@
 <div class="section-<?php echo $pluginName;?>"><!-- $pluginName - задает название секции для разграничения JS скрипта -->
     
   <!-- Тут начинается Верстка модального окна -->
-  <div class="b-modal hidden-form">
-    <div class="product-table-wrapper add-news-form">
+  <div class="reveal-overlay">
+    <div class="reveal xssmall">
       <div class="widget-table-title">
         <h4 class="pages-table-icon" id="modalTitle"><?php echo $lang['MODAL_TITLE'];?></h4>
         <div class="b-modal_close tool-tip-bottom" title="<?php echo $lang['T_TIP_CLOSE_MODAL'];?>">x</div>
