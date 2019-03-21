@@ -315,7 +315,7 @@ class BackRing {
             </li>
             <li>
                 <span>Телефон:</span>
-                <input type='text' name='phone' placeholder='Телефон'>
+                <input type='text' name='phone' placeholder='Телефон' data-mask='00/00/0000'>
             </li>
             <li style='".(($options['city']!='true')?'display:none':'')."'>
                 <span>Город:</span>

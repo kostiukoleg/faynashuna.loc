@@ -42,7 +42,7 @@
 <?php mgAddMeta('<script src="' . SCRIPT . 'standard/js/order.js"></script>'); ?>
 <?php mgAddMeta('<link href="' . SCRIPT . 'standard/css/datepicker.css" rel="stylesheet" type="text/css">'); ?>
 
-<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
+
     <?php if (!empty($data['fileToOrder'])) { ?>
         <h1 class="new-products-title"><?php echo $data['fileToOrder']['infoMsg'] ?></h1>
         <?php if (!empty($data['fileToOrder']['electroInfo'])) { ?>

@@ -28,7 +28,7 @@
               <span>Имя</span> <input type="text" name="name" value=""/>              
             </li>
             <li>
-              <span>Телефон</span> <input type="text" name="phone" value=""/>              
+              <span>Телефон</span> <input type="text" name="phone" value="" data-mask="00/00/0000" />              
             </li>
             <li>
               <span>Город</span> <input type="text" name="city_id" value=""/>              
@@ -294,5 +294,5 @@
      });
      $( ".ui-autocomplete" ).css('z-index','1000'); 
      $('.section-back-ring  .b-modal .fields-calback input[name="date_callback"]').datepicker({ dateFormat: "yy-mm-dd" }); 
-     $(".section-back-ring  .b-modal .fields-calback input[name=phone]").mask("+7 (999) 999-99-99");
+     $(".section-back-ring  .b-modal .fields-calback input[name=phone]").mask("+3 (999) 999-99-99");
   </script>

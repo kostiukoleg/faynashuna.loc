@@ -23,7 +23,7 @@ $(document).ready(function() {
   };
   $.datepicker.setDefaults($.datepicker.regional['ru']);
   $('.content-modal-back-ring input[name=date_callback]').datepicker({dateFormat: "yy-mm-dd"});
-  $(".content-modal-back-ring input[name=phone]").mask("+7 (999) 999-99-99");
+  $(".content-modal-back-ring input[name=phone]").mask("+38 (999) 999-99-99");
 
   $('.back-ring-button').click(function() {
     if ($('.wrapper-modal-back-ring').is(':visible')) {

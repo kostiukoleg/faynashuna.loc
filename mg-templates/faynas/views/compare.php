@@ -1,5 +1,5 @@
 <?php mgSEO($data); $prodIds = array(); $propTable = array(); ?>
-<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
+
 <div class="mg-compare-products">
 <div class="title-panel clearfix">
     <h1 class="new-products-title"><?php echo lang('compareProduct'); ?></h1>
