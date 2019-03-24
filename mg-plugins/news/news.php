@@ -137,12 +137,15 @@ $sql = 'INSERT INTO `mpl_news` SET add_date= '.$date.', ';
       $_POST['image_url'] = '';
     }
 
+    $_POST['add_date']= date('Y-m-d',  strtotime($_POST['add_date']));
+    
     //обновление
     if(!empty($_POST['id'])){
    
       $this->updateNews($_POST);
       $this->data = $_POST;
-    }else{
+    }else{     
+      
       // добавление
       $this->data = $this->updateNews($_POST);
     }
@@ -268,7 +271,7 @@ $sql = 'INSERT INTO `mpl_news` SET add_date= '.$date.', ';
 
     if($news = DB::fetchAssoc($result)){
       //$news['url'] = str_replace('.html', '', $news['url']);
-      $news['add_date'] = date('Y-m-d', strtotime($news['add_date']));
+      $news['add_date'] = date('d.m.Y', strtotime($news['add_date']));
       $this->data = $news;
       return true;
     }

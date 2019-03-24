@@ -2,6 +2,25 @@
  * Модуль для  раздела "Новости".
  */
 
+$(".ui-autocomplete").css('z-index', '1000');
+$.datepicker.regional['ru'] = {
+  closeText: 'Закрыть',
+  prevText: '&#x3c;Пред',
+  nextText: 'След&#x3e;',
+  currentText: 'Сегодня',
+  monthNames: ['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь',
+    'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
+  monthNamesShort: ['Янв', 'Фев', 'Мар', 'Апр', 'Май', 'Июн',
+    'Июл', 'Авг', 'Сен', 'Окт', 'Ноя', 'Дек'],
+  dayNames: ['воскресенье', 'понедельник', 'вторник', 'среда', 'четверг', 'пятница', 'суббота'],
+  dayNamesShort: ['вск', 'пнд', 'втр', 'срд', 'чтв', 'птн', 'сбт'],
+  dayNamesMin: ['Вс', 'Пн', 'Вт', 'Ср', 'Чт', 'Пт', 'Сб'],
+  dateFormat: 'dd.mm.yy',
+  firstDay: 1,
+  isRTL: false
+};
+$.datepicker.setDefaults($.datepicker.regional['ru']);
+
 var news = (function () {
   return {
    
@@ -47,6 +66,11 @@ var news = (function () {
         if($(this).val()){
           news.addImageToNews();
         }
+      });
+
+      //ckeditor
+      $('.admin-center').on('click', '#add-news-wrapper .accordion-title', function () {
+        $('textarea[name=html_content]').ckeditor();  
       });
 
       // Удаляение изображения новости, как из БД таи физически с сервера.
@@ -105,8 +129,8 @@ var news = (function () {
       }
 
       // Вызов модального окна.
-      admin.openModal($('.b-modal'));
-      $( 'textarea[name=html_content]' ).ckeditor();  
+      admin.openModal($('#add-plug-modal'));
+      
     },
 
 
@@ -127,6 +151,10 @@ var news = (function () {
       // url обязательно надо заполнить.
       if(!$('input[name=url]').val()){
         $('input[name=url]').parent("label").find('.errorField').css('display','block');
+        error = true;
+      }
+      if(!$('input[name=author]').val()){
+        $('input[name=author]').parent("label").find('.errorField').css('display','block');
         error = true;
       }
 
@@ -150,7 +178,10 @@ var news = (function () {
         return false;
       }
 
-     
+      $time = '';
+      if($('input[name=add_date]').val() != '01.01.1970') {
+        $time = $('input[name=add_date]').val();
+      }
  
       // Пакет характеристик новости.
       var packedProperty = {
@@ -160,12 +191,13 @@ var news = (function () {
         id: id,
         title: $('input[name=title]').val(),
         url: $('input[name=url]').val(),
+        author: $('input[name=author]').val(),
         image_url: $('.product-text-inputs input[name=photoimg]').val()?$('.product-text-inputs input[name=photoimg]').val():$('.prev-img img').attr('src'),
         description: $('textarea[name=html_content]').val(),
         meta_title: $('input[name=meta_title]').val(),
         meta_keywords: $('input[name=meta_keywords]').val(),
         meta_desc: $('textarea[name=meta_desc]').val(),
-        add_date: $('input[name=add_date]').val(),
+        add_date: $time,
       }
 
       // отправка данных на сервер для сохранения
@@ -197,10 +229,10 @@ var news = (function () {
               <td>'+response.data.add_date+'\
                   <span class="future-public">'+response.data.add_date_future+'</span> \
                 </td>   \
-              <td class="actions">\
+              <td class="actions text-right">\
                 <ul class="action-list">\
-                  <li class="edit-row tool-tip-bottom" id="'+response.data.id+'"><a href="#" title="'+lang.EDIT+'"></a></li>\
-                  <li class="delete-order tool-tip-bottom" id="'+response.data.id+'"><a href="#"  title="'+lang.DELETE+'"></a></li>\
+                  <li class="edit-row tool-tip-bottom" id="'+response.data.id+'"><a href="#" class="fa fa-pencil" title="'+lang.EDIT+'"></a></li>\
+                  <li class="delete-order tool-tip-bottom" id="'+response.data.id+'"><a href="#" class="fa fa-trash" title="'+lang.DELETE+'"></a></li>\
                 </ul>\
               </td>\
            </tr>';
@@ -225,7 +257,7 @@ var news = (function () {
           }
 
           // Закрываем окно
-          admin.closeModal($('.b-modal'));
+          admin.closeModal($('#add-plug-modal'));
           admin.initToolTip();
         }
       );
@@ -279,7 +311,8 @@ var news = (function () {
     fillFileds:function() {
       return (function(response) {
         $('input[name=title]').val(response.data.title);
-        $('input[name=url]').val(response.data.url);       
+        $('input[name=url]').val(response.data.url);
+        $('input[name=author]').val(response.data.author);
         $('textarea[name=html_content]').val(response.data.description);
         $('input[name=meta_title]').val(response.data.meta_title);
         $('input[name=meta_keywords]').val(response.data.meta_keywords);
@@ -301,8 +334,14 @@ var news = (function () {
     * Чистит все поля модального окна
     */
     clearFileds:function() {
+      try{
+        if(CKEDITOR.instances['news_content']) {
+          CKEDITOR.instances['news_content'].destroy();
+        }
+      } catch(e) { }
       $('input[name=title]').val('');
       $('input[name=url]').val('');
+      $('input[name=author]').val('');
       $('textarea[name=html_content]').val('');
       $('input[name=meta_title]').val('');
       $('input[name=meta_keywords]').val('');
@@ -322,9 +361,23 @@ var news = (function () {
     * Предпросмотр новости
     */
     previewPage: function() {
-      var content_page = $('textarea[name=html_content]').val();
-      $('#previewContent').val(content_page);
-      $('#previewer').submit();
+      admin.ajaxRequest({
+          mguniqueurl: "action/getPreview", // действия для выполнения на сервере
+          pluginHandler: 'news', // плагин для обработки запроса
+          description: CKEDITOR.instances.news_content.getData(),
+          title: $('input[name="title"]').val(),
+          date_active_from: $('input[name="add_date"]').val(),
+          image_url: $('.prev-img').find('img').attr('src'),
+        },
+        function(response){
+          console.log(response);
+          $('#previewContent').val(response.data);
+          $('#previewer').submit();
+        });
+
+      // var content_page = $('textarea[name=html_content]').val();
+      // $('#previewContent').val(content_page);
+      // $('#previewer').submit();
     },
 
     /**

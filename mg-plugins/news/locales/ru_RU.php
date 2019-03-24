@@ -42,5 +42,6 @@ $lang = array(
     'DELETE' => "Удалить",
     'DATE' => "Дата",
     'PUBLISH_AFTER' => "В ленте с ",
+    'ACTIONS' => "Действия",
   
 );

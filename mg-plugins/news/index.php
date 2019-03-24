@@ -3,7 +3,7 @@
   Plugin Name: Новостная лента
   Description: Позволяет вести новостную ленту добавляя и редактируя тексты новостей. После подключения плагина становится доступной страница [sitename]/news.html , на которой отображается список анонсов всех новостей. Чтобы вывести анонсы новостей в любом месте сайта нужно указать шорткод [news-anons count="3"], где count - число анонсов. А также появляется возможность подписаться на RSS рассылку по адресу [sitename]/news/feed
   Author: Avdeev Mark
-  Version: 3.0.3
+  Version: 3.0.9
  */
 
 /**
@@ -30,13 +30,14 @@ class PluginNews {
      CREATE TABLE IF NOT EXISTS  `mpl_news` (
      `id` INT( 11 ) NOT NULL AUTO_INCREMENT ,
      `title` VARCHAR( 255 ) NOT NULL ,
-     `description` TEXT NOT NULL ,
+     `description` longtext NOT NULL,
      `add_date` DATETIME NOT NULL ,
      `url` VARCHAR( 255 ) NOT NULL ,
      `image_url` VARCHAR( 255 ) NOT NULL ,
      `meta_title` varchar(255) NOT NULL,
      `meta_keywords` varchar(512) NOT NULL,
      `meta_desc` text NOT NULL,
+     `author` text NOT NULL,
      PRIMARY KEY ( `id` )
      ) ENGINE = MYISAM DEFAULT CHARSET=utf8;
    ");
@@ -113,7 +114,7 @@ class PluginNews {
       $listNews = $data['listNews'];
       foreach ($listNews as $news) {
         $rss->AddItem(
-          htmlentities(SITE.'/news/'.$news['url']), $news['title'], $news['description'], $news['add_date']
+          htmlentities(SITE.'/news/'.$news['url']), $news['title'], $news['description'], $news['add_date'], $news['author'], $news['image_url']
         );
       }
 

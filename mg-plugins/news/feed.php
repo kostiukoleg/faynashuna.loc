@@ -19,7 +19,7 @@ class Feed{
     $this->SetChannelInfo($url, $title, $description, $date);
   }
 
-  function AddItem($url, $title, $description, $date, $brief = '', $author = '', $category = ''){
+  function AddItem($url, $title, $description, $date, $author = '', $img = '', $category = ''){
     array_push($this->items, array(
       'url' => $url,
       'title' => $title,
@@ -27,7 +27,8 @@ class Feed{
       'date' => $date,
       'category' => $category,
       'author' => $author,
-      'brief' => ($brief ? $brief : $description)
+      'img' => $img,
+      'brief' => MG::textMore($description, 100)
     ));
   }
 
@@ -53,7 +54,21 @@ class Feed{
 
     if($items = $this->GetItems()){
       foreach($items as $item){
-        $content .= "<item>\n";
+        if ($item['img']) {
+          $enclosures = array(SITE.'/uploads/news/'.$item['img']);
+        }
+        else {
+          $enclosures = array();
+        }
+        $pics = array();
+        preg_match_all("'<img(.*?)>'si", $item['description'], $pics);
+        foreach ($pics[1] as $pic) {
+          $hrefs = array();
+          preg_match_all("'src=\"(.*?)\"'si", $pic, $hrefs);
+          $enclosures[] = $hrefs[1][0];
+        }
+        $file_info = new finfo(FILEINFO_MIME_TYPE);
+        $content .= "<item turbo='true'>\n";
         $content .= "<title><![CDATA[".$item['title']."]]></title>\n";
         $content .= "<pubDate>".date("r", strtotime($item['date']))."</pubDate>\n";
         $content .= "<link>".$item['url']."</link>\n";
@@ -62,8 +77,11 @@ class Feed{
         if($item['category'])
           $content .= "<category><![CDATA[".$item['category']."]]></category>\n";
         if($item['author'])
-          $content .= "<dc:creator>".$item['author']."</dc:creator>\n";
-
+          $content .= "<author>".$item['author']."</author>\n";
+        foreach ($enclosures as $enclosure) {
+          $mime_type = $file_info->buffer(file_get_contents($enclosure));
+          $content .= "<enclosure url=\"".$enclosure."\" type=\"".$mime_type."\"/>\n";
+        }
         $content .= "<description>\n";
         $content .= "<![CDATA[".$item['brief']."]]>";
         $content .= "\n</description>\n";
