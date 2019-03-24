@@ -13,7 +13,7 @@
  */
 
 //Не выводить предупреждения и ошибки.
-Error_Reporting(0);
+Error_Reporting(1);
 // Error_Reporting(E_ERROR | E_PARSE);
 
 // Установка кодировки для вывода контента.

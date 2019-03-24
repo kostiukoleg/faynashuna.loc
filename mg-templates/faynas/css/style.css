@@ -5039,6 +5039,8 @@ blockquote {
     font-size: 14px;
     line-height: 20px;
     margin: 0 0 25px 0;
+    max-height: 170px;
+    overflow: hidden;
 }
 
 .middle-banner .product-item .default-btn{

@@ -124,9 +124,9 @@ var blog = (function() {
       });
 
       // Выбор картинки
-      /*$('.admin-center').on('click', '.section-blog .browseImage', function() {
-       admin.openUploader('blog.getFile');
-       });*/
+      // $('.admin-center').on('click', '.section-blog .browseImage', function() {
+      //  admin.openUploader('blog.getFile');
+      //  });
 
       // Обработчик для загрузки изображения на сервер, сразу после выбора.
       $('body').on('change', '#photoimg', function(){
@@ -772,6 +772,7 @@ var blog = (function() {
         cache: false,
         dataType: 'json',
         success: function(response){
+
           admin.indication(response.status, response.msg);
           if(response.status != 'error'){
             var src=admin.SITE+'/uploads/blog/'+response.data.img;
