@@ -3168,10 +3168,10 @@ li.c-order__list--item.c-order__checkbox label {
     top: 0;
     bottom: 0;
     margin: auto;
-    border-radius: 100px;
+    border-radius: 0;
     text-indent: -999999px;
-    width: 42px;
-    height: 42px;
+    width: 45px;
+    height: 45px;
     /* background: #fff; */
     /* box-shadow: 0 0 4px rgba(0, 0, 0, 0.5); */
 }
@@ -3192,7 +3192,7 @@ li.c-order__list--item.c-order__checkbox label {
     width: 42px;
     height: 42px;
     margin: auto;
-    background: url("../images/large-controls.png");
+    /* background: url("../images/large-controls.png"); */
 }
 
 .wrapper .m-p-slider-wrapper .bx-wrapper .bx-next:before{
@@ -5939,6 +5939,26 @@ div.products-wrapper.catalog div.cart_form,
 div.mg-compare-product div.cart_form {
     display: block !important;
 }
+
 div.mg-compare-product .wrapper-mg-buy-click {
     display: none;
+}
+
+.j-accordion-menu__count {
+    color: grey;
+    font-weight: bold;
+    font-size: 11px;
+}
+
+a.level-2__a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+ul.partners-list li {
+    padding: 5px;
+}
+
+.partners-block ul.partners-list li a img {
+    width: 140px;
 }

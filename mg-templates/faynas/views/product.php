@@ -115,11 +115,12 @@ mgSEO($data);
         <div class="product-details-wrapper">
 
             <ul class="product-tabs">
-                <li><a class="active" href="#tab1"><?php echo lang('productDescription'); ?></a></li>
-                
+                            
                 <?php if(!empty($data['stringsProperties'])): ?>
                     <li><a href="#tab_property"><?php echo lang('productCharacteristics'); ?></a></li>
                 <?php endif; ?>
+
+                <li><a href="#tab1"><?php echo lang('productDescription'); ?></a></li>
 
                 <?php if (class_exists('mgTreelikeComments')): ?>
                     <li><a href="#tree-comments"><?php echo lang('productComments'); ?></a></li>

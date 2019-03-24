@@ -26,7 +26,7 @@
                             <?php echo MG::contextEditor('category', $category['title'], $category["id"], "category"); ?>
                         </span>
                         <?php if (MG::getSetting('showCountInCat')=='true'):?>
-                            <span class="j-accordion-menu__count"><?php echo $category['insideProduct']?''.$category['insideProduct'].'':''; ?></span>
+                            <span class="j-accordion-menu__count"><?php echo $category['insideProduct']?''.$category['insideProduct'].'':'0'; ?></span>
                         <?php endif;?>
 
                     </a>
@@ -51,7 +51,7 @@
                                     <?php echo MG::contextEditor('category', $categoryLevel1['title'], $categoryLevel1["id"], "category"); ?>
                                 </span>
                                 <?php if (MG::getSetting('showCountInCat')=='true'):?>
-                                    <span class="j-accordion-menu__count"><?php echo $categoryLevel1['insideProduct']?''.$categoryLevel1['insideProduct'].'':''; ?></span>
+                                    <span class="j-accordion-menu__count"><?php echo $categoryLevel1['insideProduct']?''.$categoryLevel1['insideProduct'].'':'0'; ?></span>
                                 <?php endif;?>
                             </a>
 
@@ -75,7 +75,7 @@
                                             <?php echo MG::contextEditor('category', $categoryLevel2['title'], $categoryLevel2["id"], "category"); ?>
                                         </span>
                                         <?php if (MG::getSetting('showCountInCat')=='true'):?>
-                                            <span class="j-accordion-menu__count"><?php echo $categoryLevel2['insideProduct']?''.$categoryLevel2['insideProduct'].'':''; ?></span>
+                                            <span class="j-accordion-menu__count"><?php echo $categoryLevel2['insideProduct']?''.$categoryLevel2['insideProduct'].'':'0'; ?></span>
                                         <?php endif;?>
                                     </a>
 
@@ -95,7 +95,7 @@
                                             <?php echo MG::contextEditor('category', $categoryLevel2['title'], $categoryLevel2["id"], "category"); ?>
                                         </span>
                                         <?php if (MG::getSetting('showCountInCat')=='true'):?>
-                                            <span class="j-accordion-menu__count"><?php echo $categoryLevel2['insideProduct']?''.$categoryLevel2['insideProduct'].'':''; ?></span>
+                                            <span class="j-accordion-menu__count"><?php echo $categoryLevel2['insideProduct']?''.$categoryLevel2['insideProduct'].'':'0'; ?></span>
                                         <?php endif;?>
                                     </a>
                                 </li>
@@ -118,7 +118,7 @@
                                     <?php echo MG::contextEditor('category', $categoryLevel1['title'], $categoryLevel1["id"], "category"); ?>
                                 </span>
                                 <?php if (MG::getSetting('showCountInCat')=='true'):?>
-                                    <span class="j-accordion-menu__count"><?php echo $categoryLevel1['insideProduct']?''.$categoryLevel1['insideProduct'].'':''; ?></span>
+                                    <span class="j-accordion-menu__count"><?php echo $categoryLevel1['insideProduct']?''.$categoryLevel1['insideProduct'].'':'0'; ?></span>
                                 <?php endif; ?>
                             </a>
                         </li>
@@ -141,7 +141,7 @@
                             <?php echo MG::contextEditor('category', $category['title'], $category["id"], "category"); ?>
                         </span>
                         <?php if (MG::getSetting('showCountInCat')=='true'):?>
-                            <span class="j-accordion-menu__count"><?php echo $category['insideProduct']?''.$category['insideProduct'].'':''; ?></span>
+                            <span class="j-accordion-menu__count"><?php echo $category['insideProduct']?''.$category['insideProduct'].'':'0'; ?></span>
                         <?php endif; ?>
                     </a>
                 </li>
