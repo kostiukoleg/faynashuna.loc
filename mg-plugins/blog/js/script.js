@@ -38,7 +38,7 @@ var blog = (function() {
       });
 
       // Сохраняет изменения в модальном окне
-      $('.admin-center').on('click', '.section-blog .b-modal .save-button', function() {
+      $('.admin-center').on('click', '.section-blog #add-plug-modal .save-button', function() {
         var id = $(this).attr('id');
         var entityType = 'item';
 
@@ -53,6 +53,7 @@ var blog = (function() {
       // Нажатие на кнопку - активности
       $('.admin-center').on('click', '.section-blog .visible', function(){
         $(this).toggleClass('active');
+        $(this).find("a").toggleClass('active');
         var id = $(this).data('id');
         if($(this).hasClass('active')) {
           blog.visibleEntity(id, 1);
@@ -140,8 +141,8 @@ var blog = (function() {
       });
 
       //Переключение вида выбора категории: выпадающий список/множественный выбор
-      $('.admin-center').on('click', '.section-blog .b-modal .add-category', function(){
-        var select = $('.section-blog .b-modal select[name=category_id]');
+      $('.admin-center').on('click', '.section-blog #add-plug-modal .add-category', function(){
+        var select = $('.section-blog #add-plug-modal select[name=category_id]');
         if(select.prop("multiple")){
           select.prop("multiple", false);
           select.css("height", "29px");
@@ -156,8 +157,8 @@ var blog = (function() {
       });
 
       //Переключение с выбора категории на добавление новой
-      $('.admin-center').on('click', '.section-blog .b-modal .add-new-cat-change', function(){
-        var select = $('.section-blog .b-modal select[name=category_id]');
+      $('.admin-center').on('click', '.section-blog #add-plug-modal .add-new-cat-change', function(){
+        var select = $('.section-blog #add-plug-modal select[name=category_id]');
         var input = select.parent('div').find('input.new-category').parent('span');
         var changeText = $(this).attr("data-change-text");
         var oldText = $(this).find('span').text();
@@ -174,8 +175,8 @@ var blog = (function() {
       });
 
       //Скрытие/раскрытие настройки периода активности
-      $('.admin-center').on('click', '.section-blog .b-modal .set-visible-period', function(){
-        var period = $('.section-blog .b-modal div.period-params');
+      $('.admin-center').on('click', '.section-blog #add-plug-modal .set-visible-period', function(){
+        var period = $('.section-blog #add-plug-modal div.period-params');
         var changeText = $(this).attr("data-change-text");
         var oldText = $(this).find('span').text();
         period.slideToggle();
@@ -185,18 +186,18 @@ var blog = (function() {
       });
 
       //Добавление новой категории в базу и отображение её в списке доступных
-      $('.admin-center').on('click', '.section-blog .b-modal .addNewCat', function(){
+      $('.admin-center').on('click', '.section-blog #add-plug-modal .addNewCat', function(){
         if($('input[name=new_category]').val()){
           admin.ajaxRequest({
               mguniqueurl: "action/saveCategory", // действия для выполнения на сервере
               pluginHandler: 'blog', // плагин для обработки запроса
               title: $('input[name=new_category]').val() // название новой категории
             }, function(response){
-              var select = $('.section-blog .b-modal select[name=category_id]');
+              var select = $('.section-blog #add-plug-modal select[name=category_id]');
               var option = select.append('<option value='+response.data.id+'>'+response.data.title+'</option>');
               select.find('option[value='+response.data.id+']').prop("selected", true);
-              $('.section-blog .b-modal .add-new-cat-change').trigger('click');
-            },$('.b-modal .addNewCat')
+              $('.section-blog #add-plug-modal .add-new-cat-change').trigger('click');
+            },$('#add-plug-modal .addNewCat')
           );
         }else{}
       });
@@ -237,7 +238,7 @@ var blog = (function() {
         if (!$('.add-product-form-wrapper .seo-wrapper input[name=meta_title]').val()){
           $('.add-product-form-wrapper .seo-wrapper input[name=meta_title]').val(title);
         }
-        if (!$('.add-product-form-wrapper .seo-wrapper input[name=meta_keywords]').val() && $('input[name=title]').parents('.b-modal').find('input[name=tags]').length == 0) {
+        if (!$('.add-product-form-wrapper .seo-wrapper input[name=meta_keywords]').val() && $('input[name=title]').parents('#add-plug-modal').find('input[name=tags]').length == 0) {
           var keywords = title;
           var keyarr = title.split(' ');
           for ( var i=0; i < keyarr.length; i++) {
@@ -280,16 +281,24 @@ var blog = (function() {
               $('.add-product-form-wrapper .seo-wrapper textarea[name=meta_desc]').val($.trim(short_desc));
             }
           });
+
         }
       });
 
-      /*Инициализирует CKEditior и раскрывает поле для заполнения описания товара*/
-      $('.admin-center').on('click', '.product-desc-wrapper .html-content-edit', function(){
-        var link = $(this);
-        $('textarea[name=html_content_blog]').ckeditor(function() {
-          $('#html-content-wrapper').show();
-          link.hide();
-        });
+      setInterval(function(){
+        if ($('.section-blog').is(":visible") && $('.section-blog').attr('moveckimagesexists') == 'true') {
+          for(var ckname in CKEDITOR.instances){
+            CKEDITOR.instances[ckname].config.filebrowserUploadUrl = admin.SITE + '/ajax?mguniqueurl=action/upload_tmp';
+          }
+        }
+      },1000);
+
+      /*Инициализирует CKEditor*/
+      $('.admin-center').on('click', '.section-blog .content_blog_acc', function(){
+        $('textarea[id=blog_content]').ckeditor(function() {});
+      });
+      $('.admin-center').on('click', '.section-blog .cat_blog_acc', function(){
+        $('textarea[id=html_category_blog]').ckeditor(function() {});
       });
     },
 
@@ -299,19 +308,13 @@ var blog = (function() {
      * @returns {undefined}
      */
     showModal: function(type, id, entity) {
-      try{
-        if(CKEDITOR.instances['html_content_blog']){
-          CKEDITOR.instances['html_content_blog'].destroy();
-        }
-      } catch(e) { }
-
       switch (type) {
         case 'add':
         {
           blog.clearField();
           $('.html-content-edit').hide();
           $('.product-desc-wrapper #html-content-wrapper').show();
-          $('textarea[name=html_content_blog]').ckeditor();
+          // $('textarea[name=html_content_blog]').ckeditor();
           break;
         }
         case 'edit':
@@ -327,7 +330,7 @@ var blog = (function() {
               id: id // id записи
             },
             blog.fillField(entity),
-            $('.b-modal .widget-table-body')); // вывод лоадера в контейнер окна, пока идет загрузка данных);
+            $('#add-plug-modal .widget-table-body')); // вывод лоадера в контейнер окна, пока идет загрузка данных);
           break;
         }
         default:
@@ -336,7 +339,7 @@ var blog = (function() {
         }
       }
 
-      admin.openModal($('.b-modal'));
+      admin.openModal($('#add-plug-modal'));
 
 
 
@@ -371,23 +374,26 @@ var blog = (function() {
      * функция для приема файла из аплоадера
      */
     getFile: function(file) {
-      $('.section-blog .b-modal  input[name="src"]').val(file.url);
+      $('.section-blog #add-plug-modal  input[name="src"]').val(file.url);
     },
 
     /**
      * Очистка модального окна
      */
     clearField: function() {
+      for(var ckname in CKEDITOR.instances){
+          CKEDITOR.instances[ckname].destroy(true);
+      }
       $('.errorField').css('display','none');
-      $('.section-blog .b-modal input').val('');
-      $('.section-blog .b-modal select').prop("multiple", false);
-      $('.section-blog .b-modal select option').prop("selected", false);
-      $('.section-blog .b-modal textarea').val('');
+      $('.section-blog #add-plug-modal input').val('');
+      $('.section-blog #add-plug-modal select').prop("multiple", false);
+      $('.section-blog #add-plug-modal select option').prop("selected", false);
+      $('.section-blog #add-plug-modal textarea').val('');
       var src=admin.SITE+'/mg-admin/design/images/no-img.png';
       $('.prev-img').html('<img src="'+src+'" alt="" />');
       $('.symbol-count').text('0');
-      $('.section-blog .b-modal .cancel-img-upload').attr('id','');
-      $('.section-blog .b-modal .save-button').attr('id','');
+      $('.section-blog #add-plug-modal .cancel-img-upload').attr('id','');
+      $('.section-blog #add-plug-modal .save-button').attr('id','');
       $('#html-content-wrapper').hide();
       $('.html-content-edit').show();
       blog.supportCkeditor = '';
@@ -405,6 +411,7 @@ var blog = (function() {
         $('textarea[name=html_content_blog]').val(response.data.description);
         $('input[name=title]').val(response.data.title);
         $('input[name=url]').val(response.data.url);
+        $('input[name=author]').val(response.data.author);
         $('input[name=tags]').val(response.data.tags);
         $('input[name=meta_title]').val(response.data.meta_title);
         $('input[name=meta_keywords]').val(response.data.meta_keywords);
@@ -424,11 +431,11 @@ var blog = (function() {
           $('.section-blog input[name=date_active_to]').val(response.data.date_active_to);
 
           if(response.data.categories && response.data.categories[0] != ''){
-            var select = $('.section-blog .b-modal select[name=category_id]');
+            var select = $('.section-blog #add-plug-modal select[name=category_id]');
             if(response.data.categories.length > 1){
               select.prop("multiple", true);
               select.find('option').eq(0).hide();
-              $('.section-blog .b-modal .add-category').addClass("opened-list");
+              $('.section-blog #add-plug-modal .add-category').addClass("opened-list");
 
               /*function checkItems(item, i, arr){
 
@@ -446,9 +453,9 @@ var blog = (function() {
         $('.cancel-img-upload').attr('id',response.data.id);
         $('.save-button').attr('id',response.data.id);
 
-        $('textarea[name=html_content_blog]').ckeditor(function() {
-          this.setData(blog.supportCkeditor);
-        });
+        // $('textarea[name=html_content_blog]').ckeditor(function() {
+        //   this.setData(blog.supportCkeditor);
+        // });
       }
     },
 
@@ -504,6 +511,7 @@ var blog = (function() {
         id: id,
         title: $('.section-blog input[name=title]').val(),
         url: $('.section-blog input[name=url]').val(),
+        author: $('.section-blog input[name=author]').val(),
         tags: $('.section-blog input[name=tags]').val(),
         description: $('textarea[name=html_content_blog]').val(),
         meta_title: $('input[name=meta_title]').val(),
@@ -549,7 +557,7 @@ var blog = (function() {
             blog.drawRow(response.data, entity); // добавление новой записи
           }
 
-          admin.closeModal($('.b-modal'));
+          admin.closeModal($('#add-plug-modal'));
           blog.clearField();
         }
       );
@@ -617,7 +625,7 @@ var blog = (function() {
 
         var tr = '\
          <tr data-id="'+data.id+'">\
-          <td>'+data.id+'</td>\
+          <td class="text-left">'+data.id+'</td>\
           <td class="product-picture image_url"><img class="uploads" src="'+src+'" /></td>\
           <td>'+data.title+'\
             <a class="link-to-site tool-tip-bottom" title="'+blog.lang.VIEW_SITE+'" href="'+path+'"  target="_blank" >\
@@ -627,10 +635,10 @@ var blog = (function() {
           <td class="cat_name">'+data.cat_name+'</td>\
           <td class="date-create">'+data.date_active_from+'</td>\
           <td class="actions">\
-            <ul class="action-list">\
-              <li class="edit-row" data-id="'+data.id+'"><a class="tool-tip-bottom" href="javascript:void(0);" title="'+lang.EDIT+'"></a></li>\
-              <li class="visible tool-tip-bottom '+activity+'" data-id="'+data.id+'" title="'+blog.lang.ACT_V_ENTITY+'"><a href="javascript:void(0);"></a></li>\
-              <li class="delete-row" data-id="'+data.id+'"><a class="tool-tip-bottom" href="javascript:void(0);"  title="'+lang.DELETE+'"></a></li>\
+            <ul class="action-list text-right">\
+              <li class="edit-row" data-id="'+data.id+'"><a class="tool-tip-bottom fa fa-pencil" href="javascript:void(0);" title="'+lang.EDIT+'"></a></li>\
+              <li class="visible tool-tip-bottom '+activity+'" data-id="'+data.id+'" title="'+blog.lang.ACT_V_ENTITY+'"><a class="fa fa-lightbulb-o '+activity+'" href="javascript:void(0);"></a></li>\
+              <li class="delete-row" data-id="'+data.id+'"><a class="tool-tip-bottom fa fa-trash" href="javascript:void(0);"  title="'+lang.DELETE+'"></a></li>\
             </ul>\
           </td>\
         </tr>';
@@ -643,7 +651,7 @@ var blog = (function() {
 
         var tr = '\
         <tr data-id="'+data.id+'">\
-          <td>'+data.id+'</td>\
+          <td class="text-left">'+data.id+'</td>\
           <td>'+data.title+'\
             <a class="link-to-site tool-tip-bottom" title="'+blog.lang.VIEW_SITE+'" href="'+path+'"  target="_blank" >\
               <img src="'+admin.SITE+'/mg-admin/design/images/icons/link.png" alt="" />\
@@ -651,9 +659,9 @@ var blog = (function() {
           </td>\
           <td>'+data.url+'</td>\
           <td class="actions">\
-            <ul class="action-list">\
-              <li class="edit-row" data-id="'+data.id+'"><a class="tool-tip-bottom" href="javascript:void(0);" title="'+lang.EDIT+'"></a></li>\
-              <li class="delete-row" data-id="'+data.id+'"><a class="tool-tip-bottom" href="javascript:void(0);"  title="'+lang.DELETE+'"></a></li>\
+            <ul class="action-list text-right">\
+              <li class="edit-row" data-id="'+data.id+'"><a class="tool-tip-bottom fa fa-pencil" href="javascript:void(0);" title="'+lang.EDIT+'"></a></li>\
+              <li class="delete-row" data-id="'+data.id+'"><a class="tool-tip-bottom fa fa-trash" href="javascript:void(0);"  title="'+lang.DELETE+'"></a></li>\
             </ul>\
           </td>\
         </tr>';
@@ -680,7 +688,7 @@ var blog = (function() {
       admin.ajaxRequest({
           mguniqueurl: "action/getPreview", // действия для выполнения на сервере
           pluginHandler: 'blog', // плагин для обработки запроса
-          description: CKEDITOR.instances['product-desc'].getData(),
+          description: CKEDITOR.instances.blog_content.getData(),
           title: $('input[name="title"]').val(),
           date_active_from: $('input[name="date_active_from"]').val(),
           image_url: $('input[name="photoImgName"]').val(),

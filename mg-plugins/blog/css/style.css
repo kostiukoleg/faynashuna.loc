@@ -2,7 +2,7 @@
     clear: both;
 }
 
-/*ÐÐ´Ð¼Ð¸Ð½Ð¸ÑÑ‚Ñ€Ð°Ñ‚Ð¸Ð²Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ*/
+/*Административная часть*/
 .section-blog .property-order-container .base-settings{
   float: left; width: 45%;
 }
@@ -175,7 +175,7 @@
     font-size: 0;
 }
 
-/*ÐŸÑƒÐ±Ð»Ð¸Ñ‡Ð½Ð°Ñ Ñ‡Ð°ÑÑ‚ÑŒ*/
+/*Публичная часть*/
 .mg-blog-categories h2{
     font-size: 16px;
     line-height: 16px;
@@ -326,7 +326,7 @@
     overflow: hidden;
 }
 
-/*ÐŸÐ°Ð³Ð¸Ð½Ð°Ñ†Ð¸Ñ*/
+/*Пагинация*/
 .mg-main-news-block .mg-pager {
     float: right;
     margin: 20px 0 0 0;

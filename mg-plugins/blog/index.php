@@ -4,7 +4,7 @@
   Plugin Name: Блог
   Description: Плагин позволяет выводить на сайте статьи, с возможностью делить их на категории. После активации станет доступна страница "/blog/".<br />С помощью коментария "&lt;!--end-preview--&gt;" можно делить текст на текст анонса и подробное описание.<br />[blog-categories] - вывод списка категорий<br />[blog-category id=%d] - вывод списка статей из категории с идентификатором "%d".<br />[blog-category code=%s] - вывод списка статей из категории с url "%s".<br />[blog-article id=%d] - вывод статьи с идентификатором "%d".<br />[blog-article code=%s] - вывод статьи с url "%s".
   Author: Osipov Ivan, Gaydis Mikhail
-  Version: 1.1.6
+  Version: 1.2.7
  */
 
 new Blog;
@@ -24,7 +24,6 @@ class Blog {
     mgAddShortcode('blog-categories', array(__CLASS__, 'handleBlogCategoriesShortCode')); // Инициализация шорткода [blog-categories] - доступен в любом HTML коде движка. 
     mgAddShortcode('blog-category', array(__CLASS__, 'handleBlogCategoryShortCode'));
     mgAddShortcode('blog-article', array(__CLASS__, 'handleBlogArticleShortCode'));
-    mgAddShortcode('blog-index', array(__CLASS__, 'handleBlogIndexShortCode'));
     mgAddAction('mg_start', array(__CLASS__, 'blogFeed'));
 
     self::$pluginName = PM::getFolderPlugin(__FILE__);
@@ -62,7 +61,7 @@ class Blog {
   static function preparePageSettings(){
     USER::AccessOnly('1,4','exit()');
     echo '   
-      <link rel="stylesheet" href="'.SITE.'/'.self::$path.'/css/style.css" type="text/css" /> 
+      <link rel="stylesheet" href="'.SITE.'/'.self::$path.'/css/style.css?'.filemtime("/css/style.css").'" type="text/css" /> 
         <link rel="stylesheet" href="'.SITE.'/'.self::$path.'/css/timepicker.min.css" type="text/css" />
       <script type="text/javascript">
         includeJS("'.SITE.'/'.self::$path.'/js/script.js");  
@@ -81,7 +80,7 @@ class Blog {
     //Создание таблицы для элементов(статьи/акции/события)
     DB::query("
       CREATE TABLE IF NOT EXISTS `".PREFIX.self::$pluginName."_items` (
-        `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'Порядковый номер записи',
+        `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT 'Порядковый номер записи',
         `title` varchar(255) NOT NULL COMMENT 'Заголовок',
         `image_url` varchar(255) NOT NULL COMMENT 'Изображение',
         `date_active_to` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00' COMMENT 'Дата окончания активности',
@@ -93,13 +92,13 @@ class Blog {
         `meta_title` varchar(255) NOT NULL,
         `meta_keywords` varchar(255) NOT NULL,
         `meta_desc` text NOT NULL,
-        PRIMARY KEY (`id`)
+        `author` text NOT NULL
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
     
     //Создание таблицы для категорий элементов
     DB::query("
       CREATE TABLE IF NOT EXISTS `".PREFIX.self::$pluginName."_categories` (
-        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `title` varchar(255) NOT NULL,
         `url` varchar(255) NOT NULL COMMENT 'Ссылка на категорию',
         `image_url` varchar(255) NOT NULL COMMENT 'Изображение',
@@ -107,17 +106,15 @@ class Blog {
         `sort` INT(11),
         `meta_title` varchar(255) NOT NULL,
         `meta_keywords` varchar(255) NOT NULL,
-        `meta_desc` text NOT NULL,
-        PRIMARY KEY (`id`)
+        `meta_desc` text NOT NULL
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
     
     //Создание таблицы связи категорий и статей
     DB::query("
       CREATE TABLE IF NOT EXISTS `".PREFIX.self::$pluginName."_item2category` (
-        `id` int(11) NOT NULL AUTO_INCREMENT,
+        `id` int(11) NOT NULL PRIMARY KEY AUTO_INCREMENT,
         `item_id` int(11) NOT NULL,
-        `category_id` int(11) NOT NULL,
-        PRIMARY KEY (`id`)
+        `category_id` int(11) NOT NULL
       ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1;");
 
     $lang = self::$lang;
@@ -179,6 +176,13 @@ class Blog {
    */
   static function pageSettingsPlugin(){
     USER::AccessOnly('1,4','exit()');
+
+    if (method_exists('MG', 'moveCKimages')) {
+      $moveCKimagesExists = 'true';
+    }
+    else{
+      $moveCKimagesExists = 'false';
+    }
     
     $lang = self::$lang;
     $pluginName = self::$pluginName;
@@ -200,7 +204,8 @@ class Blog {
       $res = self::getEntity($countPrintRows);    
       $entity = $res['entity'];
       $pagination = $res['pagination'];  
-      $itemCats = self::getEntityCategory();
+	  
+      $itemCats = self::getEntityCategory(null);
       $itemCategories = $itemCats['categories'];
 
       if(intval($res['selectedCat'])){
@@ -227,7 +232,7 @@ class Blog {
     $tag = html_entity_decode($tag);
     
     $sql ='
-      SELECT i.id, i.title, i.tags, i.image_url, i.date_active_from, i.description, i.activity, c.title as cat_name, CONCAT_WS( "/", c.url, i.url ) path
+      SELECT i.id, i.title, i.tags, i.image_url, i.date_active_from, i.description, i.author, i.activity, c.title as cat_name, CONCAT_WS( "/", c.url, i.url ) path
       FROM `'.PREFIX.self::$pluginName.'_items` i
       LEFT JOIN `'.PREFIX.self::$pluginName.'_item2category` i2c ON i.id = i2c.item_id
       LEFT JOIN `'.PREFIX.self::$pluginName.'_categories` c ON i2c.category_id = c.id ';
@@ -337,7 +342,7 @@ class Blog {
     if(!empty($arg['category'])){
       $data['category'] = $arg['category'];
     }else{
-      $data['category']['title'] = self::$arOptions['root_category_title'];
+      $data['category']['title'] = $data['category']['meta_title'] = self::$arOptions['root_category_title'];
       $data['category']['meta_desc'] = self::$arOptions['root_category_description'];
       $data['category']['meta_keywords'] = self::$arOptions['root_category_keywords'];
     }
@@ -372,19 +377,19 @@ class Blog {
           
           $data['entity'][$cell]['tags'][] = array(
             'value' => trim($tag),
-            'url' => SITE.'/'.self::$pluginName.'?tag='.urlencode(trim($tag)),
+            'url' => SITE.'/'.self::$pluginName.'?tag='.trim($tag),
           );
         }
       }
     }
+// viewdata($data);
+    $data['category']['meta_title'] = htmlspecialchars($data['category']['meta_title']);
+    $data['category']['meta_keywords'] = htmlspecialchars($data['category']['meta_keywords']);
+    $data['category']['meta_desc'] = htmlspecialchars($data['category']['meta_desc']);
     
     $realDocumentRoot = str_replace(DIRECTORY_SEPARATOR.'mg-plugins'.DIRECTORY_SEPARATOR.self::$pluginName, '', dirname(__FILE__));
     ob_start();
-    	if($data['category']['url']==="/"){
-		include($realDocumentRoot.'/mg-pages/'.self::$pluginName.'/articleList.php');
-	} else {
-		include($realDocumentRoot.'/mg-pages/'.self::$pluginName.'/articleList2.php');
-	} 
+    include($realDocumentRoot.'/mg-pages/'.self::$pluginName.'/articleList.php');
     $result = ob_get_contents();
     ob_end_clean();
       
@@ -435,6 +440,10 @@ class Blog {
     $option = MG::getSetting('blog-option');
     $option = stripslashes($option);
     $options = unserialize($option);
+
+    $data['meta_title'] = htmlspecialchars($data['meta_title']);
+    $data['meta_keywords'] = htmlspecialchars($data['meta_keywords']);
+    $data['meta_desc'] = htmlspecialchars($data['meta_desc']);
     
     $realDocumentRoot = str_replace(DIRECTORY_SEPARATOR.'mg-plugins'.DIRECTORY_SEPARATOR.self::$pluginName, '', dirname(__FILE__));
     ob_start();
@@ -445,55 +454,6 @@ class Blog {
     return $result;
   }
   
-  static function printSmallArticle($arg){
-    $result = $arg['result'];
-    
-    $data = $arg['article'];
-    $data['catPath'] = SITE.'/'.str_replace($data['url'], '', trim(URL::getClearUri(), '/'));
-    $text = explode("<!--end-preview-->", $data['description']);
-    
-    if(count($text) < 2){
-      $text = explode("&lt;!--end-preview--&gt;", $data['description']);          
-    }
-    
-    if(count($text) > 1){
-      $data['previewText'] = $text[0];
-      $data['detailText'] = $text[1];
-      unset($data['description']);
-    }else{
-      $data['detailText'] = $data['description'];
-    }
-    
-    $tags = explode(",", $data['tags']);
-      
-    if(count($tags) > 0){
-      $data['tags'] = array();
-
-      foreach($tags as $tag){
-        if(empty($tag)){
-          continue;
-        }
-
-        $data['tags'][] = array(
-          'value' => $tag,
-          'url' => SITE.'/'.self::$pluginName.'?tag='.trim($tag),
-        );
-      }
-    }
-    
-    $option = MG::getSetting('blog-option');
-    $option = stripslashes($option);
-    $options = unserialize($option);
-    
-    $realDocumentRoot = str_replace(DIRECTORY_SEPARATOR.'mg-plugins'.DIRECTORY_SEPARATOR.self::$pluginName, '', dirname(__FILE__));
-    ob_start();
-    include($realDocumentRoot.'/mg-pages/'.self::$pluginName.'/small_article.php');
-    $result = ob_get_contents();
-    ob_end_clean();
-    
-    return $result;
-  }
-
   /**
    * Обрабатывает адрес и определяет что выводить список, или статью.
    * @param array $arg
@@ -502,7 +462,15 @@ class Blog {
   static function viewSection($arg){
     $result = $arg['result'];
     
-    if(URL::isSection(self::$pluginName)){     
+    if(URL::isSection(self::$pluginName)){
+
+      $arraySections = URL::getSections();
+      $countArr = array_count_values($arraySections);
+
+      if ($countArr['blog'] > 1 && $arraySections[2] != 'blog') {
+        return $result;
+      }
+
       if(URL::getLastSection() != self::$pluginName){
         $categoryInfo = self::getCategoryByCode(URL::getLastSection());
         
@@ -511,8 +479,7 @@ class Blog {
         }else{
           $articleInfo = self::getArticleByCode(URL::getLastSection());
           
-          if(!empty($articleInfo)){
-            $arraySections = URL::getSections();                 
+          if(!empty($articleInfo)){               
             $section = $arraySections[count($arraySections)-2];
             
             if($section == $articleInfo['cat_url'] || 
@@ -821,7 +788,6 @@ class Blog {
         if(count($text) > 1){
           $arItem['previewText'] = strip_tags(PM::stripShortcodes($text[0]));
         }else{
-          $arItem['description'] = strip_tags(PM::stripShortcodes($arItem['description']));
           $arItem['previewText'] = 
             strlen($arItem['description']) > self::$arOptions['preview_length']?
             mb_substr($arItem['description'], 0, self::$arOptions['preview_length'], 'utf-8')."...":
@@ -829,7 +795,7 @@ class Blog {
         }
         
         $rss->AddItem(
-          htmlentities(SITE.$arItem['path']), $arItem['title'], $arItem['previewText'], $arItem['date_active_from']
+          htmlentities(SITE.$arItem['path']), $arItem['title'], $arItem['description'], $arItem['date_active_from'], $arItem['author'], $arItem['image_url']
         );
       }
 
@@ -920,24 +886,6 @@ class Blog {
     return $result;
   }
   
-static function handleBlogIndexShortCode($args){
-  $result = '';
-
-  if(intval($args['id']) > 0){
-    $articleInfo = self::getArticleById($args['id']);
-  }else{
-    return self::$lang['NOT_SET'];
-  }
-
-  if(!empty($articleInfo)){
-    $result = self::printSmallArticle(array('article'=>$articleInfo));
-  }else{
-    return self::$lang['NOT_FOUND'];
-  }
-
-  return $result;
-}
-
   /*
    * Функция импорта новостных статей в плагин блога
    */

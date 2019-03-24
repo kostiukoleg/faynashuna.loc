@@ -75,6 +75,16 @@ class Pactioner extends Actioner{
 
       $array["id"] = $entityId;
       $array["date_create"] = date("d.m.Y H:i");
+
+      if (method_exists('MG', 'moveCKimages') && $array['description']) {
+        @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'article', 0755);
+        @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'article'.DIRECTORY_SEPARATOR.$array['id'], 0755);
+        $newDescr = MG::moveCKimages($array['description'], 'blog'.DIRECTORY_SEPARATOR.'article', $array['id'], '');
+        if ($array['description'] != $newDescr) {
+          DB::query("UPDATE `".PREFIX.$this->pluginName."_items` SET `description` = ".DB::quote($newDescr)." WHERE `id` = ".DB::quoteInt($array['id']));
+          $array['description'] = $newDescr;
+        }
+      }
       
       if(!empty($arCategories)){
         $this->setItem2Category($entityId, $arCategories);
@@ -119,6 +129,19 @@ class Pactioner extends Actioner{
       }else{
         $array['date_active_to'] = '';
       }
+
+      if (isset($array['activity']) && !isset($array['title'])) {
+        unset($array['date_active_from']);
+        unset($array['date_active_to']);
+        unset($arCats);
+        unset($newCat);
+      }
+
+      if (method_exists('MG', 'moveCKimages') && $array['description']) {
+         @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'article', 0755);
+         @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'article'.DIRECTORY_SEPARATOR.$array['id'], 0755);
+        $array['description'] = MG::moveCKimages($array['description'], 'blog'.DIRECTORY_SEPARATOR.'article', $array['id'], '');
+      }
       
       if(DB::query('
         UPDATE `'.PREFIX.$this->pluginName.'_items`
@@ -152,8 +175,10 @@ class Pactioner extends Actioner{
             $array["cat_name"] = $catInfo['title'];
           }
         }else{
-          if(!$this->deleteItem2Category($id)){
-            return false;
+          if (isset($array['title'])) {
+            if(!$this->deleteItem2Category($id)){
+              return false;
+            }
           }
         }
 
@@ -196,6 +221,9 @@ class Pactioner extends Actioner{
       DB::query('
       DELETE FROM `'.PREFIX.$this->pluginName.'_item2category` 
       WHERE `item_id`= '.DB::quote($id))){
+      if (method_exists('MG', 'rrmdir')) {
+        MG::rrmdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'article'.DIRECTORY_SEPARATOR.$id);
+      }
       return true;
     }
     return false;
@@ -373,8 +401,14 @@ class Pactioner extends Actioner{
     
     if(DB::buildQuery('INSERT INTO `'.PREFIX.$this->pluginName.'_categories` SET ', $arFields)){
       $id = DB::insertId();
+
+      if (method_exists('MG', 'moveCKimages') && $arFields['description']) {
+        @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'category', 0755);
+        @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'category'.DIRECTORY_SEPARATOR.$id, 0755);
+        $arFields['description'] = MG::moveCKimages($arFields['description'], 'blog'.DIRECTORY_SEPARATOR.'category', $id, '');
+      }
       
-      if(DB::query('UPDATE `'.PREFIX.$this->pluginName.'_categories` SET `sort` = '.$id.' WHERE `id` = '.$id)){
+      if(DB::query('UPDATE `'.PREFIX.$this->pluginName.'_categories` SET `sort` = '.$id.', `description` = '.DB::quote($arFields['description']).' WHERE `id` = '.$id)){
         return $id;
       }
     }
@@ -416,6 +450,12 @@ class Pactioner extends Actioner{
     $result = false;
     $arCategories = array();
     if (!empty($id)) {
+
+      if (method_exists('MG', 'moveCKimages') && $arFields['description']) {
+        @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'category', 0755);
+        @mkdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'category'.DIRECTORY_SEPARATOR.$id, 0755);
+        $arFields['description'] = MG::moveCKimages($arFields['description'], 'blog'.DIRECTORY_SEPARATOR.'category', $id, '');
+      }
       
       if(DB::query('
         UPDATE `'.PREFIX.$this->pluginName.'_categories`
@@ -511,6 +551,9 @@ class Pactioner extends Actioner{
       DB::query('
       DELETE FROM `'.PREFIX.$this->pluginName.'_item2category` 
       WHERE `category_id`= '.DB::quote($id))){
+      if (method_exists('MG', 'rrmdir')) {
+        MG::rrmdir(SITE_DIR.'uploads'.DIRECTORY_SEPARATOR.'blog'.DIRECTORY_SEPARATOR.'category'.DIRECTORY_SEPARATOR.$id);
+      }
       return true;
     }
     

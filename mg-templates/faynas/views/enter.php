@@ -28,8 +28,6 @@
 mgSEO($data);
 ?>
 
-<?php if (class_exists('BreadCrumbs')): ?>[brcr]<?php endif; ?>
-
 <h1 class="new-products-title"><?php echo lang('enterTitle'); ?></h1>
 
 <?php echo !empty($data['msgError']) ? '<div class="l-col min-0--12"><div class="c-alert c-alert--red">'.$data['msgError']. '</div></div>' : '' ?>
